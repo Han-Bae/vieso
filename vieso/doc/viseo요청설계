@@ -1,0 +1,10 @@
+# Viseo Project 요청 설계
+
+	---------------------------
+	# 시작페이지(로그인) 보기 요청
+		요청 내용	:	/viseo/login.blp
+		피라미터	:	무
+		컨트롤러	:	com.githrd.viseo.controller.kth.login
+		뷰			:	/WEB-INF/views/login.jsp	
+	
+	---------------------------
