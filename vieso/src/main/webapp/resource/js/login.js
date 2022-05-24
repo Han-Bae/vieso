@@ -1,22 +1,24 @@
 $(document).ready(function(){
-	$('#lbtn').click(function(){
-		var sid = $('#id').val();
-		var spw = $('#pw').val();
+	// 비밀번호 체크
+	$('#rpw, #rpwck').keyup(function(){
+		var pw = $('#rpw').val();
+		var ckpw = $('#rpwck').val();
 		
-		if((!sid)){
-			$('#id').focus();
-			return;
+		if(pw!=ckpw){
+			$('#rpwmsg').html('* 비밀번호가 다릅니다.').css('color', 'red');
+			$('#rpwbtn').prop('disabled', true);
+		}else{
+			$('#rpwmsg').html('* 비밀번호가 동일합니다.').css('color', 'blue');
+			$('#rpwbtn').prop('disabled', false);
 		}
-		if((!spw)){
-			$('#pw').focus();
-			return;
-		}
-		
-		$('#frm').attr('action', '/whistle/member/loginProc.blp');
-		$('#frm').submit();
 	});
-	// 홈버튼 클릭 이벤트
-	$('#hbtn').click(function(){
-		$(location).attr('href', '/whistle/main.blp');
+	
+	// 모달 나가면 폼 초기화
+	$('.subbtn, .logoBtn, .btn-close').click(function(){
+		$('#rpwmsg').html('');
+		$('#rpwbtn').prop('disabled', false);
+		$('form').each(function(){
+			this.reset();
+		})
 	});
 });
