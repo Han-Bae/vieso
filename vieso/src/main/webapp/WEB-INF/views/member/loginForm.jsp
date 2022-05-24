@@ -2,47 +2,128 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>MVC Study</title>
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/bootstrap.css">
-<script type="text/javascript" src="/vieso/resource/js/jquery-3.6.0.min.js"></script>
-<style type="text/css">
-	label {
-		font-size: 16pt;
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+	<title>Vieso Login</title>
+
+
+	<link rel="stylesheet" type="text/css" href="/vieso/resource/css/signin.css">
+	<link rel="stylesheet" type="text/css" href="/vieso/resource/css/bootstrap.css">
+	<script type="text/javascript" src="/vieso/resource/js/jquery-3.6.0.min.js"></script>
+
+    
+
+    <!-- Bootstrap core CSS -->
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+	body	{ overflow: auto;}
+	body::before {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    background-image: url(../resource/icon/calendar.jpg);
+	    background-size: cover;
+	    -webkit-filter: blur(3px); 
+	    -moz-filter: blur(3px); 
+	    -o-filter: blur(3px); 
+	    -ms-filter: blur(3px); 
+	    filter: blur(5px);
+	    transform: scale(1.02);
+	    z-index: -1; 
+	    content: "";
 	}
-	
-	#msg {
-		font-size: 20pt;
-		font-weight: bold;
-		color: indigo;
-	}
-</style>
-</head>
-<body>
-	<div class="w3-content w3-center mx650">
-		<h1 class="w3-blue w3-padding w3-card-4">Login</h1>
-		<form method="POST" action="" class="w3-col w3-padding w3-card-4 w3-margin-top" id="frm" name="frm">
-			<div class="w3-col w3-margin-top">
-				<label for="id" class="w3-col s2 w3-right-align w3-text-grey">I D : &nbsp;</label>
-				<div class="w3-col m9 pdl10">
-					<input type="text" name="id" id="id" placeholder="아이디를 입력하세요!"
-							class="w3-col w3-input w3-border w3-round-medium">
-				</div>
-			</div>
-			<div class="w3-col w3-margin-top w3-margin-bottom">
-				<label for="pw" class="w3-col s2 w3-right-align w3-text-grey">P W : &nbsp;</label>
-				<div class="w3-col m9 pdl10">
-				<input type="password" name="pw" id="pw" placeholder="비밀번호를 입력하세요!"
-						class="w3-col w3-input w3-border w3-round-medium">
-				</div>
-			</div>
-		</form>
-		<div class="w3-col w3-margin-top w3-card-4">
-			<div class="w3-half w3-button w3-red w3-hover-orange" id="hbtn">Home</div>
-			<div class="w3-half m2 w3-button w3-blue w3-hover-aqua" id="lbtn">Login</div>
-		</div>
-		<div class="w3-col w3-padding w3-card-4 w3-hide"><span id="msg">${SID} 님은 이미 로그인했습니다!!!</span></div>
+    .form-signin {
+      background-color: #ffffff;
+      opacity: initial;
+    }
+    
+    .ipj {
+		display:flex;
+    	justify-content: space-around;
+    	margin-bottom: 10px;
+    }
+    .sub{
+    	font-size: 0.8rem;		
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+  </head>
+    <body class="text-center">
+		<main class="form-signin">
+			  <form>
+			    <img class="mb-4" src="../resource/icon/logo.png" alt="" width="72" height="57">
+			    <div class="form-floating">
+			      <input type="text" name="id" class="form-control" id="floatingInput" placeholder="아이디를 입력하세요">
+			      <label for="floatingInput">ID</label>
+			    </div>
+			    <div class="form-floating">
+			      <input type="password" name="pw" class="form-control" id="floatingPassword" placeholder="비밀번호를 입력하세요">
+			      <label for="floatingPassword">Password</label>
+			    </div>			
+			    <div class="checkbox mb-3">
+			      <label>
+			        <input type="checkbox" value="remember-me"> Remember me
+			      </label>
+			    </div>
+			    <div class="ipj">
+			    	<div class="subbtn sub">아이디찾기</div>
+			    	<div class="sub">│</div>
+			    	<div class="subbtn sub">비밀번호찾기</div>
+			    	<div class="sub">│</div>
+			    	<div class="subbtn sub">회원가입</div> 
+			    </div>
+			    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+			    <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p> -->
+			  </form>
+		</main>
+			  <footer>
+			  	<div>
+					<a href="https://pixabay.com/ko/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=428293">&copy; Pixabay</a>로부터 입수된 <a href=
+					"https://pixabay.com/ko/users/jarmoluk-143740/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=428293">Michal Jarmoluk</a>님의 이미지 입니다.
+			  	</div>
+			  </footer>
+			  <div class="modal">
+			  
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Modal title</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"></span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p>Modal body text goes here.</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
-</body>
+  </body>
 </html>
