@@ -5814,6 +5814,9 @@ fieldset:disabled .btn {
 }
 
 .modal-title {
+  position: absolute;
+  left: 40%;
+  transform: translate(0, -50%);
   margin-bottom: 0;
   line-height: 1.5;
 }

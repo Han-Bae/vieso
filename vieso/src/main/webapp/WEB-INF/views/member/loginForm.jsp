@@ -14,9 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="/vieso/resource/css/signin.css">
 	<link rel="stylesheet" type="text/css" href="/vieso/resource/css/bootstrap.css">
 	<script type="text/javascript" src="/vieso/resource/js/jquery-3.6.0.min.js"></script>
-
-    
-
+	<script type="text/javascript" src="/vieso/resource/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/vieso/resource/js/login.js"></script>
     <!-- Bootstrap core CSS -->
 
 
@@ -89,15 +88,16 @@
 			      </label>
 			    </div>
 			    <div class="ipj">
-			    	<div class="subbtn sub">아이디찾기</div>
+			    	<button type="button" class="subbtn sub" data-target="#fid" data-toggle="modal">아이디찾기</button>
 			    	<div class="sub">│</div>
-			    	<div class="subbtn sub">비밀번호찾기</div>
+			    	<div class="subbtn sub" data-target="#fpw" data-toggle="modal">비밀번호찾기</div>
 			    	<div class="sub">│</div>
 			    	<div class="subbtn sub">회원가입</div> 
 			    </div>
 			    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 			    <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p> -->
 			  </form>
+			  
 		</main>
 			  <footer>
 			  	<div>
@@ -105,12 +105,12 @@
 					"https://pixabay.com/ko/users/jarmoluk-143740/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=428293">Michal Jarmoluk</a>님의 이미지 입니다.
 			  	</div>
 			  </footer>
-			  <div class="modal">
-			  
+	<div class="modal" id="fid">		  
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
+	      <img src="../resource/icon/logo.png" style="float: left; width:20%; hieght:10%;">
 	      <div class="modal-header">
-	        <h5 class="modal-title">Modal title</h5>
+	        <div class="modal-title" style="font-size: 1rem;">아이디 찾기</div>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true"></span>
 	        </button>

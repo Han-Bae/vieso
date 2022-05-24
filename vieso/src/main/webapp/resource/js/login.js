@@ -1,20 +1,20 @@
 $(document).ready(function(){
-	$('#lbtn').click(function(){
-		var sid = $('#id').val();
-		var spw = $('#pw').val();
+	/*$('.subbtn').click(function(){
+		var btn = $(this).html();
 		
-		if((!sid)){
-			$('#id').focus();
-			return;
+		switch(btn){
+			case '아이디찾기':
+				console.log('click');
+				document.getElementById('IDFIND').addEventLinstner('show.bs.modal');
+				break;
+			case '비밀번호':
+				break;
+			case '회원가입':
+				var addr = '/vieso/member/join.blp';
+				$(location).attr('href', addr);
+				return;
 		}
-		if((!spw)){
-			$('#pw').focus();
-			return;
-		}
-		
-		$('#frm').attr('action', '/whistle/member/loginProc.blp');
-		$('#frm').submit();
-	});
+	});*/
 	// 홈버튼 클릭 이벤트
 	$('#hbtn').click(function(){
 		$(location).attr('href', '/whistle/main.blp');
