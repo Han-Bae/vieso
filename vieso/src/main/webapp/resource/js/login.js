@@ -1,22 +1,24 @@
 $(document).ready(function(){
-	/*$('.subbtn').click(function(){
-		var btn = $(this).html();
+	// 비밀번호 체크
+	$('#rpw, #rpwck').keyup(function(){
+		var pw = $('#rpw').val();
+		var ckpw = $('#rpwck').val();
 		
-		switch(btn){
-			case '아이디찾기':
-				console.log('click');
-				document.getElementById('IDFIND').addEventLinstner('show.bs.modal');
-				break;
-			case '비밀번호':
-				break;
-			case '회원가입':
-				var addr = '/vieso/member/join.blp';
-				$(location).attr('href', addr);
-				return;
+		if(pw!=ckpw){
+			$('#rpwmsg').html('* 비밀번호가 다릅니다.').css('color', 'red');
+			$('#rpwbtn').prop('disabled', true);
+		}else{
+			$('#rpwmsg').html('* 비밀번호가 동일합니다.').css('color', 'blue');
+			$('#rpwbtn').prop('disabled', false);
 		}
-	});*/
-	// 홈버튼 클릭 이벤트
-	$('#hbtn').click(function(){
-		$(location).attr('href', '/whistle/main.blp');
+	});
+	
+	// 모달 나가면 폼 초기화
+	$('.subbtn, .logoBtn, .btn-close').click(function(){
+		$('#rpwmsg').html('');
+		$('#rpwbtn').prop('disabled', false);
+		$('form').each(function(){
+			this.reset();
+		})
 	});
 });
