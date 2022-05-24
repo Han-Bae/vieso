@@ -5,10 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Whistle Main</title>
-<link rel="stylesheet" type="text/css" href="/whistle/css/w3.css">
-<link rel="stylesheet" type="text/css" href="/whistle/css/base.css">
-<script type="text/javascript" src="/whistle/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/whistle/js/whistle/main.js"></script>
+<link rel="stylesheet" type="text/css" href="/vieso/resource/css/bootstrap.css">
+<script type="text/javascript" src="/vieso/resource/js/jquery-3.6.0.min.js"></script>
 <style>
 	h5, span {
 		height: 20px;
