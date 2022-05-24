@@ -1,4 +1,4 @@
-package com.viseo.vo;
+package com.vieso.vo;
 
 import java.util.Date;
 import java.sql.Time;

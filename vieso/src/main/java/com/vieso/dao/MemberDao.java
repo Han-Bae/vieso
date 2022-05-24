@@ -1,11 +1,11 @@
-package com.viseo.dao;
+package com.vieso.dao;
 
 import java.sql.*;
 import java.util.*;
 
-import com.viseo.sql.*;
-import com.viseo.db.*;
-import com.viseo.vo.*;
+import com.vieso.db.*;
+import com.vieso.sql.*;
+import com.vieso.vo.*;
 
 /**
  * 이 클래스는 회원 관련 데이터베이스 작업을 전담해서 처리하는 클래스

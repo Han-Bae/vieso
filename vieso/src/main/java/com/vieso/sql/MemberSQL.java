@@ -1,4 +1,4 @@
-package com.viseo.sql;
+package com.vieso.sql;
 
 public class MemberSQL {
 	public final int SEL_LOGIN_CNT 		= 1001;

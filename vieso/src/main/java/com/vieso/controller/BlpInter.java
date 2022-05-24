@@ -1,4 +1,4 @@
-package com.viseo.controller;
+package com.vieso.controller;
 
 import java.io.*;
 

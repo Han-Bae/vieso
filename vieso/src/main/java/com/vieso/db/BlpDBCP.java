@@ -1,4 +1,4 @@
-package com.viseo.db;
+package com.vieso.db;
 
 import javax.sql.*;
 
