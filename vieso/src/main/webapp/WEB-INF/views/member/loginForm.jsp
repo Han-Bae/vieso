@@ -17,11 +17,11 @@
 	<title>Viseo Login</title>
 
 
-	<link rel="stylesheet" type="text/css" href="/vieso/resource/css/signin.css">
-	<link rel="stylesheet" type="text/css" href="/vieso/resource/css/bootstrap.css">
-	<script type="text/javascript" src="/vieso/resource/js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="/vieso/resource/js/bootstrap.js"></script>
-	<script type="text/javascript" src="/vieso/resource/js/login.js"></script>
+	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/signin.css">
+	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
+	<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/viseo/resource/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/viseo/resource/js/login.js"></script>
     <!-- Bootstrap core CSS -->
 
 
@@ -157,7 +157,7 @@
 			    </div>
 			    <div class="form-floating">
 					<input type="hidden" name="authPass" id="authPass" value="false">
-					<button onclick="authCodeCheck()" id="authCodeCheckBtn" type="button" disabled="disabled" class="btnChk">인증</button>
+					<button id="w-100 btn btn-lg btn-primary authCodeCheckBtn" type="button" disabled="disabled" class="btnChk">인증</button>
 			    </div>
 	      </div>
 	      <div class="modal-footer">
