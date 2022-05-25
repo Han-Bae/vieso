@@ -1,4 +1,4 @@
-package com.vieso.util;
+package com.viseo.util;
 
 import java.io.*;
 import java.util.*;
@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 
 import com.oreilly.servlet.*;
 import com.oreilly.servlet.multipart.*;
-import com.vieso.vo.*;
+import com.viseo.vo.*;
 /**
  	이 클래스는 파일 업로드에 필요한 기능을 처리하고
  	업로드 파일의 정보를 만들어주는 기능의 유틸리티적인 클래스

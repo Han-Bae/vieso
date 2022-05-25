@@ -1,11 +1,11 @@
-package com.vieso.controller.phg;
+package com.viseo.controller.phg;
 
 import java.io.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import com.vieso.controller.BlpInter;
+import com.viseo.controller.BlpInter;
 
 public class Write implements BlpInter {
 

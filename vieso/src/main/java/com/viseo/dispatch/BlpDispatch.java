@@ -1,4 +1,4 @@
-package com.vieso.dispatch;
+package com.viseo.dispatch;
 
 
 import java.io.*;
@@ -8,7 +8,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-import com.vieso.controller.BlpInter;
+import com.viseo.controller.BlpInter;
 
 /**
  * 	이 클래스는 .blp라는 확장자로 요청이 된 경우

@@ -1,4 +1,4 @@
-package com.vieso.controller.jdb;
+package com.viseo.controller.jdb;
 
 /**
  * 
@@ -17,7 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vieso.controller.BlpInter;
+import com.viseo.controller.BlpInter;
 
 public class MainForm implements BlpInter {
 

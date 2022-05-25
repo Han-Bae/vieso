@@ -1,4 +1,4 @@
-package com.vieso.sql;
+package com.viseo.sql;
 
 /**
  * 
