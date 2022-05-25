@@ -153,7 +153,12 @@
 			      <input type="email" name="fidMail" class="form-control" id="fidMail" title="ex)asdf@asd.qwe"
 			      	pattern="^([a-zA-Z0-9]){4,10}@([a-zA-Z]){2,10}.([a-zA-Z]){2,3}$" placeholder="이메일을 입력하세요." required>
 			      <label for="fidMail">이메일</label>
-			    </div>			
+			      <button id="eamilAuthBtn" type="button" class="btnChk">인증 메일 보내기</button>
+			    </div>
+			    <div class="form-floating">
+					<input type="hidden" name="authPass" id="authPass" value="false">
+					<button onclick="authCodeCheck()" id="authCodeCheckBtn" type="button" disabled="disabled" class="btnChk">인증</button>
+			    </div>
 	      </div>
 	      <div class="modal-footer">
 			<button class="w-100 btn btn-lg btn-primary" id="fidbtn" type="submit">아이디 찾기</button>
