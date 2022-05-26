@@ -9,7 +9,7 @@ package com.viseo.util;
  * 
  * 			작업이력	]
  * 				2022.05.25	-	담당자 : 전다빈
- * 								내	용 : 파싱 성공
+ * 								내	용 : 클래스 제작, 파싱 성공
  */
 
 import java.io.*;
@@ -21,12 +21,12 @@ import javax.xml.xpath.*;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
-import com.viseo.vo.WeatherVO;
+import com.viseo.vo.*;
 
 
 public class WeatherUtil {
 	
-	public String getXML() {
+	public String getXML(MainVO maVO) {
 		String xml = "";
 		
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst"); /*URL*/
@@ -35,8 +35,7 @@ public class WeatherUtil {
 	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
 	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1000", "UTF-8")); /*한 페이지 결과 수*/
 	        urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" + URLEncoder.encode("XML", "UTF-8")); /*요청자료형식(XML/JSON) Default: XML*/
-	        // ++++++++++++++++매개변수 오늘날짜 넣기
-	        urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" + URLEncoder.encode("20220526", "UTF-8")); /*‘21년 6월 28일 발표*/
+	        urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" + URLEncoder.encode(maVO.getYear() + maVO.getMonth() + maVO.getDate(), "UTF-8")); /*‘21년 6월 28일 발표*/
 	        urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode("0500", "UTF-8")); /*06시 발표(정시단위) */
 	        // ++++++++++++++++매개변수 x 넣기
 	        urlBuilder.append("&" + URLEncoder.encode("nx","UTF-8") + "=" + URLEncoder.encode("60", "UTF-8")); /*예보지점의 X 좌표값*/
@@ -67,12 +66,10 @@ public class WeatherUtil {
         return xml;
     }
 	
-	// ++++++++++++++++매개변수 MainVO
-	public WeatherVO getXMLTag() {
+	public WeatherVO getXMLTag(MainVO maVO) {
 		WeatherVO wVO = new WeatherVO();
 		
-		// ++++++++++++++++getXML 매개변수로 MainVO 보내고
-		String xml = getXML();
+		String xml = getXML(maVO);
 		
 		InputSource is = new InputSource(new StringReader(xml));
 		
@@ -93,12 +90,10 @@ public class WeatherUtil {
 			    
 			    if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
-                    // ++++++++++++++++지금시간으로 변경
-                    if(!getValue("fcstTime", element).equals("0900")) {
+                    if(!getValue("fcstTime", element).equals(maVO.getTime() + "00")) {
                     	// 시간은 05시부터 나와서 컨티뉴로
                     	continue roop;
-                    // ++++++++++++++++오늘날짜로 변경
-                    } else if(!getValue("fcstDate", element).equals("20220526")) {
+                    } else if(!getValue("fcstDate", element).equals(maVO.getYear() + maVO.getMonth() + maVO.getDate())) {
                     	break roop;
                     } else if(getValue("category", element).equals("TMP")) {
                     	wVO.setTMP(Integer.parseInt(getValue("fcstValue", element)));

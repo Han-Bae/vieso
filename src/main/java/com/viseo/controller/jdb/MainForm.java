@@ -35,20 +35,32 @@ public class MainForm implements BlpInter {
 		String sessionId = (String) req.getSession().getAttribute("SID");
 		if(sessionId == null) {
 			req.setAttribute("isRedirect", true);
-			view = "/viseo/member/login.blp";
-			return view;
+			return "/viseo/member/login.blp";
 		}
 		*/
 		
-		// 날짜 정보 넘기기
-		WeatherUtil wUtil = new WeatherUtil();
-		WeatherVO wVO = wUtil.getXMLTag();
+		// 날짜랑 시간 데이터 가져오기
+		MainDao maDao = new MainDao();
+		String dateNTime = maDao.getMainDateNTime();
+
+		MainVO maVO = new MainVO();
+		// 여기서는 다 현재 날짜, 시간
+		maVO.setYear(dateNTime.substring(0, 4));
+		maVO.setMonth(dateNTime.substring(4, 6));
+		maVO.setDate(dateNTime.substring(6, 8));
+		maVO.setTime(dateNTime.substring(8, 10));
 		
-		req.setAttribute("wDATA", wVO);
 		
 		// 캘린더 정보 가져오기
 		
 		// 회원 정보 넘기기
+		
+		// 날짜 정보 넘기기
+		WeatherUtil wUtil = new WeatherUtil();
+		WeatherVO wVO = wUtil.getXMLTag(maVO);
+		
+		req.setAttribute("maDATA", maVO);
+		req.setAttribute("wDATA", wVO);
 		
 		// 회원번호로 스케줄 가져오기
 		

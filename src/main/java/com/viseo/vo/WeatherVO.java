@@ -8,7 +8,7 @@ package com.viseo.vo;
  * 
  * 			작업이력	]
  * 				2022.05.26	-	담당자 : 전다빈
- * 								내	용 : 코드 보내기
+ * 								내	용 : 클래스 제작
  *
  */
 public class WeatherVO {
