@@ -97,7 +97,7 @@ public class LoginDao {
 			// 커넥션
 			con = db.getCon();
 			// 질의명령
-			String sql = lSQL.getSQL(lSQL.SEL_LOGIN_CNT);
+			String sql = lSQL.getSQL(lSQL.SEL_FID_CNT);
 			// 명령전달도구
 			pstmt = db.getPSTMT(con, sql);
 			// 질의명령 완성
@@ -128,11 +128,9 @@ public class LoginDao {
 			// 커넥션
 			con = db.getCon();
 			// 질의명령
-			String sql = lSQL.getSQL(lSQL.SEL_LOGIN_CNT);
+			String sql = lSQL.getSQL(lSQL.SEL_FPW_CNT);
 			// 명령전달도구
-			pstmt = db.getPSTMT(con, sql);
-			
-			System.out.println(id+"  "+ mail);
+			pstmt = db.getPSTMT(con, sql);			
 			// 질의명령 완성
 			try {
 				pstmt.setString(1, id);
@@ -152,6 +150,26 @@ public class LoginDao {
 			
 			
 			// 데이터 내보내기
+			return cnt;
+		}
+		
+		// 비밀번호 재설정 처리
+		public int editPW(String id, String pw) {
+			int cnt = 0;
+			con = db.getCon();
+			String sql = lSQL.getSQL(lSQL.EDIT_PW);
+			pstmt = db.getPSTMT(con, sql);
+			try {
+				pstmt.setString(1, pw);
+				pstmt.setString(2, id);
+				
+				cnt = pstmt.executeUpdate();
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close("pstmt");
+				db.close("con");
+			}
 			return cnt;
 		}
 }

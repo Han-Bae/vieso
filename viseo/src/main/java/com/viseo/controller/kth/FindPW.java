@@ -1,5 +1,15 @@
 package com.viseo.controller.kth;
 
+/**
+ * 
+ * @author	김태현
+ * @since	2022.05.26
+ * @version	v.1.0
+ * 
+ * 			작업이력	]
+ * 				2022.05.26	-	담당자 : 김태현
+ * 								내	용 : 비밀번호 재설정 유저 확인 처리
+ */
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -27,12 +37,12 @@ public class FindPW implements BlpInter {
 		// 데이터베이스 작업을 하고 결과받고
 		LoginDao lDao = new LoginDao();
 		int cnt = lDao.checkUserPw(id, mail);
-		System.out.println("cnt : "+cnt);
 		if(cnt == 1) {
 			// 해당 유저가 존재하면
 				// 이메일 처리 클래스 생성
 //				CheckMail ckm = new CheckMail();
 			req.getSession().setAttribute("status", "refindPw_next");
+			req.getSession().setAttribute("id", id);
 		} else {
 			// 정보가 일치하지 않는다면
 			req.setAttribute("msg", "아이디나 이메일이 일치하지 않습니다.");

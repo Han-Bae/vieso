@@ -10,6 +10,23 @@
  */
  
 $(document).ready(function(){
+	// 쿠키값이 있으면 받아와서 id값으로 설정하고 
+	var userId = getCookie("cookieUserId"); 
+    $("#id").val(userId); 
+    if($("#id").val() != ""){	// 값이 채워졌으면 체크
+        $("input[name='remember']").attr("checked", true);
+    }
+     
+    $("#signIn").click(function(){ // Login Form을 Submit할 경우,
+        if($("input[name='remember']").is(":checked")){ // ID 기억하기 체크시 쿠키에 저장
+            var userId = $("#id").val();
+            setCookie("cookieUserId", userId, 7); // 7일동안 쿠키 보관
+        } else {
+            deleteCookie("cookieUserId");
+        }
+    });             
+    
+	
 	// 비밀번호 체크
 	$('#rpw, #rpwck').keyup(function(){
 		var pw = $('#rpw').val();
@@ -37,14 +54,50 @@ $(document).ready(function(){
 	var status = $("#status").val();
 	switch (status){
 		case 'refindId':
+			// 아이디찾기 인증 실패시
 			$('#fid').modal();
 			break;
+			// 비밀번호찾기 인증 실패시
 		case 'refindPw':
 			$('#fpw').modal();
 			break;
+			// 비밀번호찾기 인증 성공시
 		case 'refindPw_next':
 			$('#rpwmd').modal();
+			break;
+			// 비밀번호 재설정 오류시
+		case 'rePwInput':
+			$('#rpwmd').modal();
+			break;
 	};
-		
-	
+
 });
+
+// 쿠키 사용 함수
+
+function setCookie(cookieName, value, exdays){
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate()+exdays);
+    var cookieValue = escape(value)+((exdays==null)? "": "; expires="+exdate.toGMTString());
+    document.cookie = cookieName+"="+cookieValue;
+}
+
+function deleteCookie(cookieName){
+    var expireDate = new Date();
+    expireDate.setDate(expireDate.getDate()-1);
+    document.cookie = cookieName+"= "+"; expires="+expireDate.toGMTString();
+}
+function getCookie(cookieName){
+    cookieName = cookieName + '=';
+    var cookieData = document.cookie;
+    var start = cookieData.indexOf(cookieName);
+    var cookieValue = '';
+    if(start != -1){
+        start += cookieName.length;
+        var end = cookieData.indexOf(';', start);
+        if(end == -1) end = cookieData.length;
+        cookieValue = cookieData.substring(start, end);
+    }
+    return unescape(cookieValue);
+     
+}

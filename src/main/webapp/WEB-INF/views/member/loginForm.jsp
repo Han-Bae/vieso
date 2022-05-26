@@ -110,7 +110,7 @@
 			    </div>			
 			    <div class="checkbox mb-3">
 			      <label>
-			        <input type="checkbox" value="remember-me"> Remember me
+			        <input type="checkbox" name="remember" value="remember-me"> Remember me
 			      </label>
 			    </div>
 			    <div class="ipj">
@@ -120,7 +120,7 @@
 			    	<div class="sub">│</div>
 			    	<button type="button" class="subbtn sub">회원가입</button>
 			    </div>
-			    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+			    <button class="w-100 btn btn-lg btn-primary" id="signIn" type="submit">Sign in</button>
 			    <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p> -->
 			  </form>
 			  
@@ -208,7 +208,7 @@
 	          <span aria-hidden="true"></span>
 	        </button>
 	      </div>
-     	<form id="rpwFrm" class="frm" action="member/pwcg.blp">
+     	<form id="rpwFrm" class="frm" action="/viseo/member/rePW.blp">
 	      <div class="modal-body">
 			    <div class="form-floating" style="margin-bottom: 10px">
 			      <input type="password" name="rpw" class="form-control" id="rpw" title="숫자, 대소문자, 특문을 포함한 6~15자로 입력해주세요."

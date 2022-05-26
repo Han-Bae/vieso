@@ -7,7 +7,7 @@ package com.viseo.controller.kth;
  * @version	v.1.0
  * 
  * 			작업이력	]
- * 				2022.05.24	-	담당자 : 김태현
+ * 				2022.05.26	-	담당자 : 김태현
  * 								내	용 : 로그인폼 표시 클래스
  */
 
@@ -34,7 +34,7 @@ public class LoginForm implements BlpInter {
 			req.getSession().removeAttribute("SID");
 		}
 		if(req.getSession().getAttribute("status")!= null) {
-			System.out.println("status : " + req.getSession().getAttribute("status"));
+			System.out.println("status : " + (String)req.getSession().getAttribute("status"));
 			req.setAttribute("status", req.getSession().getAttribute("status"));
 			req.getSession().removeAttribute("status");
 		}

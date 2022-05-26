@@ -118,9 +118,7 @@ public class BlpDispatch extends HttpServlet {
 		// 실행하고
 		System.out.println(real);
 		String view = blp.exec(req, resp);
-		
 		bool = (Boolean) req.getAttribute("isRedirect");
-		 
 		if(bool == null) {
 			// 이 경우 비동기 통신이 처리돼야 한다.
 			PrintWriter pw = resp.getWriter();
@@ -131,7 +129,7 @@ public class BlpDispatch extends HttpServlet {
 		} else {
 			// 포워드 시켜야 하는 경우
 			String prefix = "/WEB-INF/views";
-			String surrfix = ".jsp";			
+			String surrfix = ".jsp";
 			RequestDispatcher rd =req.getRequestDispatcher(prefix + view + surrfix);
 			rd.forward(req, resp);
 		}

@@ -12,12 +12,14 @@ package com.viseo.sql;
  */
 
 public class LoginSQL {
-	public final int SEL_LOGIN_CNT = 1001;
-	public final int SEL_FID_CNT = 1002;
-	public final int SEL_FPW_CNT = 1003;
+	public final int SEL_LOGIN_CNT 	= 1001;
+	public final int SEL_FID_CNT 	= 1002;
+	public final int SEL_FPW_CNT 	= 1003;
 	
-	public final int SEL_ALL = 1005;
+	public final int SEL_ALL 		= 3005;
 
+	public final int EDIT_PW 		= 4005;
+	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
 		switch(code) {
@@ -43,7 +45,8 @@ public class LoginSQL {
 		buff.append("	AND name = ? ");
 		buff.append("	AND mail = ? ");
 				break;   
-		// 비밀번호 찾기 유저 확인 질의문
+	
+	 // 비밀번호 찾기 유저 확인 질의문
 				case SEL_FPW_CNT:
 		buff.append("SELECT COUNT(*) cnt ");
 		buff.append("FROM MEMBER ");
@@ -51,8 +54,19 @@ public class LoginSQL {
 		buff.append("	isshow = 'Y' ");
 		buff.append("	AND id = ? ");
 		buff.append("	AND mail = ? ");
-				break;   
-		}
+				break; 
+	// 비밀번호 재설정 질의문
+				case EDIT_PW:
+		buff.append("UPDATE MEMBER ");
+		buff.append("SET pw = ? ");
+		buff.append("WHERE ");
+		buff.append("	isshow = 'Y' ");
+		buff.append("	AND id = ? ");
+				break; 
+			  
+			 		
+		 
+}
 	
 		return buff.toString();
 	}

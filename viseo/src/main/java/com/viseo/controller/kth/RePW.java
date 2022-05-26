@@ -8,7 +8,7 @@ package com.viseo.controller.kth;
  * 
  * 			작업이력	]
  * 				2022.05.26	-	담당자 : 김태현
- * 								내	용 : 아이디찾기용 유저 확인 처리
+ * 								내	용 : 비밀번호 재설정
  */
 import java.io.IOException;
 
@@ -19,37 +19,37 @@ import javax.servlet.http.HttpServletResponse;
 import com.viseo.controller.BlpInter;
 import com.viseo.dao.LoginDao;
 
-public class FindID implements BlpInter {
+public class RePW implements BlpInter {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String view = "/member/loginForm";
-		if(req.getSession().getAttribute("SID")!= null) {
+		if(req.getSession().getAttribute("SID") != null) {
 			// 이미 로그인 한 상태
 			view = "/viseo/main.blp";
 			return view;
 		}
-		// 할일
-		// 파라미터 받고
-		String name = req.getParameter("fidName");
-		String mail = req.getParameter("fidMail");
-		// 데이터베이스 작업을 하고 결과받고
+		// 아이디/이메일 이후 넘어온 status 초기화
+		req.getSession().removeAttribute("status");
+		
+		// 파라미터 가져오기
+		String id = (String)req.getSession().getAttribute("id");
+		String rpw = req.getParameter("rpw");
+		
 		LoginDao lDao = new LoginDao();
-		int cnt = lDao.checkUserId(name, mail);
+		int cnt = lDao.editPW(id, rpw);
+		
 		if(cnt == 1) {
-			// 해당 유저가 존재하면
-				// 이메일 처리 클래스 생성
-//			CheckMail ckm = new CheckMail();
-		} else {
-			// 정보가 일치하지 않는다면
-			req.setAttribute("msg", "이름이나 이메일이 일치하지 않습니다.");
+			// 성공했으면 id 세션 삭제
+			req.getSession().removeAttribute("id");
+		}else {
+			// 실패한 경우
+			req.setAttribute("msg", "오류가 발생했습니다. 다시 시도해주십시오.");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
-				// 모달창 다시 오픈
-			req.getSession().setAttribute("status", "refindId");
-
+			// 모달창 다시 오픈
+			req.getSession().setAttribute("status", "rePwInput");
 			return "/member/loginRedirect";
 		}
-		
 		return view;
 	}
 
