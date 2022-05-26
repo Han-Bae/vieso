@@ -96,7 +96,7 @@
     <body class="text-center">
     	<%-- 로그인화면  --%>
 		<main class="form-signin">
-			  <form id="loginFrm" action="/viseo/member/loginProc.blp" class="frm">
+			  <form method="post" id="loginFrm" action="/viseo/member/loginProc.blp" class="frm">
 			    <img class="mb-4" src="../resource/icon/logo.png" alt="" width="72" height="57">
 			    <div class="form-floating">
 			      <input type="text" name="id" class="form-control" id="id" title="숫자, 대소문자 4~10글자로 입력해주세요."
