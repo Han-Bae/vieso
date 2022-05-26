@@ -1,3 +1,14 @@
+/**
+ * 
+ * @author	김태현
+ * @since	2022.05.26
+ * @version	v.1.0
+ * 
+ * 			작업이력	]
+ * 				2022.05.24	-	담당자 : 김태현
+ * 								내	용 : 클래스 제작
+ */
+ 
 $(document).ready(function(){
 	// 비밀번호 체크
 	$('#rpw, #rpwck').keyup(function(){
@@ -21,4 +32,19 @@ $(document).ready(function(){
 			this.reset();
 		})
 	});
+	
+	// 실패시 상태에 따른 모달창 띄우기
+	var status = $("#status").val();
+	switch (status){
+		case 'refindId':
+			$('#fid').modal();
+			break;
+		case 'refindPw':
+			$('#fpw').modal();
+			break;
+		case 'refindPw_next':
+			$('#rpwmd').modal();
+	};
+		
+	
 });

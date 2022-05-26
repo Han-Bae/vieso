@@ -131,7 +131,9 @@
 					"https://pixabay.com/ko/users/jarmoluk-143740/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=428293">Michal Jarmoluk</a>님의 이미지 입니다.
 			  	</div>
 			  </footer>
-			  
+	<c:if test="${not empty status}">
+		<input type="hidden" id=status value="${status}">
+	</c:if>	  
 	<%-- 아이디찾기 모달  --%>
 	<div class="modal" id="fid">		  
 	  <div class="modal-dialog" role="document">
@@ -174,7 +176,7 @@
 	          <span aria-hidden="true"></span>
 	        </button>
 	      </div>
-      	<form id="fpwFrm" action="member/findPW.blp"  class="frm">
+      	<form method="post" id="fpwFrm" action="/viseo/member/findPW.blp"  class="frm">
 	      <div class="modal-body">
 			    <div class="form-floating" style="margin-bottom: 10px">
 			      <input type="text" name="fpwId" class="form-control" id="fpwId" title="숫자, 대소문자 4~10글자로 입력해주세요."
@@ -188,11 +190,7 @@
 			    </div>			
 	      </div>
 	      <div class="modal-footer">
-	        <button type="submit" class="btn btn-primary" id="fpwbtn" data-dismiss="modal" data-toggle="modal"
-	        	data-target="#rpwmd">다음</button>
-<!--	유효성 체크 검사용 
 	        <button type="submit" class="btn btn-primary" id="fpwbtn" data-toggle="modal">다음</button>
- -->
 	      </div>
       	</form>
 	    </div>
