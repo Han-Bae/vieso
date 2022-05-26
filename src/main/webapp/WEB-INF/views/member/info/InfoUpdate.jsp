@@ -59,7 +59,7 @@
           <a class="nav-link" href="/viseo/member/info/ProfileUpdate.blp">프로필 수정</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/viseo/member/info/InfoUpdate.blp">회원정보 수정</a>
+          <a class="nav-link" href="/viseo/member/info/InfoUpdate.blp">회원정보 수정</a> <!-- /viseo/member/loginForm.blp 지금은 -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/viseo/member/info/withdrawal.blp">회원탈퇴</a>
@@ -76,11 +76,11 @@
 	<h5 class="text-primary">Edit member information</h5>
 	<hr>
 	
-	<form action="/viseo/src/main/java/com/viseo/controller/hsr/InfoUpdate" method="post" name="frm" id="frm">
+	<form action="/viseo/member/info/InfoUpdateProc.blp" method="post" name="frm" id="frm">
+		<input type="hidden" id="tano" value="${DATA.name}">
 		<input type="hidden" id="tmail" value="${DATA.mail}">
 		<input type="hidden" id="ttel" value="${DATA.tel}">
-		<input type="hidden" id="tano" value="${DATA.name}">
-		<input type="hidden" name="mno" value="${DATA.id}">
+		<input type="hidden" id="ttel" value="${DATA.addr}">
 		
 	    <div class="form-group">
 		      <label for="name" class="form-label mt-4">name</label>
@@ -96,7 +96,6 @@
 		      <input type="password" class="form-control col-8" id="Password2" placeholder="비밀번호 확인">
 		      <span class="w3-col w3-text-red w3-center" id="repwmsg">비밀번호가 일치하지 않습니다.</span>
 		 </div>
-	    
 	    
 	    <div class="form-group">
 		  <label class="form-label mt-4">email</label>
@@ -116,7 +115,7 @@
 
 	    <div class="form-group">
 		      <label for="address" class="form-label mt-4">address</label>
-		      <input type="text" class="form-control col-8" id="address" name="address" value="${DATA.address}">
+		      <input type="text" class="form-control col-8" id="address" name="address" value="${DATA.addr}">
 	    </div>
 	    <fieldset class="form-group">
                <label for="gen" class="form-label mt-4">gender</label>

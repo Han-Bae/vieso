@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.viseo.controller.BlpInter;
-import com.viseo.dao.MemberDao;
+import com.viseo.dao.UpdateDao;
 
 /**
  * 이 클래스는 회원 관련 데이터베이스 작업을 전담해서 처리하는 클래스
