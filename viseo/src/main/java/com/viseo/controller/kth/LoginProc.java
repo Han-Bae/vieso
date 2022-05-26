@@ -25,7 +25,7 @@ public class LoginProc implements BlpInter {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("isRedirect", true);
-		String view = "/viseo/main";
+		String view = "/viseo/main.blp";
 		if (req.getSession().getAttribute("SID") != null) {
 			// 이미 로그인 한 상태
 			return view;
