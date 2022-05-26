@@ -24,11 +24,9 @@ public class LoginProc implements BlpInter {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("isRedirect", true);
-		String view = "/viseo/main.blp";
 		if (req.getSession().getAttribute("SID") != null) {
 			// 이미 로그인 한 상태
-			return view;
+			return "/viseo/main.blp";
 		}
 
 		// 아직 로그인 안된 상태
@@ -43,21 +41,23 @@ public class LoginProc implements BlpInter {
 			// 아이디와 비밀번호가 일치하는
 			// 회원이 있는 경우 -> 로그인 처리
 			req.getSession().setAttribute("SID", id);
-			// 세션에 데이터 기록했으면 메인페이지로 돌려보낸다.
-			// 메인페이지로 돌려보내는 뷰는 위에서 만들어 뒀으니 그냥 사용
+			req.setAttribute("icon", "success");
+			req.setAttribute("title", "로그인 성공!");
+			req.setAttribute("msg", id+"님 어서오세요.");
+			req.setAttribute("url", "/viseo/main.blp");
 		} else {
 			// 로그인 처리하면 안된다.
 			// 정보가 정확하지 않거나 없는 회원이다.
 			// 정보가 일치하지 않는다면
+			req.setAttribute("icon", "error");
+			req.setAttribute("title", "로그인 실패!");
 			req.setAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다.");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
 				// 모달창 다시 오픈
 			req.getSession().setAttribute("status", "relogin");
-
-			return "/member/loginRedirect";
 		}
 		// 결과에 따라서 처리하고
-		return view;
+		return "/member/loginRedirect";
 	}
 
 }

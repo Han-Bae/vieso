@@ -45,6 +45,8 @@ public class FindPW implements BlpInter {
 			req.getSession().setAttribute("id", id);
 		} else {
 			// 정보가 일치하지 않는다면
+			req.setAttribute("icon", "error");
+			req.setAttribute("title", "비밀번호 찾기 오류!");
 			req.setAttribute("msg", "아이디나 이메일이 일치하지 않습니다.");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
 				// 모달창 다시 오픈

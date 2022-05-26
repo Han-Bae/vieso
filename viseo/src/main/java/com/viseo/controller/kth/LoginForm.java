@@ -29,9 +29,9 @@ public class LoginForm implements BlpInter {
 			req.setAttribute("isRedirect", true);
 			req.setAttribute("SID", null);
 			
-			// view = "/viseo/main.blp";
+			view = "/viseo/main.blp";
 			// 일단 로그아웃 시켜두게
-			req.getSession().removeAttribute("SID");
+			// req.getSession().removeAttribute("SID");
 		}
 		if(req.getSession().getAttribute("status")!= null) {
 			System.out.println("status : " + (String)req.getSession().getAttribute("status"));

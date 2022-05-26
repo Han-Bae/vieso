@@ -39,18 +39,27 @@ public class FindID implements BlpInter {
 		if(cnt == 1) {
 			// 해당 유저가 존재하면
 				// 이메일 처리 클래스 생성
-//			CheckMail ckm = new CheckMail();
+			try {
+//				CheckMail ckm = new CheckMail();
+				req.setAttribute("icon", "success");
+				req.setAttribute("title", "사용자 인증 성공!");
+				req.setAttribute("msg", "해당 이메일로 아이디를 전송했습니다.");
+				req.setAttribute("url", "/viseo/member/loginForm.blp");
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		} else {
 			// 정보가 일치하지 않는다면
+			req.setAttribute("icon", "error");
+			req.setAttribute("title", "아이디 찾기 오류!");
 			req.setAttribute("msg", "이름이나 이메일이 일치하지 않습니다.");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
 				// 모달창 다시 오픈
 			req.getSession().setAttribute("status", "refindId");
 
-			return "/member/loginRedirect";
 		}
+		return "/member/loginRedirect";
 		
-		return view;
 	}
 
 }
