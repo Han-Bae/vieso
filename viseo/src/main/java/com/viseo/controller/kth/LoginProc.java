@@ -37,7 +37,7 @@ public class LoginProc implements BlpInter {
 		} else {
 			// 로그인 처리하면 안된다.
 			// 정보가 정확하지 않거나 없는 회원이다.
-			view = "/viseo/main.blp";
+			view = "/member/loginForm";
 		}
 		// 결과에 따라서 처리하고
 		return view;
