@@ -143,7 +143,7 @@
 	          <span aria-hidden="true"></span>
 	        </button>
 	      </div>
-     	<form id="fidFrm" action="member/findID.blp" class="frm">
+     	<form method="post" id="fidFrm" action="/viseo/member/findID.blp" class="frm">
 	      <div class="modal-body">
 			    <div class="form-floating" style="margin-bottom: 10px">
 			      <input type="text" name="fidName" class="form-control" id="fidName" placeholder="이름을 입력하세요." required autofocus>
@@ -153,15 +153,10 @@
 			      <input type="email" name="fidMail" class="form-control" id="fidMail" title="ex)asdf@asd.qwe"
 			      	pattern="^([a-zA-Z0-9]){4,10}@([a-zA-Z]){2,10}.([a-zA-Z]){2,3}$" placeholder="이메일을 입력하세요." required>
 			      <label for="fidMail">이메일</label>
-			      <button id="eamilAuthBtn" type="button" class="btnChk">인증 메일 보내기</button>
-			    </div>
-			    <div class="form-floating">
-					<input type="hidden" name="authPass" id="authPass" value="false">
-					<button id="w-100 btn btn-lg btn-primary authCodeCheckBtn" type="button" disabled="disabled" class="btnChk">인증</button>
 			    </div>
 	      </div>
 	      <div class="modal-footer">
-			<button class="w-100 btn btn-lg btn-primary" id="fidbtn" type="submit">아이디 찾기</button>
+			<button class="w-100 btn btn-lg btn-primary" id="fidbtn" type="submit">메일에서 확인하기</button>
 	      </div>
       	</form>
 	    </div>
