@@ -104,6 +104,7 @@
 			    <input type="email" class="form-control" id="floatingInput" value="${DATA.mail}" >
 			    <label for="floatingInput">name@example.com</label>
  		 </div>
+ 		</div>
  		 
  		 <div class="form-group">
 		  <label class="form-label mt-4">tel</label>
@@ -111,11 +112,11 @@
 			    <input type="tel" class="form-control" id="tel" value="${DATA.tel}" >
 			    <label for="floatingInput">010-0000-0000</label>
  		 </div>
+ 		 </div>
 
 	    <div class="form-group">
 		      <label for="address" class="form-label mt-4">address</label>
 		      <input type="text" class="form-control col-8" id="address" name="address" value="${DATA.address}">
-		      <!-- <button type="button" class="btn btn-primary" onclick="goPopup()">주소검색</button> -->
 	    </div>
 	    <fieldset class="form-group">
                <label for="gen" class="form-label mt-4">gender</label>
@@ -151,5 +152,5 @@
 	</form>
 	</div>
 </div>
-</div>
-</body></html>
+</body>
+</html>

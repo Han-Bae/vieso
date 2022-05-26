@@ -96,17 +96,17 @@
     <body class="text-center">
     	<%-- 로그인화면  --%>
 		<main class="form-signin">
-			  <form id="loginFrm" action="/member/loginProc.blp" class="frm">
+			  <form id="loginFrm" action="/viseo/member/loginProc.blp" class="frm">
 			    <img class="mb-4" src="../resource/icon/logo.png" alt="" width="72" height="57">
 			    <div class="form-floating">
-			      <input type="text" name="id" class="form-control" id="floatingInput" title="숫자, 대소문자 4~10글자로 입력해주세요."
+			      <input type="text" name="id" class="form-control" id="id" title="숫자, 대소문자 4~10글자로 입력해주세요."
 			      	pattern="^([A-Za-z0-9]){4,10}$" placeholder="아이디를 입력하세요" required autofocus>
-			      <label for="floatingInput">ID</label>
+			      <label for="id">ID</label>
 			    </div>
 			    <div class="form-floating">
-			      <input type="password" name="pw" class="form-control" id="floatingPassword" title="숫자, 대소문자, 특문을 포함한 6~15자로 입력해주세요."
+			      <input type="password" name="pw" class="form-control" id="pw" title="숫자, 대소문자, 특문을 포함한 6~15자로 입력해주세요."
 			      	pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,15}$" placeholder="비밀번호를 입력하세요" required>
-			      <label for="floatingPassword">Password</label>
+			      <label for="pw">Password</label>
 			    </div>			
 			    <div class="checkbox mb-3">
 			      <label>
