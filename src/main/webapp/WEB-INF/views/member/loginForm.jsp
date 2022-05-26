@@ -96,17 +96,17 @@
     <body class="text-center">
     	<%-- 로그인화면  --%>
 		<main class="form-signin">
-			  <form id="loginFrm" action="/member/loginProc.blp" class="frm">
+			  <form id="loginFrm" action="/viseo/member/loginProc.blp" class="frm">
 			    <img class="mb-4" src="../resource/icon/logo.png" alt="" width="72" height="57">
 			    <div class="form-floating">
-			      <input type="text" name="id" class="form-control" id="floatingInput" title="숫자, 대소문자 4~10글자로 입력해주세요."
+			      <input type="text" name="id" class="form-control" id="id" title="숫자, 대소문자 4~10글자로 입력해주세요."
 			      	pattern="^([A-Za-z0-9]){4,10}$" placeholder="아이디를 입력하세요" required autofocus>
-			      <label for="floatingInput">ID</label>
+			      <label for="id">ID</label>
 			    </div>
 			    <div class="form-floating">
-			      <input type="password" name="pw" class="form-control" id="floatingPassword" title="숫자, 대소문자, 특문을 포함한 6~15자로 입력해주세요."
+			      <input type="password" name="pw" class="form-control" id="pw" title="숫자, 대소문자, 특문을 포함한 6~15자로 입력해주세요."
 			      	pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,15}$" placeholder="비밀번호를 입력하세요" required>
-			      <label for="floatingPassword">Password</label>
+			      <label for="pw">Password</label>
 			    </div>			
 			    <div class="checkbox mb-3">
 			      <label>
@@ -143,7 +143,7 @@
 	          <span aria-hidden="true"></span>
 	        </button>
 	      </div>
-     	<form id="fidFrm" action="member/findID.blp" class="frm">
+     	<form method="post" id="fidFrm" action="/viseo/member/findID.blp" class="frm">
 	      <div class="modal-body">
 			    <div class="form-floating" style="margin-bottom: 10px">
 			      <input type="text" name="fidName" class="form-control" id="fidName" placeholder="이름을 입력하세요." required autofocus>
@@ -153,15 +153,10 @@
 			      <input type="email" name="fidMail" class="form-control" id="fidMail" title="ex)asdf@asd.qwe"
 			      	pattern="^([a-zA-Z0-9]){4,10}@([a-zA-Z]){2,10}.([a-zA-Z]){2,3}$" placeholder="이메일을 입력하세요." required>
 			      <label for="fidMail">이메일</label>
-			      <button id="eamilAuthBtn" type="button" class="btnChk">인증 메일 보내기</button>
-			    </div>
-			    <div class="form-floating">
-					<input type="hidden" name="authPass" id="authPass" value="false">
-					<button id="w-100 btn btn-lg btn-primary authCodeCheckBtn" type="button" disabled="disabled" class="btnChk">인증</button>
 			    </div>
 	      </div>
 	      <div class="modal-footer">
-			<button class="w-100 btn btn-lg btn-primary" id="fidbtn" type="submit">아이디 찾기</button>
+			<button class="w-100 btn btn-lg btn-primary" id="fidbtn" type="submit">메일에서 확인하기</button>
 	      </div>
       	</form>
 	    </div>

@@ -14,13 +14,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
-<title>vieso</title>
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/base.css">
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/main.css">
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/menu.css">
-<script type="text/javascript" src="/vieso/resource/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/vieso/resource/js/main.js"></script>
+<title>viseo</title>
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/base.css">
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
+<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
 <script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 <style>
 </style>
@@ -44,7 +44,7 @@
 	
 		<!-- 헤더 -->
 		<div class="main-header">
-			<img src="/vieso/resource/icon/logo.png" width="150px">
+			<img src="/viseo/resource/icon/logo.png" width="150px">
 			<div class="mainDate">
 				<div class="main-year"><span class="mainYear">2022</span>/</div>
 				<h1 style="margin: 0px; font-weight: bold; font-size: 50px;" class="mainMonth">08</h1>

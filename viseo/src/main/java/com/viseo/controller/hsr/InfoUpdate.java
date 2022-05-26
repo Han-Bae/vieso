@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.viseo.controller.BlpInter;
-import com.viseo.dao.MemberDao;
+import com.viseo.dao.LoginDao;
 import com.viseo.vo.FileVO;
 
 
