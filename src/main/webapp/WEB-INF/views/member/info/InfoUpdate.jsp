@@ -117,7 +117,6 @@
 	    <div class="form-group">
 		      <label for="address" class="form-label mt-4">address</label>
 		      <input type="text" class="form-control col-8" id="address" name="address" value="${DATA.address}">
-		      <!-- <button type="button" class="btn btn-primary" onclick="goPopup()">주소검색</button> -->
 	    </div>
 	    <fieldset class="form-group">
                <label for="gen" class="form-label mt-4">gender</label>
