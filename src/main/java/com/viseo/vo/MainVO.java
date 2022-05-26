@@ -18,7 +18,7 @@ import java.util.Date;
 public class MainVO {
 	private int x, y, mno, addr, cnt;
 	private long todono;
-	private String firstDate, LastDate, year, month, date, time, areaname, city, savename, dir, category;
+	private String baseDate, baseTime, year, month, date, time, areaname, city, savename, dir, category;
 	private Date tododate;
 	private Time todotime;
 	
@@ -57,6 +57,18 @@ public class MainVO {
 	}
 	public void setTodono(long todono) {
 		this.todono = todono;
+	}
+	public String getBaseDate() {
+		return baseDate;
+	}
+	public void setBaseDate(String baseDate) {
+		this.baseDate = baseDate;
+	}
+	public String getBaseTime() {
+		return baseTime;
+	}
+	public void setBaseTime(String baseTime) {
+		this.baseTime = baseTime;
 	}
 	public String getYear() {
 		return year;

@@ -22,7 +22,7 @@ public class MainSQL {
 		switch(code) {
 		case SEL_SYSDATE:
 			buff.append("SELECT ");
-			buff.append("    TO_CHAR(sysdate, 'YYYYMMddHH24') mt");
+			buff.append("    TO_CHAR(sysdate, 'YYYYMMddHH24') mt ");
 			buff.append("FROM ");
 			buff.append("    dual ");
 			break;

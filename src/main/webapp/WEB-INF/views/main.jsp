@@ -51,8 +51,10 @@
 		<div class="main-header">
 			<img src="/viseo/resource/icon/logo.png" width="150px">
 			<div class="mainDate">
-				<div class="main-year"><span class="mainYear">2022</span>/</div>
-				<h1 style="margin: 0px; font-weight: bold; font-size: 50px;" class="mainMonth">08</h1>
+<c:if test="${not empty maDATA}">
+				<div class="main-year"><span class="mainYear">${maDATA.year}</span>/</div>
+				<h1 style="margin: 0px; font-weight: bold; font-size: 50px;" class="mainMonth">${maDATA.month}</h1>
+</c:if>
 			</div>
 			<div class="main-weather">
 				<div class="main-weather-loc">
