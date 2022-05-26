@@ -32,12 +32,40 @@
 .main-year {
 	height: 40px;
 }
+/* 메인 지역/날씨 */
 .main-weather {
 	display: flex;
+	align-items: center;
 	position: absolute;
 	top: 45px;
 	left: 900px;
+	height: 20px;
+}
+.main-weather span {
+	font-weight: bold;
+}
+.main-weather > i {
+	margin-right: 10px;
+	font-size: 20px;
+}
+.main-weather-tmp,
+.main-weather-loc {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+}
+.main-weather-loc {
 	font-size: 15px;
+}
+.main-weather-tmp {
+	font-size: 18px;
+}
+.main-weather-loc i,
+.main-weather-tmp i {
+	margin-right: 2px;
+}
+.main-weather-tmp span {
+	padding-bottom: 2px;
 }
 
 /* 메인 바디 */
