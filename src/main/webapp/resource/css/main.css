@@ -32,7 +32,7 @@
 .main-year {
 	height: 40px;
 }
-/* 메인 지역/날씨 아 왜안되냐고 */
+/* 메인 지역/날씨 */
 .main-weather {
 	display: flex;
 	align-items: center;

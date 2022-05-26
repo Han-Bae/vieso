@@ -62,7 +62,7 @@
 <c:if test="${not empty wDATA}">
 				<div class="main-weather-tmp">
 					<i class="fa-solid fa-temperature-half"></i>
-					<span>${wDATA.TMP}</span>
+					<span>${wDATA.TMP}°C</span>
 				</div>
 	<%-- 하늘상태(SKY)코드 :맑음(1), 구름많음(3), 흐림(4) --%>
 	<%-- 강수형태(PTY)코드 :없음(0), 비(1), 비/눈(2), 눈(3), 소나기(4) --%>

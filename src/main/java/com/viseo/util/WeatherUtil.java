@@ -38,7 +38,9 @@ public class WeatherUtil {
 	        // ++++++++++++++++매개변수 오늘날짜 넣기
 	        urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" + URLEncoder.encode("20220526", "UTF-8")); /*‘21년 6월 28일 발표*/
 	        urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode("0500", "UTF-8")); /*06시 발표(정시단위) */
+	        // ++++++++++++++++매개변수 x 넣기
 	        urlBuilder.append("&" + URLEncoder.encode("nx","UTF-8") + "=" + URLEncoder.encode("60", "UTF-8")); /*예보지점의 X 좌표값*/
+	        // ++++++++++++++++매개변수 y 넣기
 	        urlBuilder.append("&" + URLEncoder.encode("ny","UTF-8") + "=" + URLEncoder.encode("127", "UTF-8")); /*예보지점의 Y 좌표값*/
 	        URL url = new URL(urlBuilder.toString());
 	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -65,11 +67,11 @@ public class WeatherUtil {
         return xml;
     }
 	
-	// ++++++++++++++++매개변수 오늘날짜, 지금시간 받기 
+	// ++++++++++++++++매개변수 MainVO
 	public WeatherVO getXMLTag() {
 		WeatherVO wVO = new WeatherVO();
 		
-		// ++++++++++++++++getXML 오늘날짜 매개변수 문자열로 보내고
+		// ++++++++++++++++getXML 매개변수로 MainVO 보내고
 		String xml = getXML();
 		
 		InputSource is = new InputSource(new StringReader(xml));
