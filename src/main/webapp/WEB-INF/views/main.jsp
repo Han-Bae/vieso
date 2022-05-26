@@ -8,19 +8,22 @@
 				작업이력	]
 						2022.05.23	-	담당자 : 전다빈
 										내	용 : 헤더, 캘린더, 메뉴, 카테고리 체크 박스 틀 잡기
+										
+						2022.05.26	-	담당자 : 전다빈
+										내	용 : 기온, 날씨 데이터 적용
 --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
-<title>vieso</title>
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/base.css">
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/main.css">
-<link rel="stylesheet" type="text/css" href="/vieso/resource/css/menu.css">
-<script type="text/javascript" src="/vieso/resource/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/vieso/resource/js/main.js"></script>
+<title>viseo</title>
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/base.css">
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
+<link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
+<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
 <script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 <style>
 </style>
@@ -40,19 +43,53 @@
 		</div>
 	</div>
 	
+	
+	<!-- 메인 페이지 -->
 	<div class="main-page">
 	
 		<!-- 헤더 -->
 		<div class="main-header">
-			<img src="/vieso/resource/icon/logo.png" width="150px">
+			<img src="/viseo/resource/icon/logo.png" width="150px">
 			<div class="mainDate">
 				<div class="main-year"><span class="mainYear">2022</span>/</div>
 				<h1 style="margin: 0px; font-weight: bold; font-size: 50px;" class="mainMonth">08</h1>
 			</div>
 			<div class="main-weather">
-				<i class="fa-solid fa-location-dot"></i>
+				<div class="main-weather-loc">
+					<i class="fa-solid fa-location-dot"></i>
+					<span>서울시 용산구</span>
+				</div>
+<c:if test="${not empty wDATA}">
+				<div class="main-weather-tmp">
+					<i class="fa-solid fa-temperature-half"></i>
+					<span>${wDATA.TMP}</span>
+				</div>
+	<%-- 하늘상태(SKY)코드 :맑음(1), 구름많음(3), 흐림(4) --%>
+	<%-- 강수형태(PTY)코드 :없음(0), 비(1), 비/눈(2), 눈(3), 소나기(4) --%>
+	<c:if test="${wDATA.PTY eq 0}">
+		<c:if test="${wDATA.SKY eq 1}">
 				<i class="fa-solid fa-sun"></i>
-				<i class="fa-solid fa-temperature-half"></i>
+		</c:if>
+		<c:if test="${wDATA.SKY eq 3}">
+				<i class="fa-solid fa-clouds"></i>
+		</c:if>
+		<c:if test="${wDATA.SKY eq 4}">
+				<i class="fa-solid fa-smog"></i>
+		</c:if>
+	</c:if>
+	<c:if test="${wDATA.PTY eq 1}">
+				<i class="fa-solid fa-cloud-rain"></i>
+	</c:if>
+	<c:if test="${wDATA.PTY eq 2}">
+				<i class="fa-solid fa-cloud-sleet"></i>
+	</c:if>
+	<c:if test="${wDATA.PTY eq 3}">
+				<i class="fa-solid fa-cloud-snow"></i>
+	</c:if>
+	<c:if test="${wDATA.PTY eq 4}">
+				<i class="fa-solid fa-cloud-showers"></i>
+	</c:if>
+</c:if>
 			</div>
 		</div>
 		
