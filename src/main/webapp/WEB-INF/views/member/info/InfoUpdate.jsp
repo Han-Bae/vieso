@@ -104,12 +104,14 @@
 			    <input type="email" class="form-control" id="floatingInput" value="${DATA.mail}" >
 			    <label for="floatingInput">name@example.com</label>
  		 </div>
+ 		</div>
  		 
  		 <div class="form-group">
 		  <label class="form-label mt-4">tel</label>
 		  <div class="form-floating mb-3">
 			    <input type="tel" class="form-control" id="tel" value="${DATA.tel}" >
 			    <label for="floatingInput">010-0000-0000</label>
+ 		 </div>
  		 </div>
 
 	    <div class="form-group">
@@ -150,7 +152,6 @@
 	    <button type="button" class="btn btn-primary">EXIT</button>
 	</form>
 	</div>
-</div>
 </div>
 </body>
 </html>
