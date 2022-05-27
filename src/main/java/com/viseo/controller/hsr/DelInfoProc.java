@@ -45,12 +45,23 @@ public class DelInfoProc implements BlpInter {
 		
 		if(result) {
 			session.invalidate();
+
+			req.setAttribute("isRedirect", false);
+			req.setAttribute("icon", "success");
+			req.setAttribute("msg", "회원 탈퇴에 성공했습니다");
+			req.setAttribute("url", "/viseo/member/loginForm.blp");			
 			req.setAttribute("title", "Good Bye! See u again");
+			return "/member/loginRedirect";
 		} else {
-			req.setAttribute("title", "탈퇴 실패!>_<");
+			req.setAttribute("isRedirect", false);
+			req.setAttribute("icon", "error");
+			req.setAttribute("msg", "회원 탈퇴에 실패했습니다^ㅠ^");
+			req.setAttribute("url", "/viseo/member/info/withdrawal.blp");			
+			req.setAttribute("title", "Good Bye! See u again");
+			return "/member/loginRedirect";
+			
 		}
 		// 뷰 반환하고
-		return view;
 	}
 
 }
