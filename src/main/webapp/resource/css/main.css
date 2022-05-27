@@ -21,8 +21,8 @@
 }
 .main-header img {
 	position: absolute;
-	top: 0px;
-	left: 100px;
+	top: 15px;
+	left: 10rem;
 }
 .mainDate {
 	display: flex;
@@ -38,7 +38,7 @@
 	align-items: center;
 	position: absolute;
 	top: 45px;
-	left: 900px;
+	left: 58rem;
 }
 .main-weather span {
 	font-weight: bold;
