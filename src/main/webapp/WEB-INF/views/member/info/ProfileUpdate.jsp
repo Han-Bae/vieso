@@ -39,9 +39,9 @@
       <i class="fa-solid fa-bars menu-btn menu-btn--white"></i>
       <div class="menu-bar bg-primary">
          <ul>
-            <li><i class="fa-solid fa-user-astronaut"></i>Profile</li>
-            <li><i class="fa-solid fa-gear"></i>Settings</li>
-            <li><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</li>
+			<li class="profileBtn"><i class="fa-solid fa-user-astronaut"></i>Profile</li>
+			<li class="settingBtn"><i class="fa-solid fa-gear"></i>Settings</li>
+			<li class="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</li>
          </ul>
       </div>
    </div>
