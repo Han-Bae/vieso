@@ -23,14 +23,13 @@ public class UpdateSQL {
 		
 		case SEL_MEMBER_INFO:
 			buff.append("SELECT ");
-			buff.append("	mno, name, id, mail, tel, m.gen, joindate, ano, savename ");
+			buff.append("	mno, name, id, pw, mail, addr, gen, nickname, tel, birth, joindate, isshow ");
 			buff.append("FROM ");
 			buff.append("	member ");
 			buff.append("WHERE ");
-			buff.append("	m.isshow = 'Y' ");
+			buff.append("	isshow = 'Y' ");
 			buff.append("	AND id = ? ");
 			break;
-		
 		case DEL_MEMBER:
 			buff.append("UPDATE ");
 			buff.append("	member ");
@@ -44,6 +43,13 @@ public class UpdateSQL {
 			buff.append("UPDATE ");
 			buff.append("	member ");
 			buff.append("SET ");
+			/*
+			buff.append("	pw = ? ");
+			buff.append("	mail = ? ");
+			buff.append("	tel = ? ");
+			buff.append("	addr = ? ");
+			buff.append("	nickname = ? ");
+			*/
 			buff.append("	### ");
 			/*
 				비밀번호를 수정하는 경우
@@ -63,7 +69,7 @@ public class UpdateSQL {
 			 */
 			buff.append("WHERE ");
 			buff.append("	isshow = 'Y' ");
-			buff.append("	AND mno = ? ");
+			buff.append("	AND id = ? ");
 			break;
 		
 		}

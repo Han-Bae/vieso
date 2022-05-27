@@ -11,8 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.viseo.controller.BlpInter;
 import com.viseo.dao.LoginDao;
 import com.viseo.dao.UpdateDao;
-import com.viseo.vo.FileVO;
-
+import com.viseo.vo.UpdateVO;
 
 public class InfoUpdate implements BlpInter {
 	
@@ -29,10 +28,11 @@ public class InfoUpdate implements BlpInter {
 		  return view; 
 		  }
 		 
+		  
 		
 		  // 데이터베이스에서 내정보 꺼내오고 
 		  UpdateDao uDAO = new UpdateDao(); 
-		  FileVO fVO = uDAO.getIdInfo(sid); 
+		  UpdateVO fVO = uDAO.getIdInfo(sid); 
 		 
 		  // 데이터 심고 
 		  req.setAttribute("DATA", fVO);

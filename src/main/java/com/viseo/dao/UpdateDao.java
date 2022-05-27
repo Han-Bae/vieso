@@ -8,18 +8,18 @@ import com.viseo.sql.*;
 import com.viseo.vo.*;
 
 /**
- * 이 클래스는 회원 관련 데이터베이스 작업을 전담해서 처리하는 클래스
- * @author 한서라
+ * �� Ŭ������ ȸ�� ���� �����ͺ��̽� �۾��� �����ؼ� ó���ϴ� Ŭ����
+ * @author �Ѽ���
  * @since 2022.05.26
  * @version v.1.0
- * 		작업 이력)
- * 				2022.05.26	- 클래스 제작
- * 						담당자 한서라
+ * 		�۾� �̷�)
+ * 				2022.05.26	- Ŭ���� ����
+ * 						����� �Ѽ���
  */
 public class UpdateDao {
 /*
- 	이 클래스는 이 클래스가 new 된 순간 데이터베이스 작업을 할 준비가
- 	되어 있어야 한다.
+ 	�� Ŭ������ �� Ŭ������ new �� ���� �����ͺ��̽� �۾��� �� �غ�
+ 	�Ǿ� �־�� �Ѵ�.
  */
 	private BlpDBCP db;
 	private Connection con;
@@ -34,22 +34,22 @@ public class UpdateDao {
 		uSQL = new UpdateSQL();
 	}
 	
-	// 아이디로 회원 정보조회 전담 처리함수
-			public FileVO getIdInfo(String id) {
-				// 반환값 변수
-				FileVO fVO = new FileVO();
-				// 커넥션
+	// ���̵�� ȸ�� ������ȸ ���� ó���Լ�
+			public UpdateVO getIdInfo(String id) {
+				// ��ȯ�� ����
+				UpdateVO fVO = new UpdateVO();
+				// Ŀ�ؼ�
 				con = db.getCon();
-				// 질의명령
+				// ���Ǹ��
 				String sql = uSQL.getSQL(uSQL.SEL_MEMBER_INFO);
-				// 명령전달도구
+				// ������޵���
 				pstmt = db.getPSTMT(con, sql);
 				try {
-					// 질의명령 완성
+					// ���Ǹ�� �ϼ�
 					pstmt.setString(1, id);
-					// 질의명령 보내고 결과받고
+					// ���Ǹ�� ������ ����ް�
 					rs = pstmt.executeQuery();
-					// 꺼내서 VO에 담고
+					// ������ VO�� ���
 					rs.next();
 					// vo setting
 					fVO.setMno(rs.getInt("mno"));
@@ -62,6 +62,7 @@ public class UpdateDao {
 					fVO.setTel(rs.getString("tel"));
 					fVO.setJoindate(rs.getDate("joindate"));
 					
+					
 				} catch(Exception e) {
 					e.printStackTrace();
 				} finally {
@@ -70,25 +71,25 @@ public class UpdateDao {
 					db.close(con);
 				}
 				
-				// 데이터 반환해주고
+				// ������ ��ȯ���ְ�
 				return fVO;
 			}
 		
-		// 회원탈퇴 데이터베이스작업 전담 처리함수
+		// ȸ��Ż�� �����ͺ��̽��۾� ���� ó���Լ�
 			public int delMember(int mno) {
-				// 할일
-				// 반환값 변수
+				// ����
+				// ��ȯ�� ����
 				int cnt = 0;
-				// 커넥션
+				// Ŀ�ؼ�
 				con = db.getCon();
-				// 질의명령
+				// ���Ǹ��
 				String sql = uSQL.getSQL(uSQL.DEL_MEMBER);
-				// 명령전달도구
+				// ������޵���
 				pstmt = db.getPSTMT(con, sql);
 				try{
-					// 질의명령 완성
+					// ���Ǹ�� �ϼ�
 					pstmt.setInt(1, mno);
-					// 질의명령 보내고 결과받고..
+					// ���Ǹ�� ������ ����ް�..
 					cnt = pstmt.executeUpdate();
 				} catch(Exception e) {
 					e.printStackTrace();
@@ -96,27 +97,27 @@ public class UpdateDao {
 					db.close(pstmt);
 					db.close(con);
 				}
-				// 결과 반환하고
+				// ��� ��ȯ�ϰ�
 				return cnt;
 			}
 			
-			// 회원정보수정 데이터베이스 작업 전담 처리함수
-			public int editMyInfo(int mno, String psql) {
-				// 반환값 변수
+			// ȸ���������� �����ͺ��̽� �۾� ���� ó���Լ�
+			public int editMyInfo(String id, String psql) {
+				// ��ȯ�� ����
 				int cnt = 0;
-				// 커넥션
+				// Ŀ�ؼ�
 				con = db.getCon();
-				// 질의명령
+				// ���Ǹ��
 				String sql = uSQL.getSQL(uSQL.EDIT_MEMBER);
-				// 질의명령 수정하고
+				// ���Ǹ�� �����ϰ�
 				sql = sql.replace("###", psql);
 				
-				// 명령 전달도구
+				// ��� ���޵���
 				pstmt = db.getPSTMT(con, sql);
 				try {
-					// 질의명령 완성하고
-					pstmt.setInt(1, mno);
-					// 질의명령 보내고 결과받고
+					// ���Ǹ�� �ϼ��ϰ�
+					pstmt.setString(1, id);
+					// ���Ǹ�� ������ ����ް�
 					cnt = pstmt.executeUpdate();
 				} catch(Exception e) {
 					e.printStackTrace();
@@ -125,7 +126,7 @@ public class UpdateDao {
 					db.close(con);
 				}
 				
-				// 결과 반환하고
+				// ��� ��ȯ�ϰ�
 				return cnt;
 			}
 		}

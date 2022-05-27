@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/viseo/resource/js/main.js"></script>
 <script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/edit.js"></script>
 <style>
 	#preview{
 	width: 250px; 
@@ -70,37 +71,38 @@
 </nav>
 <br>
 
-
+<!-- 이게 뷰고요...  -->
 <div class="row input-center" style="width: 100%">
        <div style="width: 50%; float:none; margin:0 auto" >
 	<h5 class="text-primary">Edit member information</h5>
 	<hr>
 	
-	<form action="/viseo/member/info/InfoUpdateProc.blp" method="post" name="frm" id="frm">
-		<input type="hidden" id="tano" value="${DATA.name}">
+	<form action="/viseo/member/info/InfoUpdateProc.blp" method="get" name="frm" id="frm">
+		<input type="hidden" id="tname" value="${DATA.name}">
 		<input type="hidden" id="tmail" value="${DATA.mail}">
 		<input type="hidden" id="ttel" value="${DATA.tel}">
-		<input type="hidden" id="ttel" value="${DATA.addr}">
+		<input type="hidden" id="taddr" value="${DATA.addr}">
+		<input type="hidden" id="tid" value="${DATA.id}">
 		
 	    <div class="form-group">
 		      <label for="name" class="form-label mt-4">name</label>
-		      <input type="text" class="form-control col-8" name="id" value="${DATA.name}" disabled>
+		      <input type="text" class="form-control col-8" name="name" value="${DATA.name}" >
 		 </div>	    
 	    <div class="form-group">
 		      <label for="id" class="form-label mt-4">id</label>
-		      <input type="hidden" class="form-control col-8" name="id" value="${DATA.id}" disabled>
+		      <input type="text" class="form-control col-8" name="id" value="${DATA.id}" readonly >
 		 </div>
 		<div class="form-group">
-		      <label for="Password1" class="form-label mt-4">password</label>
-		      <input type="password" class="form-control col-8" id="Password1" placeholder="변경할 비밀번호">
-		      <input type="password" class="form-control col-8" id="Password2" placeholder="비밀번호 확인">
+		      <label for="Password1" class="form-label mt-4">password</label> 
+		      <input type="password" class="form-control col-8" id="Password1" name="Password1" placeholder="변경할 비밀번호">
+		      <input type="password" class="form-control col-8" id="Password2" name="Password2" placeholder="비밀번호 확인">
 		      <span class="w3-col w3-text-red w3-center" id="repwmsg">비밀번호가 일치하지 않습니다.</span>
 		 </div>
 	    
 	    <div class="form-group">
 		  <label class="form-label mt-4">email</label>
 		  <div class="form-floating mb-3">
-			    <input type="email" class="form-control" id="floatingInput" value="${DATA.mail}" >
+			    <input type="email" class="form-control" id="mail" name="mail" value="${DATA.mail}" >
 			    <label for="floatingInput">name@example.com</label>
  		 </div>
  		</div>
@@ -108,7 +110,7 @@
  		 <div class="form-group">
 		  <label class="form-label mt-4">tel</label>
 		  <div class="form-floating mb-3">
-			    <input type="tel" class="form-control" id="tel" value="${DATA.tel}" >
+			    <input type="tel" class="form-control" id="tel" name="tel" value="${DATA.tel}" >
 			    <label for="floatingInput">010-0000-0000</label>
  		 </div>
  		 </div>
@@ -119,23 +121,12 @@
 	    </div>
 	    <fieldset class="form-group">
                <label for="gen" class="form-label mt-4">gender</label>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="gen" id="fgen" value="F">
-                      여자
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="gen" id="mgen" value="M">
-                      남자
-                    </label>
-                   </div>
+                <input type="text" class="form-control col-8" id="gender" name="gender" value="${DATA.gen eq "M" ? "남자": "여자" }" >
        </fieldset>
 	    
 	    
 	<div class="form-group">
-          	<label for="bir" class="form-label mt-4">생년월일</label>
+          	<label for="bir" class="form-label mt-4">birth</label>
                 <select class="form-select col-3" name="yy" id="year">
                  </select><small class="form-text text-muted">태어난 년도를 선택해 주세요.</small>
                  <select class="form-select col-3" name="mm" id="month">
@@ -145,7 +136,7 @@
     </div>       
 
 	    
-	    <button type="submit" class="btn btn-primary">EDIT</button>
+	    <button type="submit" class="btn btn-primary" id="edit">EDIT</button>
 	    <button type="reset" class="btn btn-primary">RESET</button>
 	    <button type="button" class="btn btn-primary">EXIT</button>
 	</form>
