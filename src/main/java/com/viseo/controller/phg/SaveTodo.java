@@ -18,8 +18,11 @@ public class SaveTodo implements BlpInter {
 			req.setAttribute("isRedirect", null);
 			StringBuffer buff = new StringBuffer();
 			
+			String id = (String)req.getSession().getAttribute("SID");
+			System.out.println(id);
+			
 			// 파라미터 받고
-			String id = req.getParameter("id");	//아이디
+//			String id = req.getParameter("id");	//아이디
 			String title = req.getParameter("title");	//제목
 			String chcekDate = req.getParameter("chcekDate");	//지정날짜
 			String chcekTime = req.getParameter("chcekTime");	//일정시간

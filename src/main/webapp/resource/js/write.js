@@ -39,5 +39,8 @@ $(document).ready(function(){
 			$('#alarmRepeat').prop('hidden', false);
 		}
 	});
-
+	
+	$('td').click(function(){
+		$("#fid").modal();
+	});
 });
