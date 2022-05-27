@@ -56,10 +56,25 @@ public class InfoUpdateProc implements BlpInter {
 		// 결과에 따라 처리하고
 		if(cnt != 1) {
 			// 실패한 경우
+			//view = "/main.blp";
 			
-			view = "/main.blp";
+			req.setAttribute("isRedirect", false);
+			req.setAttribute("icon", "error");
+			req.setAttribute("msg", "정보 수정에 실패했습니다");
+			req.setAttribute("url", "/viseo/member/info/InfoUpdate.blp");			
+			req.setAttribute("title", "실패");
+			return "/member/loginRedirect";
 		}
-		return view; // 성공했을 경우에도 모달창 같은 거로 하나 띄우고 싶다
+			req.setAttribute("isRedirect", false);
+			req.setAttribute("icon", "success");
+			req.setAttribute("msg", "정보 수정에 성공했습니다");
+			req.setAttribute("url", "/viseo/member/info/InfoUpdate.blp");			
+			req.setAttribute("title", "성공");
+		return "/member/loginRedirect";
+		
+		
+		//return view; // 성공했을 경우에도 모달창 같은 거로 하나 띄우고 싶다
+
 	}
 }
 
