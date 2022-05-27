@@ -138,7 +138,7 @@ public class LoginDao {
 				rs = pstmt.executeQuery();
 				// 결과에서 데이터꺼내고
 				rs.next();
-				id = rs.getString("cnt");
+				id = rs.getString("id");
 			} catch(Exception e) {
 				e.printStackTrace();
 			} finally {
