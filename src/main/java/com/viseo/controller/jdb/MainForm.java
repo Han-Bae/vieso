@@ -12,6 +12,9 @@ package com.viseo.controller.jdb;
  * 
  * 				2022.05.26	-	담당자 : 전다빈
  * 								내	용 : WeatherUtil 연결
+ * 
+ * 				2022.05.27	-	담당자 : 전다빈
+ * 								내	용 : WeatherUtil 연결
  */
 
 import java.io.IOException;
@@ -30,29 +33,28 @@ public class MainForm implements BlpInter {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String view = "/main";
-		/*
+		
 		// 로그인 확인
 		String sessionId = (String) req.getSession().getAttribute("SID");
 		if(sessionId == null) {
 			req.setAttribute("isRedirect", true);
-			return "/viseo/member/login.blp";
+			return "/viseo/member/loginForm.blp";
 		}
-		*/
 		
 		// 날짜랑 시간 데이터 가져오기
 		MainDao maDao = new MainDao();
-		String dateNTime = maDao.getMainDateNTime();
+		MainVO maVO = maDao.getMainDate();
+		String dateNTime = maVO.getTodayDate();
 
-		MainVO maVO = new MainVO();
 		// 여기서는 다 현재 날짜, 시간
 		maVO.setYear(dateNTime.substring(0, 4));
 		maVO.setMonth(dateNTime.substring(4, 6));
 		maVO.setDate(dateNTime.substring(6, 8));
 		maVO.setTime(dateNTime.substring(8, 10));
 		
+		// 캘린더 세팅 데이터 가져오기
 		
-		// 캘린더 정보 가져오기
-		
+
 		// 회원 정보 넘기기
 		
 		// 날짜 정보 넘기기

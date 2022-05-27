@@ -121,7 +121,7 @@
 	    </div>
 	    <fieldset class="form-group">
                <label for="gen" class="form-label mt-4">gender</label>
-                <input type="text" class="form-control col-8" id="gender" name="gender" value="${DATA.gen eq "M" ? "남자": "여자" }" >
+                <input type="text" class="form-control col-8" id="gender" name="gender" value="${DATA.gen eq 'M' ? '남자': '여자' }" >
        </fieldset>
 	    
 	    
