@@ -58,7 +58,28 @@ public class MainDao {
 		return maVO;
 	}
 	
-	public void getUserInfo(MainVO maVO) {
+	public void getUserInfo(MainVO maVO, String id) {
 		con = db.getCon();
+		String sql = maSQL.getSQL(maSQL.SEL_USER_INFO);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			maVO.setMno(rs.getInt("mno"));
+			maVO.setAddr(rs.getInt("areano"));
+			maVO.setAreaname(rs.getString("areaname"));
+			maVO.setCity(rs.getString("city"));
+			maVO.setX(rs.getInt("x"));
+			maVO.setY(rs.getInt("y"));
+			maVO.setDir(rs.getString("dir"));
+			maVO.setSavename(rs.getString("savename"));
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
 	}
 }

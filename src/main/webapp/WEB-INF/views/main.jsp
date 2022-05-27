@@ -17,13 +17,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
-<title>viseo</title>
+<title>Viseo</title>
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/base.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
 <script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/viseo/resource/js/main.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/menu.js"></script>
 <script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 <style>
 </style>
@@ -36,9 +37,9 @@
 		<i class="fa-solid fa-bars menu-btn"></i>
 		<div class="menu-bar bg-primary">
 			<ul>
-				<li><i class="fa-solid fa-user-astronaut"></i>Profile</li>
-				<li><i class="fa-solid fa-gear"></i>Settings</li>
-				<li><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</li>
+				<li class="profileBtn"><i class="fa-solid fa-user-astronaut"></i>Profile</li>
+				<li class="settingBtn"><i class="fa-solid fa-gear"></i>Settings</li>
+				<li class="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</li>
 			</ul>
 		</div>
 	</div>
@@ -50,17 +51,24 @@
 		<!-- 헤더 -->
 		<div class="main-header">
 			<img src="/viseo/resource/icon/logo.png" width="150px">
-			<div class="mainDate">
 <c:if test="${not empty maDATA}">
+			<div class="mainDate">
 				<div class="main-year"><span class="mainYear">${maDATA.year}</span>/</div>
 				<h1 style="margin: 0px; font-weight: bold; font-size: 50px;" class="mainMonth">${maDATA.month}</h1>
-</c:if>
 			</div>
+</c:if>
+			
 			<div class="main-weather">
+<c:if test="${not empty maDATA}">
 				<div class="main-weather-loc">
 					<i class="fa-solid fa-location-dot"></i>
-					<span>서울시 용산구</span>
+					<div>
+						<span class="main-areaname">${maDATA.areaname}</span>
+						<span class="main-city">${maDATA.city}</span>
+					</div>
 				</div>
+</c:if>
+				
 <c:if test="${not empty wDATA}">
 				<div class="main-weather-tmp">
 					<i class="fa-solid fa-temperature-half"></i>

@@ -13,6 +13,9 @@ package com.viseo.util;
  * 
  * 				2022.05.26	-	담당자 : 전다빈
  * 								내	용 : api의 가까운 갱신 시간에 맞춰 파라미터 값을 정해주는 함수 제작 
+ * 
+ * 				2022.05.26	-	담당자 : 전다빈
+ * 								내	용 : x, y 매개변수까지 모두 적용해서 계정 주소에 맞는 지역의 기온과 날씨 불러오기 성공
  */
 
 import java.io.*;
@@ -46,10 +49,8 @@ public class WeatherUtil {
 	        urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" + URLEncoder.encode("XML", "UTF-8")); /*요청자료형식(XML/JSON) Default: XML*/
 	        urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" + URLEncoder.encode(maVO.getBaseDate(), "UTF-8")); /*‘21년 6월 28일 발표*/
 	        urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode(maVO.getBaseTime(), "UTF-8")); /*06시 발표(정시단위) */
-	        // ++++++++++++++++매개변수 x 넣기
-	        urlBuilder.append("&" + URLEncoder.encode("nx","UTF-8") + "=" + URLEncoder.encode("60", "UTF-8")); /*예보지점의 X 좌표값*/
-	        // ++++++++++++++++매개변수 y 넣기
-	        urlBuilder.append("&" + URLEncoder.encode("ny","UTF-8") + "=" + URLEncoder.encode("127", "UTF-8")); /*예보지점의 Y 좌표값*/
+	        urlBuilder.append("&" + URLEncoder.encode("nx","UTF-8") + "=" + URLEncoder.encode(maVO.getX() + "", "UTF-8")); /*예보지점의 X 좌표값*/
+	        urlBuilder.append("&" + URLEncoder.encode("ny","UTF-8") + "=" + URLEncoder.encode(maVO.getY() + "", "UTF-8")); /*예보지점의 Y 좌표값*/
 	        URL url = new URL(urlBuilder.toString());
 	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	        conn.setRequestMethod("GET");
