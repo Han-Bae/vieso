@@ -1,10 +1,12 @@
    var contentFull = true;
    /*select option 날짜 생성 함수*/
    $(document).ready(function(){            
+
     var now = new Date();
     var year = now.getFullYear();
     var mon = (now.getMonth() + 1) > 9 ? ''+(now.getMonth() + 1) : '0'+(now.getMonth() + 1); 
     var day = (now.getDate()) > 9 ? ''+(now.getDate()) : '0'+(now.getDate());           
+
     //년도 selectbox만들기               
     for(var i = 1900 ; i <= year ; i++) {
         $('#year').append('<option value="' + i + '">' + i + '년</option>');    
@@ -154,11 +156,14 @@
       var gen = $('[name="gen"]:checked').val();
       var nickname = $('#nickname').val();
       var tel = $('#tel').val();
-      var birth = $('#birth').val();
+      var yyyy = $('#year').val();
+      var mm = $('#month').val();
+      var dd = $('#day').val();
       var addr = $('#addr').val();
+      var birth = $('#birth').val(yyyy + mm + dd);
       
-      var el = $('#name, #id, #pw, #mail, #nickname, #tel, #birth, #addr');
-      
+      var el = $('#name, #id, #pw, #mail, #nickname, #tel, #addr');
+      /* birth 제외*/
       for(var i = 0 ; i < el.length ; i++ ){
          var txt = $(el).eq(i).val();
          if(!txt){
@@ -175,6 +180,12 @@
       $('#frm').attr('action', '/viseo/member/joinProc.blp').submit();     
   	 });
   	 
+  	 
+  	$('#year').change(function(){
+		var yyyy = $('#year').val();
+		console.log(yyyy);
+		console.log(typeof yyyy); 
+	});
   	 
 /*마지막 주석*/
 });

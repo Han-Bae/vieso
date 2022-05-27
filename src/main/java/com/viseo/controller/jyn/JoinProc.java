@@ -15,7 +15,7 @@ public class JoinProc implements BlpInter {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("isRedirect", true);
-		String view = "/viseo/main.blp";
+		String view = "/viseo/member/loginForm.blp";
 		if(req.getSession().getAttribute("SID") != null) {
 			return view;
 		}

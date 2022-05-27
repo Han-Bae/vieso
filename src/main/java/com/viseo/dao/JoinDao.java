@@ -1,6 +1,7 @@
 package com.viseo.dao;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import com.viseo.db.*;
 import com.viseo.sql.*;
@@ -131,4 +132,5 @@ public class JoinDao {
 		// 데이터 반환하고
 		return cnt;
 		}
+	
 	}

@@ -41,7 +41,7 @@
 				<!-- 회원 이름 -->
 				<div class="form-group">
 					 <label for="name" class="form-label mt-4 left">이름</label>
-					 <input type="text" class="form-control col-50" id="name" name="neme" placeholder="Enter name">
+					 <input type="text" class="form-control col-50" id="name" name="name" placeholder="Enter name">
 				</div>
 				
 				<!-- 회원 아이디, 아이디 체크박스 --> 
@@ -126,13 +126,14 @@
 			           </select><small class="form-text text-muted">태어난 월을 선택해 주세요.</small>
 			           <select class="form-select" name="dd" id="day">
 			           </select><small class="form-text text-muted">태어난 일을 선택해 주세요.</small>
+			           <input type="hidden" name="birth" id="birth">
 	            </div>	         
 				<!-- 이메일 -->
 				<div class="form-group">
-					<label for="email" class="form-label mt-4">이메일</label>
+					<label for="mail" class="form-label mt-4">이메일</label>
 						<div class="input-group mb-4">
-						<input type="text" class="form-control col-50" id="email" placeholder="Enter email">
-						 <button class="btn btn-primary" type="button" id="emailck">인증</button>
+						<input type="text" class="form-control col-50" id="mail" name="mail" placeholder="Enter email">
+						 <button class="btn btn-primary" type="button" id="mailck">인증</button>
 						 <span id="remailmsg" class="form-text text-muted"></span>
 				</div>
 				<div class="content">

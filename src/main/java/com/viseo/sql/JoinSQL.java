@@ -24,10 +24,10 @@ public class JoinSQL {
 
 		case ADD_MEMBER:
 			buff.append("INSERT INTO ");
-			buff.append("	member(mno, name, id, pw, mail, addr, gen, nickname, tel, birth, joindate) ");
+			buff.append("	member(mno, name, id, pw, mail, addr, gen, nickname, tel, birth) ");
 			buff.append("VALUES( ");
 			buff.append("		(SELECT NVL(MAX(mno) + 1, 0001) FROM member), "); //서브질의로 회원번호 자동입력받기
-			buff.append("		?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate ");
+			buff.append("		?, ?, ?, ?, ?, ?, ?, ?, ? ");
 			buff.append(")");
 			break;
 		case SEL_ID_CNT:
