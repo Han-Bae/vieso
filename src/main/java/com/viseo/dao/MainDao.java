@@ -15,6 +15,9 @@ import com.viseo.vo.MainVO;
  * 			작업이력	]
  * 				2022.05.26	-	담당자 : 전다빈
  * 								내	용 : 클래스 제작
+ * 
+ * 				2022.05.27	-	담당자 : 전다빈
+ * 								내	용 : 쿼리문 변경으로 함수 합침
  */
 
 
@@ -32,16 +35,18 @@ public class MainDao {
 		maSQL = new MainSQL();
 	}
 	
-	public String getMainDateNTime() {
-		String mt = "";
+	public MainVO getMainDate() {
+		MainVO maVO = new MainVO();
 		
 		con = db.getCon();
-		String sql = maSQL.getSQL(maSQL.SEL_SYSDATE);
+		String sql = maSQL.getSQL(maSQL.SEL_DATE);
 		stmt = db.getSTMT(con);
 		try {
 			rs = stmt.executeQuery(sql);
 			rs.next();
-			mt = rs.getString("mt");
+			maVO.setTodayDate(rs.getString("todaydate"));
+			maVO.setLastdate(rs.getString("lastdate"));
+			maVO.setFirstday(rs.getString("firstday"));
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -50,6 +55,10 @@ public class MainDao {
 			db.close(con);
 		}
 		
-		return mt;
+		return maVO;
+	}
+	
+	public void getUserInfo(MainVO maVO) {
+		con = db.getCon();
 	}
 }

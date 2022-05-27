@@ -12,20 +12,36 @@ package com.viseo.sql;
  * 
  * 				2022.05.26	-	담당자 : 전다빈
  * 								내	용 : 년도 월 가져오는 질의명령 작성 
+ * 
+ * 				2022.05.27	-	담당자 : 전다빈
+ * 								내	용 : 이번달의 첫날 마지막날 값 가져오는 쿼리문 작성
+ * 										 쿼리문 합쳤음
  */
 
 public class MainSQL {
-	public final int SEL_SYSDATE = 1001;
+	public final int SEL_DATE = 1001;
+	public final int SEL_USER_INFO = 1002;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
 		switch(code) {
-		case SEL_SYSDATE:
+		case SEL_DATE:
 			buff.append("SELECT ");
-			buff.append("    TO_CHAR(sysdate, 'YYYYMMddHH24') mt ");
+			buff.append("	TO_CHAR(sysdate, 'YYYYMMddHH24') todaydate, ");
+			buff.append("	TO_CHAR(LAST_DAY(sysdate), 'YYYYMMdd') lastdate, ");
+			buff.append("	TO_CHAR( ");
+			buff.append("	    TO_DATE( ");
+			buff.append("	        CONCAT( ");
+			buff.append("	            TO_CHAR(sysdate, 'YYMM'), '01' ");
+			buff.append("	        ), 'YYMMdd' ");
+			buff.append("	    ), 'dy' ");
+			buff.append("	) firstday ");
 			buff.append("FROM ");
 			buff.append("    dual ");
 			break;
+		case SEL_USER_INFO:
+			// +++++++++ 가져올 유저 정보 : 회원 번호, 지역번호, 아바타 경로/저장이름, 스케줄
+			
 		}
 		return buff.toString();
 	}
