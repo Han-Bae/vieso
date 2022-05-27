@@ -1,4 +1,4 @@
-package com.vieso.sql;
+package com.viseo.sql;
 
 public class WriteSQL {
 	public final int ADD_TODO		= 1001;
