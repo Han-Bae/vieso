@@ -39,11 +39,15 @@ public class LoginForm implements BlpInter {
 			// 일단 로그아웃 시켜두게
 			req.getSession().removeAttribute("SID");
 		}
-		if(req.getSession().getAttribute("status")!= null) {
-			System.out.println("status : " + (String)req.getSession().getAttribute("status"));
-			req.setAttribute("status", req.getSession().getAttribute("status"));
-			req.getSession().removeAttribute("status");
-		}
+		
+		
+//		if(req.getSession().getAttribute("status")!= null) {
+//			System.out.println("status : " + (String)req.getSession().getAttribute("status"));
+//			req.setAttribute("status", req.getSession().getAttribute("status"));
+//			req.getSession().removeAttribute("status");
+//		}
+		
+		
 		return view;
 	}
 

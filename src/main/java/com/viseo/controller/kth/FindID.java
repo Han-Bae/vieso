@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.viseo.controller.BlpInter;
+import com.viseo.controller.kth.mail.MailSend;
 import com.viseo.dao.LoginDao;
 
 public class FindID implements BlpInter {
@@ -36,11 +37,18 @@ public class FindID implements BlpInter {
 		// 데이터베이스 작업을 하고 결과받고
 		LoginDao lDao = new LoginDao();
 		int cnt = lDao.checkUserId(name, mail);
+		
 		if(cnt == 1) {
 			// 해당 유저가 존재하면
 				// 이메일 처리 클래스 생성
 			try {
-//				CheckMail ckm = new CheckMail();
+				// 찾은 ID 일부를 *처리하고 전송
+				String id = lDao.findID(mail);
+				char[] myID = new char[id.length()];
+				for(int i = 0; i < id.length(); i++) {
+					//myID[i]
+				}
+				new MailSend(mail, id);
 				req.setAttribute("icon", "success");
 				req.setAttribute("title", "사용자 인증 성공!");
 				req.setAttribute("msg", "해당 이메일로 아이디를 전송했습니다.");

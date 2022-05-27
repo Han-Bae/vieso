@@ -121,7 +121,35 @@ public class LoginDao {
 			// 데이터 내보내기
 			return cnt;
 		}
-
+		
+		// 아이디 알려주는 함수
+		public String findID(String mail) {
+			String id = "";
+			// 커넥션
+			con = db.getCon();
+			// 질의명령
+			String sql = lSQL.getSQL(lSQL.SEL_FID_ID);
+			// 명령전달도구
+			pstmt = db.getPSTMT(con, sql);
+			// 질의명령 완성
+			try {
+				pstmt.setString(1, mail);
+				// 보내고 결과 받기
+				rs = pstmt.executeQuery();
+				// 결과에서 데이터꺼내고
+				rs.next();
+				id = rs.getString("cnt");
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close(rs);
+				db.close(pstmt);
+				db.close(con);
+			}
+			
+			return id;
+		}
+		
 		// 로그인 비밀번호 찾기 정보 확인 처리 함수
 		public int checkUserPw(String id, String mail) {
 			int cnt = 0;
