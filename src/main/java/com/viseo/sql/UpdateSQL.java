@@ -37,7 +37,7 @@ public class UpdateSQL {
 			buff.append("	isshow = 'N' ");
 			buff.append("WHERE ");
 			buff.append("	isshow = 'Y' ");
-			buff.append("	AND mno = ? ");
+			buff.append("	AND id = ? ");
 			break;
 		case EDIT_MEMBER:
 			buff.append("UPDATE ");
