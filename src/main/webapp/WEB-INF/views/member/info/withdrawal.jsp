@@ -63,7 +63,7 @@
 				
 					<div class="form-group">
 					    <label for="Password" class="form-label mt-4">비밀번호</label>
-					    <input type="password" class="form-control" id="Password" name="password" placeholder="비밀번호 입력">
+					    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
 					 </div>
 				<button type="submit" class="btn btn-primary">탈퇴하기</button>
 				<button  type="button"class="btn btn-primary">취소</button>
