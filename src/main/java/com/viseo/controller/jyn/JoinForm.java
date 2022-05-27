@@ -1,6 +1,7 @@
 package com.viseo.controller.jyn;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.viseo.controller.BlpInter;
+import com.viseo.controller.*;
+import com.viseo.dao.*;
+import com.viseo.vo.*;
 
 public class JoinForm implements BlpInter {
 
