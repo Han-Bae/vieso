@@ -1,3 +1,4 @@
+
 package com.viseo.controller.hsr;
 
 import java.io.IOException;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.viseo.controller.BlpInter;
+import com.viseo.dao.UpdateDao;
+import com.viseo.vo.UpdateVO;
 
 /**
  * 이 클래스는 회원 관련 데이터베이스 작업을 전담해서 처리하는 클래스
@@ -19,22 +22,35 @@ import com.viseo.controller.BlpInter;
  * 							  내용  : 회원정보 탈퇴
  * 						
  */
-public class DelInfo implements BlpInter {
+public class DelInfoProc implements BlpInter {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 할일
-		// 뷰 부르는 방식 설정하고
-		String view = "/member/info/withdrawal";
-		// 로그인 체크
-		HttpSession session = req.getSession();
-		String sid = (String) session.getAttribute("SID");
-		if(sid == null) {
-			// 로그인 안된 경우이므로 로그인 페이지로 보낸다
-			view = "/viseo/member/loginForm.blp";
-			req.setAttribute("isRedirect", true); 
-		}
-		return view;
 		
+		req.setAttribute("isRedirect", true);
+		String view = "/viseo/member/loginForm.blp";
+		HttpSession session = req.getSession();
+		
+		// 로그인 체크
+		String sid = (String) req.getSession().getAttribute("SID");
+		String password = req.getParameter("password");
+
+		if(sid == null) {
+			return "/member/loginForm.blp";
+		}		
+		
+		// 데이터베이스 작업하고 결과받고
+		UpdateDao uDao = new UpdateDao();
+		boolean result = uDao.deleteId(sid, password);
+		
+		if(result) {
+			session.invalidate();
+			req.setAttribute("title", "Good Bye! See u again");
+		} else {
+			req.setAttribute("title", "탈퇴 실패!>_<");
+		}
+		// 뷰 반환하고
+		return view;
 	}
+
 }

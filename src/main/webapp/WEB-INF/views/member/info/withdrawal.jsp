@@ -56,7 +56,7 @@
 
 <div class="row input-center" style="width: 100%">
 	<div style="width: 50%; float:none; margin:0 auto" >
-		<form action="viseo/member/info/withdrawal.blp" method="get" name="frm" id="frm">
+		<form action="/viseo/member/info/DelInfoProc.blp" method="post" name="frm" id="frm">
 				<h5 class="text-primary">회원탈퇴</h5>
 				<hr>
 				<small><em>회원탈퇴를 원하시면 비밀번호를 입력해주세요.</em></small>
