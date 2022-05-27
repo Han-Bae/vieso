@@ -55,16 +55,19 @@
 
 <div class="row input-center" style="width: 100%">
 	<div style="width: 50%; float:none; margin:0 auto" >
-		<h5 class="text-primary">회원탈퇴</h5>
-		<hr>
-		<small><em>회원탈퇴를 원하시면 비밀번호를 입력해주세요.</em></small>
-		
-			<div class="form-group">
-			    <label for="Password1" class="form-label mt-4">비밀번호</label>
-			    <input type="password" class="form-control" id="Password1" placeholder="비밀번호 입력">
-			 </div>
-		<button type="button" class="btn btn-primary">탈퇴하기</button>
+		<form action="viseo/member/info/withdrawal.blp" method="get" name="frm" id="frm">
+				<h5 class="text-primary">회원탈퇴</h5>
+				<hr>
+				<small><em>회원탈퇴를 원하시면 비밀번호를 입력해주세요.</em></small>
+				
+					<div class="form-group">
+					    <label for="Password" class="form-label mt-4">비밀번호</label>
+					    <input type="password" class="form-control" id="Password" name="password" placeholder="비밀번호 입력">
+					 </div>
+				<button type="submit" class="btn btn-primary">탈퇴하기</button>
+				<button  type="button"class="btn btn-primary">취소</button>
+			</form>
+		</div>
 	</div>
-</div>
 </body>
 </html>

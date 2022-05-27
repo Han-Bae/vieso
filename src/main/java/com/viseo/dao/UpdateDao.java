@@ -76,7 +76,7 @@ public class UpdateDao {
 			}
 		
 		// ȸ��Ż�� �����ͺ��̽��۾� ���� ó���Լ�
-			public int delMember(int mno) {
+			public int delMember(String id) {
 				// ����
 				// ��ȯ�� ����
 				int cnt = 0;
@@ -88,7 +88,7 @@ public class UpdateDao {
 				pstmt = db.getPSTMT(con, sql);
 				try{
 					// ���Ǹ�� �ϼ�
-					pstmt.setInt(1, mno);
+					pstmt.setString(1, id);
 					// ���Ǹ�� ������ ����ް�..
 					cnt = pstmt.executeUpdate();
 				} catch(Exception e) {
