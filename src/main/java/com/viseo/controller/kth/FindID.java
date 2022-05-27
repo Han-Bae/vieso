@@ -56,10 +56,12 @@ public class FindID implements BlpInter {
 				System.out.println(myID);
 				new MailSend(mail, myID);
 				
+				// 이메일인증 확인용
+				new MailSend(mail);
 				
 				req.setAttribute("icon", "success");
 				req.setAttribute("title", "사용자 인증 성공!");
-				req.setAttribute("msg", "해당 이메일로 아이디를 전송했습니다.");
+				req.setAttribute("msg", "이메일에서 아이디를 확인해주세요.");
 				req.setAttribute("url", "/viseo/member/loginForm.blp");
 			} catch(Exception e) {
 				e.printStackTrace();

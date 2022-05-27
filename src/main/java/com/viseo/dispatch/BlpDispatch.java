@@ -31,8 +31,10 @@ public class BlpDispatch extends HttpServlet {
 	 
 	 */
 	private HashMap<String, BlpInter> map;	// 실제 요청 내용과 실제 실행할 객체를 입력할 맵
+	private int check_first;
 	
 	public void init(ServletConfig config) throws ServletException {
+		check_first = 0;
 		/*
 		 		할 일)
 		 			최초로 이 서블릿이 시작되면(.blp로 처음 요청이 올 때)
@@ -81,6 +83,12 @@ public class BlpDispatch extends HttpServlet {
 	 		.blp 라는 확장자로 요청이 왔을 때 매번 실행되는 함수
 	 */
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// blp에 대한 첫 접근인데 status가 남아있는 상태
+		if(check_first == 0 && req.getSession().getAttribute("status") != null) {
+				// jsp가 실행하기 전에 남아있는 status삭제
+			req.getSession().removeAttribute("status");
+		}
+		check_first = 1;
 		/*
 		 		이 함수에서는 실제 요청 내용을 분석하고
 		 		실행할 객체(클래스)를 꺼내서 요청을 처리해주면 된다.

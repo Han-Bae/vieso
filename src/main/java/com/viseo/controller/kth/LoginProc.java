@@ -46,6 +46,7 @@ public class LoginProc implements BlpInter {
 			req.setAttribute("title", "로그인 성공!");
 			req.setAttribute("msg", id+"님 어서오세요.");
 			req.setAttribute("url", "/viseo/main.blp");
+			req.getSession().removeAttribute("status");
 		} else {
 			// 로그인 처리하면 안된다.
 			// 정보가 정확하지 않거나 없는 회원이다.

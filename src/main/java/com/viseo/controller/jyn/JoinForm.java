@@ -14,7 +14,6 @@ public class JoinForm implements BlpInter {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String view = "/member/joinForm";
-		System.out.println("모시꺵이");
 		// 세션 검사를 하고
 		HttpSession session = req.getSession();
 		if(session.getAttribute("SID") != null) {
