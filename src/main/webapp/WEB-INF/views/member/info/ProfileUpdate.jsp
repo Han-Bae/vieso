@@ -11,11 +11,11 @@
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
 <script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/viseo/resource/js/menu.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
 <script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 <style>
 	#preview{
-		width: 250px; 
+	width: 250px; 
 	}
 </style>
 
@@ -33,13 +33,13 @@
 		}
 </script> 
 </head>
-<body class="overhidden">
+<body>
 
    <div class="menu">
-      <i class="fa-solid fa-bars menu-btn--white"></i>
+      <i class="fa-solid fa-bars menu-btn menu-btn--white"></i>
       <div class="menu-bar bg-primary">
          <ul>
-            <li class="profileBtn"><i class="fa-solid fa-user-astronaut"></i>Profile</li>
+			<li class="profileBtn"><i class="fa-solid fa-user-astronaut"></i>Profile</li>
 			<li class="settingBtn"><i class="fa-solid fa-gear"></i>Settings</li>
 			<li class="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</li>
          </ul>
@@ -86,10 +86,12 @@
 	<h5 class="text-primary"><b>Profile Edit</b></h5>
 	<hr>
 	
-	<form action="/viseo/src/main/java/com/viseo/controller/hsr/InfoUpdate" method="post" name="frm" id="frm">
+	<form action="/viseo/member/info/ProfileUpdate.blp" method="post" name="frm" id="frm">
+		<input type="hidden" id="tname" value="${DATA.nickname}">
+		
 	 	<div class="form-group">
 		      <label for="nickname" class="form-label mt-4 text-primary"><b>닉네임</b></label>
-		      <input type="text" class="form-control col-8" id="nickname" value="${nickname}">
+		      <input type="text" class="form-control col-8" id="nickname" name="nickname" value="${DATA.nickname}">
 		 </div>
 		  <div class="form-group">
 		      <label for="formFile" class="form-label mt-4 text-primary"><b>profile image select</b></label>

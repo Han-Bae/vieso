@@ -11,7 +11,7 @@
 */
 $(document).ready(function(){
 	
-		// 메뉴 버튼 click 이벤트 추가
+	// 메뉴 버튼 click 이벤트 추가
 	$(".menu-btn").click(function(){
 		const rightPx = $(".menu-bar").css("right");
 		if(rightPx == "-500px"){
@@ -36,5 +36,14 @@ $(document).ready(function(){
 	// 프로필 버튼
 	$(".profileBtn").click(function(){
 		$(location).attr("href", "/viseo/member/info/ProfileUpdate.blp");
+	});
+	
+	
+	// 세팅 버튼
+	
+	
+	// 로그아웃 버튼
+	$(".logoutBtn").click(function(){
+		$(location).attr("href", "/viseo/logout.blp");
 	});
 });

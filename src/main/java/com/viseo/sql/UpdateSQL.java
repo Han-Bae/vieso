@@ -15,6 +15,7 @@ public class UpdateSQL {
 	public final int SEL_MEMBER_INFO 	= 1002;
 	public final int DEL_MEMBER 		= 2001;
 	public final int EDIT_MEMBER 		= 2002;
+	public final int DEL_MEMBER2 		= 2003;
 
 	
 	public String getSQL(int code) {
@@ -31,13 +32,19 @@ public class UpdateSQL {
 			buff.append("	AND id = ? ");
 			break;
 		case DEL_MEMBER:
-			buff.append("UPDATE ");
+			buff.append("DELETE ");
+			buff.append("FROM ");
 			buff.append("	member ");
-			buff.append("SET ");
-			buff.append("	isshow = 'N' ");
 			buff.append("WHERE ");
-			buff.append("	isshow = 'Y' ");
-			buff.append("	AND id = ? ");
+			buff.append("	id = ? ");
+			break;
+		case DEL_MEMBER2:
+			buff.append("SELECT ");
+			buff.append("	pw ");
+			buff.append("FROM ");
+			buff.append("	member ");
+			buff.append("WHERE ");
+			buff.append("	id = ? ");
 			break;
 		case EDIT_MEMBER:
 			buff.append("UPDATE ");
