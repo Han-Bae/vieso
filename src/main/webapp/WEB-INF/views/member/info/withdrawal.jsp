@@ -53,6 +53,7 @@
 
 
 
+
 <div class="row input-center" style="width: 100%">
 	<div style="width: 50%; float:none; margin:0 auto" >
 		<form action="viseo/member/info/withdrawal.blp" method="get" name="frm" id="frm">

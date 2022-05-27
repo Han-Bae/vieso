@@ -40,6 +40,7 @@ public class DelInfo implements BlpInter {
 			return view;
 		}
 		
+		
 		// 파라미터 꺼내고
 		String password = req.getParameter("password");
 		
