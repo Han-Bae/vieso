@@ -26,5 +26,5 @@ public class JoinForm implements BlpInter {
 		// 뷰 부르고
 		return view;
 	}
-
+ 
 }
