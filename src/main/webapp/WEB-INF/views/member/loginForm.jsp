@@ -76,7 +76,9 @@
     	font-size: 0.8rem;		
       }
     .logoBtn{
-    	  float: left; width:60px; height:25px;
+    	  float: left; 
+    	  width: 80px;
+    	  height:40px;
     	  background-image: url(../resource/icon/logo.png);
     	  background-size: cover;
     	  border: 0px;
@@ -97,7 +99,7 @@
     	<%-- 로그인화면  --%>
 		<main class="form-signin">
 			  <form method="post" id="loginFrm" action="/viseo/member/loginProc.blp" class="frm">
-			    <img class="mb-4" src="../resource/icon/logo.png" alt="" width="72" height="57">
+			    <img class="mb-4" src="../resource/icon/logo.png" alt="" style="height:80px; width:auto;">
 			    <div class="form-floating">
 			      <input type="text" name="id" class="form-control" id="id" title="숫자, 대소문자 4~10글자로 입력해주세요."
 			      	pattern="^([A-Za-z0-9]){4,10}$" placeholder="아이디를 입력하세요" required autofocus>
