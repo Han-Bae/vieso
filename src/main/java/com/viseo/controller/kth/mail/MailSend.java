@@ -27,10 +27,10 @@ public class MailSend {
 		sendMail(mail);
 	}
 	// 아이디 확인 메일 전송
-	public MailSend(String mail, String id) {
+	public MailSend(String mail, char[] id) {
 		sendMail(mail, id);
 	}
-	public void sendMail(String mail, String id) {
+	public void sendMail(String mail, char[] id) {
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.port", "587");
@@ -43,11 +43,12 @@ public class MailSend {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication("taehk1011@gmail.com", "mgphcsbdzbpnvgag");
 			}
-		});
-		
+		});		
+		System.out.println(id);
+		String sid = new String(id);
 		String receiver = mail; // 메일 받을 주소
 		String title = "아이디 체크 메일입니다.";
-		String content = "회원님의 아이디는 "+id+"입니다.";
+		String content = "<h1>회원님의 아이디는 "+sid+"입니다.</h1>";
 		Message message = new MimeMessage(session);
 		try {
 			message.setFrom(new InternetAddress("taehk1011@gmail.com", "관리자", "utf-8"));

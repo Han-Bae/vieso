@@ -44,11 +44,19 @@ public class FindID implements BlpInter {
 			try {
 				// 찾은 ID 일부를 *처리하고 전송
 				String id = lDao.findID(mail);
+				System.out.println(id);
 				char[] myID = new char[id.length()];
 				for(int i = 0; i < id.length(); i++) {
-					//myID[i]
+					if(i < (int)((id.length()*(2./3.)))) {
+						myID[i] = id.charAt(i);						
+					}	else {
+						myID[i] = '*';
+					}
 				}
-				new MailSend(mail, id);
+				System.out.println(myID);
+				new MailSend(mail, myID);
+				
+				
 				req.setAttribute("icon", "success");
 				req.setAttribute("title", "사용자 인증 성공!");
 				req.setAttribute("msg", "해당 이메일로 아이디를 전송했습니다.");

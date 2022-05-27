@@ -10,10 +10,15 @@
  */
  
 $(document).ready(function(){
+	// 상태창 보기
 	if($('#status').val() != ''){
 		console.log($('status').val());
 	}
 	
+	// 회원가입 이동
+	$("#join").click(function(){
+		$(location).attr('href','/member/joinForm.blp');
+	});
 	
 	// 쿠키값이 있으면 받아와서 id값으로 설정하고 
 	var userId = getCookie("cookieUserId"); 
