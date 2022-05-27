@@ -150,12 +150,12 @@ public class WeatherUtil {
     	} else if(20 < time && time <= 23) {
     		maVO.setBaseTime("2000");
     		maVO.setBaseDate(getBaseDate(TODAY_DATE));
-    	} else if(23 < time || (0 <= time && time <= 2)) {
+    	} else if(23 < time) {
     		maVO.setBaseTime("2300");
     		maVO.setBaseDate(getBaseDate(TODAY_DATE));
     	} else {
+    		//  0 <= time && time <= 2
     		maVO.setBaseTime("2300");
-
     		maVO.setBaseDate(getBaseDate(YESTERDAY_DATE));
     	}
     	

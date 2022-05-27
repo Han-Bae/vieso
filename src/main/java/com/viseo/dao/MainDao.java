@@ -35,6 +35,7 @@ public class MainDao {
 		maSQL = new MainSQL();
 	}
 	
+	
 	public MainVO getMainDate() {
 		MainVO maVO = new MainVO();
 		
@@ -45,8 +46,8 @@ public class MainDao {
 			rs = stmt.executeQuery(sql);
 			rs.next();
 			maVO.setTodayDate(rs.getString("todaydate"));
-			maVO.setLastdate(rs.getString("lastdate"));
-			maVO.setFirstday(rs.getString("firstday"));
+			maVO.setLastDate(rs.getString("lastdate"));
+			maVO.setFirstDay(rs.getString("firstday"));
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -57,6 +58,7 @@ public class MainDao {
 		
 		return maVO;
 	}
+	
 	
 	public void getUserInfo(MainVO maVO, String id) {
 		con = db.getCon();

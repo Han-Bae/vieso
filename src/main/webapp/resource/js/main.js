@@ -9,8 +9,30 @@
  									내	용 : 이벤트 추가
 */
 $(document).ready(function(){
+	// 1:일, 2:월, 3:화, 4:수, 5:목, 6:금, 7:토
+	const setCalender = function(){
+		const dateNodeList = document.querySelectorAll(".mainDate");
+		20220501
+		let date = Number(lastDate.substring(0, 6) + "01");
+		
+		for(let i = Number(firstDay) - 1 ; i < dateNodeList.length ; i++ ) {
+			const list = dateNodeList[i]
+			list.id = date;
+			list.innerHTML = "<span class='mainDateNumber'>" + String(date).substring(6, 8) + "</span>";
+			
+			date++;
+			
+			if(date > Number(lastDate)){
+				return;
+			}
+			
+		}
+	};
+	
+	setCalender();
+	
 	// 년도/월을 누르면 모달 띄우기
-	$(".mainDate").click(function(){
+	$(".mainCalHeader").click(function(){
 			$(".self-modal").css("z-index", "1");
 	});
 	
@@ -34,7 +56,7 @@ $(document).ready(function(){
 		
 		// 비동기?
 	});
-		
+	
 	// 메뉴 - 로그아웃 버튼 click 이벤트
 	
 	

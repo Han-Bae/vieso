@@ -21,7 +21,7 @@ import java.util.Date;
 public class MainVO {
 	private int x, y, mno, addr, cnt;
 	private long todono;
-	private String baseDate, baseTime, todayDate, lastdate, firstday, year, month, date, time, areaname, city, savename, dir, category;
+	private String baseDate, baseTime, todayDate, lastDate, firstDay, year, month, date, time, areaname, city, savename, dir, category;
 	private Date tododate;
 	private Time todotime;
 	
@@ -79,17 +79,17 @@ public class MainVO {
 	public void setTodayDate(String todayDate) {
 		this.todayDate = todayDate;
 	}
-	public String getLastdate() {
-		return lastdate;
+	public String getLastDate() {
+		return lastDate;
 	}
-	public void setLastdate(String lastdate) {
-		this.lastdate = lastdate;
+	public void setLastDate(String lastDate) {
+		this.lastDate = lastDate;
 	}
-	public String getFirstday() {
-		return firstday;
+	public String getFirstDay() {
+		return firstDay;
 	}
-	public void setFirstday(String firstday) {
-		this.firstday = firstday;
+	public void setFirstDay(String firstDay) {
+		this.firstDay = firstDay;
 	}
 	public String getYear() {
 		return year;

@@ -34,7 +34,7 @@ public class MainSQL {
 			buff.append("	        CONCAT( ");
 			buff.append("	            TO_CHAR(sysdate, 'YYMM'), '01' ");
 			buff.append("	        ), 'YYMMdd' ");
-			buff.append("	    ), 'dy' ");
+			buff.append("	    ), 'd' ");
 			buff.append("	) firstday ");
 			buff.append("FROM ");
 			buff.append("    dual ");

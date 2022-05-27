@@ -23,12 +23,13 @@
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
 <script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
-<script type="text/javascript" src="/viseo/resource/js/menu.js"></script>
 <script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 <style>
 </style>
 <script type="text/javascript">
+	const todayDate = "${maDATA.todayDate}";
+	let lastDate = "${maDATA.lastDate}";
+	const firstDay = "${maDATA.firstDay}";
 </script>
 </head>
 <body class="main-tagbody">	
@@ -52,7 +53,7 @@
 		<div class="main-header">
 			<img src="/viseo/resource/icon/logo.png" width="150px">
 <c:if test="${not empty maDATA}">
-			<div class="mainDate">
+			<div class="mainCalHeader">
 				<div class="main-year"><span class="mainYear">${maDATA.year}</span>/</div>
 				<h1 style="margin: 0px; font-weight: bold; font-size: 50px;" class="mainMonth">${maDATA.month}</h1>
 			</div>
@@ -117,56 +118,56 @@
 						<th>Sat</th>
 					</tr>
 				</thead>
-				<tbody class="main-dates">
+				<tbody class="mainDates">
 					<!-- 1주 -->
 					<tr class="date-row">
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
 					</tr>
 					<!-- 2주 -->
 					<tr class="date-row">
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
 					</tr>
 					<!-- 3주 -->
 					<tr class="date-row">
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
 					</tr>
 					<!-- 4주 -->
 					<tr class="date-row">
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
 					</tr>
 					<!-- 5주 -->
 					<tr class="date-row">
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
-						<td class="border-primary"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -196,5 +197,7 @@
 		<input type="hidden">
 	</form>
 	
+<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/menu.js"></script>
 </body>
 </html>

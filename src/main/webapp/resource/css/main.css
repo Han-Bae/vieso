@@ -22,9 +22,9 @@
 .main-header img {
 	position: absolute;
 	top: 15px;
-	left: 10rem;
+	left: 8vw;
 }
-.mainDate {
+.mainCalHeader {
 	display: flex;
 	cursor: pointer;
 	align-items: center;
@@ -37,8 +37,8 @@
 	display: flex;
 	align-items: center;
 	position: absolute;
-	top: 45px;
-	left: 58rem;
+	top: 30px;
+	left: 65vw;
 }
 .main-weather span {
 	font-weight: bold;
@@ -88,6 +88,7 @@ td {
 	width: 170px;
 	position: relative;
 	cursor: pointer;
+	padding-top: 30px;
 }
 .date-row {
 	height: 120px;
@@ -95,6 +96,12 @@ td {
 td:hover {
 	--bs-table-accent-bg: var(--bs-table-hover-bg);
 		color: var(--bs-table-hover-color);
+}
+.mainDateNumber {
+	position: absolute;
+	top: 2px;
+	left: 10px;
+	font-size: 18px;
 }
 /* 카테고리 */
 .category {
