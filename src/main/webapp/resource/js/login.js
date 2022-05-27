@@ -10,6 +10,16 @@
  */
  
 $(document).ready(function(){
+	// 상태창 보기
+	if($('#status').val() != ''){
+		console.log($('status').val());
+	}
+	
+	// 회원가입 이동
+	$("#join").click(function(){
+		$(location).attr('href','/viseo/member/joinForm.blp');
+	});
+	
 	// 쿠키값이 있으면 받아와서 id값으로 설정하고 
 	var userId = getCookie("cookieUserId"); 
     $("#id").val(userId); 
@@ -55,12 +65,13 @@ $(document).ready(function(){
 	switch (status){
 		case 'refindId':
 			// 아이디찾기 인증 실패시
+			consol.log("아이디찾기 인증 실패");
 			$('#fid').modal();
 			break;
 			// 비밀번호찾기 인증 실패시
 		case 'refindPw':
 			$('#fpw').modal();
-			break;
+			break;	
 			// 비밀번호찾기 인증 성공시
 		case 'refindPw_next':
 			$('#rpwmd').modal();

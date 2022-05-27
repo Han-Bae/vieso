@@ -20,9 +20,9 @@
       <i class="fa-solid fa-bars menu-btn menu-btn--white"></i>
       <div class="menu-bar bg-primary">
          <ul>
-            <li><i class="fa-solid fa-user-astronaut"></i>Profile</li>
-            <li><i class="fa-solid fa-gear"></i>Settings</li>
-            <li><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</li>
+			<li class="profileBtn"><i class="fa-solid fa-user-astronaut"></i>Profile</li>
+			<li class="settingBtn"><i class="fa-solid fa-gear"></i>Settings</li>
+			<li class="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</li>
          </ul>
       </div>
    </div>
@@ -56,7 +56,7 @@
 
 <div class="row input-center" style="width: 100%">
 	<div style="width: 50%; float:none; margin:0 auto" >
-		<form action="viseo/member/info/withdrawal.blp" method="get" name="frm" id="frm">
+		<form action="/viseo/member/info/DelInfoProc.blp" method="post" name="frm" id="frm">
 				<h5 class="text-primary">회원탈퇴</h5>
 				<hr>
 				<small><em>회원탈퇴를 원하시면 비밀번호를 입력해주세요.</em></small>

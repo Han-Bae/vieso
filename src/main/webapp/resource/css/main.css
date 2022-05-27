@@ -21,8 +21,8 @@
 }
 .main-header img {
 	position: absolute;
-	top: 0px;
-	left: 100px;
+	top: 15px;
+	left: 10rem;
 }
 .mainDate {
 	display: flex;
@@ -38,8 +38,7 @@
 	align-items: center;
 	position: absolute;
 	top: 45px;
-	left: 900px;
-	height: 20px;
+	left: 58rem;
 }
 .main-weather span {
 	font-weight: bold;
@@ -48,14 +47,19 @@
 	margin-right: 10px;
 	font-size: 20px;
 }
-.main-weather-tmp,
-.main-weather-loc {
+.main-weather-loc,
+.main-weather-tmp {
 	display: flex;
 	align-items: center;
 	margin-right: 10px;
 }
 .main-weather-loc {
 	font-size: 15px;
+}
+.main-weather-loc > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .main-weather-tmp {
 	font-size: 18px;

@@ -53,8 +53,8 @@ public class MainForm implements BlpInter {
 		maVO.setTime(dateNTime.substring(8, 10));
 		
 		// 캘린더 세팅 데이터 가져오기
+		maDao.getUserInfo(maVO, sessionId);
 		
-
 		// 회원 정보 넘기기
 		
 		// 날짜 정보 넘기기

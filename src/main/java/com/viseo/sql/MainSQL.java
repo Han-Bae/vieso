@@ -40,8 +40,16 @@ public class MainSQL {
 			buff.append("    dual ");
 			break;
 		case SEL_USER_INFO:
-			// +++++++++ 가져올 유저 정보 : 회원 번호, 지역번호, 아바타 경로/저장이름, 스케줄
-			
+			buff.append("SELECT ");
+			buff.append("    m.mno, areano, areaname, city, x, y, dir, savename ");
+			buff.append("FROM ");
+			buff.append("    member m, area ar, avatar av ");
+			buff.append("WHERE ");
+			buff.append("    m.addr = ar.areano ");
+			buff.append("    AND m.mno = av.mno ");
+			buff.append("    AND id = ? ");
+			break;
+		// 스케줄 가져오기
 		}
 		return buff.toString();
 	}

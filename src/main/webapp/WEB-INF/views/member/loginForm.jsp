@@ -120,7 +120,7 @@
 			    	<div class="sub">│</div>
 			    	<button type="button" class="subbtn sub" data-target="#fpw" data-toggle="modal">비밀번호찾기</button>
 			    	<div class="sub">│</div>
-			    	<button type="button" class="subbtn sub">회원가입</button>
+			    	<button type="button" class="subbtn sub" id="join">회원가입</button>
 			    </div>
 			    <button class="w-100 btn btn-lg btn-primary" id="signIn" type="submit">Sign in</button>
 			    <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p> -->

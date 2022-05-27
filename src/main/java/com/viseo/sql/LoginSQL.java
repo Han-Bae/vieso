@@ -14,7 +14,8 @@ package com.viseo.sql;
 public class LoginSQL {
 	public final int SEL_LOGIN_CNT 	= 1001;
 	public final int SEL_FID_CNT 	= 1002;
-	public final int SEL_FPW_CNT 	= 1003;
+	public final int SEL_FID_ID 	= 1003;
+	public final int SEL_FPW_CNT 	= 1004;
 	
 	public final int SEL_ALL 		= 3005;
 
@@ -44,7 +45,17 @@ public class LoginSQL {
 		buff.append("	isshow = 'Y' ");
 		buff.append("	AND name = ? ");
 		buff.append("	AND mail = ? ");
+				break;
+				
+		// 아이디 찾기 질의문
+				case SEL_FID_ID:
+		buff.append("SELECT id ");
+		buff.append("FROM MEMBER ");
+		buff.append("WHERE ");
+		buff.append("	isshow = 'Y' ");
+		buff.append("	AND mail = ? ");
 				break;   
+	
 	
 	 // 비밀번호 찾기 유저 확인 질의문
 				case SEL_FPW_CNT:

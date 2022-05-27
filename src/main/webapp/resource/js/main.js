@@ -34,20 +34,7 @@ $(document).ready(function(){
 		
 		// 비동기?
 	});
-	
-	// 메뉴 버튼 click 이벤트 추가
-	$(".menu-btn").click(function(){
-		const rightPx = $(".menu-bar").css("right");
-		if(rightPx == "-500px"){
-			$(".menu-btn").css("color", "var(--bs-white)");
-			$(".menu-bar").animate({right: "0px"},400);
-		} else {
-			$(".menu-btn").css("color", "var(--bs-blue)");
-			$(".menu-bar").animate({right: "-500px"},400);
-		}
-	});
-	
-	
+		
 	// 메뉴 - 로그아웃 버튼 click 이벤트
 	
 	
