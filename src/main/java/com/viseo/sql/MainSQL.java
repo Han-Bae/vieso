@@ -16,6 +16,9 @@ package com.viseo.sql;
  * 				2022.05.27	-	담당자 : 전다빈
  * 								내	용 : 이번달의 첫날 마지막날 값 가져오는 쿼리문 작성
  * 										 쿼리문 합쳤음
+ * 
+ * 				2022.05.28	-	담당자 : 전다빈
+ * 								내	용 : sysdate를 Timestamp 삽입으로 바꿈
  */
 
 public class MainSQL {
@@ -27,12 +30,12 @@ public class MainSQL {
 		switch(code) {
 		case SEL_DATE:
 			buff.append("SELECT ");
-			buff.append("	TO_CHAR(sysdate, 'YYYYMMddHH24') todaydate, ");
-			buff.append("	TO_CHAR(LAST_DAY(sysdate), 'YYYYMMdd') lastdate, ");
+			buff.append("	TO_CHAR(?, 'YYYYMMddHH24') todaydate, ");
+			buff.append("	TO_CHAR(LAST_DAY(?), 'YYYYMMdd') lastdate, ");
 			buff.append("	TO_CHAR( ");
 			buff.append("	    TO_DATE( ");
 			buff.append("	        CONCAT( ");
-			buff.append("	            TO_CHAR(sysdate, 'YYMM'), '01' ");
+			buff.append("	            TO_CHAR(?, 'YYMM'), '01' ");
 			buff.append("	        ), 'YYMMdd' ");
 			buff.append("	    ), 'd' ");
 			buff.append("	) firstday ");

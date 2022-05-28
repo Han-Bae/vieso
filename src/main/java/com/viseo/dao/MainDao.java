@@ -36,14 +36,18 @@ public class MainDao {
 	}
 	
 	
-	public MainVO getMainDate() {
+	public MainVO getMainDate(Timestamp date) {
 		MainVO maVO = new MainVO();
 		
 		con = db.getCon();
 		String sql = maSQL.getSQL(maSQL.SEL_DATE);
-		stmt = db.getSTMT(con);
+		pstmt = db.getPSTMT(con, sql);
 		try {
-			rs = stmt.executeQuery(sql);
+			pstmt.setTimestamp(1, date);
+			pstmt.setTimestamp(2, date);
+			pstmt.setTimestamp(3, date);
+			
+			rs = pstmt.executeQuery();
 			rs.next();
 			maVO.setTodayDate(rs.getString("todaydate"));
 			maVO.setLastDate(rs.getString("lastdate"));

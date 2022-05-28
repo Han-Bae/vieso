@@ -14,10 +14,12 @@ package com.viseo.controller.jdb;
  * 								내	용 : WeatherUtil 연결
  * 
  * 				2022.05.27	-	담당자 : 전다빈
- * 								내	용 : WeatherUtil 연결
+ * 								내	용 : 캘린더 세팅
  */
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +45,10 @@ public class MainForm implements BlpInter {
 		
 		// 날짜랑 시간 데이터 가져오기
 		MainDao maDao = new MainDao();
-		MainVO maVO = maDao.getMainDate();
+		
+		LocalDateTime today = LocalDateTime.now();
+		Timestamp tsToday = Timestamp.valueOf(today);
+		MainVO maVO = maDao.getMainDate(tsToday);
 		String dateNTime = maVO.getTodayDate();
 
 		// 여기서는 다 현재 날짜, 시간
@@ -55,7 +60,7 @@ public class MainForm implements BlpInter {
 		// 캘린더 세팅 데이터 가져오기
 		maDao.getUserInfo(maVO, sessionId);
 		
-		// 회원 정보 넘기기
+		// 회원 정보 넘기기 - 이번에 안함
 		
 		// 날짜 정보 넘기기
 		WeatherUtil wUtil = new WeatherUtil();

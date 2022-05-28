@@ -15,18 +15,31 @@ $(document).ready(function(){
 		20220501
 		let date = Number(lastDate.substring(0, 6) + "01");
 		
-		for(let i = Number(firstDay) - 1 ; i < dateNodeList.length ; i++ ) {
+		for(let i = 0 ; i < dateNodeList.length ; i++ ) {
 			const list = dateNodeList[i]
+			
+			// Number(firstDay) - 1 보다 인덱스가 작으면
+			if(i < Number(firstDay) - 1){
+				list.innerHTML = "<span class='mainDateNumber'></span>";
+				date++;
+				continue;
+				
+				
+			// 이번 달의 마지막 날이 35번째 칸이 아닐 때
+			} else if(date > Number(lastDate)){
+				list.innerHTML = "<span class='mainDateNumber'></span>";
+				date++;
+				continue;
+			}	
+			
+			
 			list.id = date;
 			list.innerHTML = "<span class='mainDateNumber'>" + String(date).substring(6, 8) + "</span>";
-			
 			date++;
 			
-			if(date > Number(lastDate)){
-				return;
-			}
-			
 		}
+		
+		$("td:first-child span:first-child").css("color", "#ff0039");
 	};
 	
 	setCalender();
@@ -54,11 +67,8 @@ $(document).ready(function(){
 		$(".mainMonth").text(month);
 		$(".self-modal").css("z-index", "-1");
 		
-		// 비동기?
+		// 비동기로 달력 날짜 변경
 	});
-	
-	// 메뉴 - 로그아웃 버튼 click 이벤트
-	
 	
 	// check box change 이벤트 추가
 	// 비동기로 데이터 받아올 것
