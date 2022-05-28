@@ -35,6 +35,10 @@ public class ProfileUpdate implements BlpInter {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
+		
 		String view = "/member/info/ProfileUpdate";
 		// 로그인 체크
 		
@@ -49,8 +53,6 @@ public class ProfileUpdate implements BlpInter {
 		  // 데이터베이스에서 내정보 꺼내오고 
 		  UpdateDao uDAO = new UpdateDao(); 
 		  UpdateVO fVO = uDAO.getIdInfo(sid); 
-		  
-		  //  UpdateVO fVO = uDAO.getProfile(sid); 
 		 
 		  // 데이터 심고 
 		  req.setAttribute("DATA", fVO);

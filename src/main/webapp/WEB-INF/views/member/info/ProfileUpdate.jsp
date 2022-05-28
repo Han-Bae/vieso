@@ -69,16 +69,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="profile">
-
-<%--     <c:if test="${not empty sessionScope.principal}">
-				<li class="nav-item">
-					<a href="/blog/user?cmd=profileUpload">
-					<img style = "border-radius:50%;" onerror="this.src ='/blog/image/userProfile.png'" 
-					src="${sessionScope.principal.userProfile}"  width="40px" height="40px" />
-					</a>
-				</li>
-				</c:if>
- --%>
+    
     
       <ul class="navbar-nav me-auto">
         <li class="nav-item">

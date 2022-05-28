@@ -22,7 +22,6 @@
 	<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/menu.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/edit.js"></script>
-	<script type="text/javascript" src="/viseo/resource/js/join.js"></script>
 	<script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 <style type="text/css">
 /* 	#repwmsg {
@@ -166,13 +165,13 @@
 	    
 		<div class="form-group">
           	<label for="bir" class="form-label mt-4 text-muted"><h6>Birth</h6></label>
-                <select class="form-select" name="yy" id="year">
+                <select class="form-select watchBirth" name="yy" id="year">
 			    </select><small class="form-text text-muted">태어난 년도를 선택해 주세요.</small>
-			    <select class="form-select" name="mm" id="month">
+			    <select class="form-select watchBirth" name="mm" id="month">
 			    </select><small class="form-text text-muted">태어난 월을 선택해 주세요.</small>
-			    <select class="form-select" name="dd" id="day">
+			    <select class="form-select watchBirth" name="dd" id="day">
 			    </select><small class="form-text text-muted">태어난 일을 선택해 주세요.</small>
-			    <input type="hidden" name="birth" id="birth">    	
+			    <input type="hidden" name="birth" id="birth" value="${DATA.birth}">    	
 		</div>       
 
 	    

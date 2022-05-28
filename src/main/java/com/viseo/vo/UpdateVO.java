@@ -6,7 +6,7 @@ import java.text.*;
 
 public class UpdateVO {
 	private int mno;
-	private String name, id, pw, mail, addr, gen, nickname, tel, birth,areaname, city;
+	private String name, id, pw, mail, addr, gen, nickname, tel, birth, areaname, city;
 	private Date joindate;
 	public int getMno() {
 		return mno;

@@ -13,17 +13,16 @@
  									내	용 : 지역 데이터 받아오기 ajax 추가
 */
 
- 
    var contentFull = true;
    /*select option 날짜 생성 함수*/
    $(document).ready(function(){            
-
+	
     var now = new Date();
     var year = now.getFullYear();
     var mon = (now.getMonth() + 1) > 9 ? ''+(now.getMonth() + 1) : '0'+(now.getMonth() + 1); 
     var day = (now.getDate()) > 9 ? ''+(now.getDate()) : '0'+(now.getDate());           
 
-    //년도 selectbox만들기               
+    //년도 selectbox만들기
     for(var i = 1900 ; i <= year ; i++) {
         $('#year').append('<option value="' + i + '">' + i + '년</option>');    
     }
@@ -39,17 +38,11 @@
         var dd = i > 9 ? i : "0"+i ;            
         $('#day').append('<option value="' + dd + '">' + dd+ '일</option>');    
     }
-    $("#year  > option[value="+year+"]").attr("selected", "true");        
-    $("#month  > option[value="+mon+"]").attr("selected", "true");    
-    $("#day  > option[value="+day+"]").attr("selected", "true");       
- 	
-/*마지막 주석*/
 });
 
 
 // 비밀번호 정규식
-// $(function(){
-$(document).ready(function(){   debugger;
+$(function(){
 		$('#pw-text1').css('display', 'none');
 		$('#Password1').keyup(function(){
 		var Password1 = $('#Password1').val();
@@ -62,9 +55,6 @@ $(document).ready(function(){   debugger;
 		 }else if(Password1.search(/\s/) != -1){
 			$('#pw-text1').html('*** 비밀번호를 공백 없이 입력해주세요. ***').css('color', 'gray');
 			$('#pw-text1').css('display', 'block');
-		/* }else if(!passwordRule.test($("input[id='password1']").val())){
-			$('#pw-text1').html('*** 숫자, 대소문자, 특문을 포함한 6~15자로 입력해주세요. ***').css('color', 'gray');
-			$('#pw-text1').css('display', 'block');*/
 		 }else{
 			$('#pw-text1').css('display', 'none');
 		}
@@ -96,7 +86,7 @@ $(function(){
 		$('#mail').keyup(function() {
 			var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 			
-			if(!emailRule.test($("input[id='email']").val())) {            
+			if(!emailRule.test($("#mail").val())) {            
 				 	$('#email_check').css('color', 'gray').text("형식에 맞춰 입력해주세요.");
 					$('#email_check').css('display', 'block');
 		 	} else {
@@ -134,7 +124,7 @@ $(function(){
 		}
 	});
 
-	 // 지역 선택 이벤트 처리
+	// 지역 선택 이벤트 처리
    $('#aname').change(function(){
 		var sname = $(this).val();
 		getCitylist(sname); 
@@ -146,11 +136,37 @@ $(function(){
 		$("#hiddenAddrNo").val(cityName);
 	});
 	
-	getcityView();
+	$('.watchBirth').change(function(){
+		birthBinding();
+	});
+	
+	//최초 로딩할때 시티 셋팅
+	getCityView();
+	
+	//최초 로딩할때 생일 셋팅
+	birthSet();
 });
 
+function birthBinding(){
+	  var yyyy = $('#year').val();
+      var mm = $('#month').val();
+      var dd = $('#day').val();
+      $('#birth').val(""+yyyy + mm + dd);
+      var birth = $("#birth").val();
+}
 
-function getCitylist(sname){
+function birthSet(){
+    var birth = $("#birth").val();
+    var yyyy = birth.substring(0, 4);
+     $("#year  > option[value="+yyyy+"]").attr("selected", "true"); 
+    var mm = birth.substring(4, 6);
+    $("#month  > option[value="+mm+"]").attr("selected", "true"); 
+    var dd = birth.substring(6, 8);
+    $("#day  > option[value="+dd+"]").attr("selected", "true"); 
+}
+
+
+function getCitylist(sname){	
 		$.ajax({
 			url: '/viseo/member/cityList.blp',
 			type: 'POST',
@@ -168,22 +184,21 @@ function getCitylist(sname){
 					console.log(stag);
 					$('#city').append(stag);
 				}
-			    
-			    //
+
 				$('#city').css('display', 'inline');
 				$('#citymsg').css('display', 'inline');
 			}
 		});
 }
 
-function getcityView(){
+
+function getCityView(){
 	var addrNo = $("#hiddenAddrNo").val();
 	var sname = $("#hiddenAreaName").val();
 
 	getCitylist(sname); 
 	
 	$.each($('#city').find('option'),function(i,data) {
-		console.log(data);
 		if(addrNo == $(data).val()) {
 			$(data).prop("selected", true);
 		}
