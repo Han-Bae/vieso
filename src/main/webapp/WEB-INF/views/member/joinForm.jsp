@@ -53,6 +53,7 @@
 					  	</div>
 						  <span id="idmsg" class="form-text text-muted"></span>
  				</div> 
+ 				
 				<!-- 비밀번호 -->
 				<div class="form-group">
 					 <label for="pw" class="form-label mt-4">비밀번호</label>
@@ -60,17 +61,31 @@
 					 <small id="pwHelp" class="form-text text-muted">숫자, 대소문자, 특문을 포함한 6~15자로 입력해주세요.</small>
 					 <span id="pwmsg" class="form-text text-muted"></span>
 				</div>
+				
 				<!-- 비밀번호 체크  -->
 				<div class="form-group">
 					 <label for="repw" class="form-label mt-4">비밀번호 확인</label>
 					 <input type="password" class="form-control col-50" id="repw" placeholder="Passward check">
 					 <span id="repwmsg" class="form-text text-muted"></span>
 				</div>
+				
 				<!-- 주소 -->
 				<div class="form-group">
-					 <label for="address" class="form-label mt-4">주소</label>
-					 <input type="text" class="form-control col-50" id="addr" name="addr" placeholder="Enter address">
+					 <label for="aname" class="form-label mt-4">주소</label>
+					<select class="form-select" id="aname">
+						<option>지역 선택</option>
+<c:forEach var="loc" items="${LIST}">
+						<option value="${loc}">${loc}</option>
+</c:forEach>
+					</select>
+						<small class="form-text text-muted">area name</small>
+					
+					<select class="form-select" id="city" name="addr" style="display: none;">
+						<option>도시 선택</option>						
+					</select>
+						<small id="citymsg" class="form-text text-muted" style="display: none;">city name</small>
 				</div>
+				
 				<!-- 성별 -->
 				<div class="form-group" id="gen">
 			    <!-- <fieldset class="form-group"> -->
@@ -88,21 +103,16 @@
 				        </label>
 				      </div>
 		  		</div>
-				<!-- 프로필 파일 -->
+		  		
+				<!-- 프로필 파일 : 기능 추후에 추가 -->
+<!-- 				
 		        <div class="form-group">
 		            <label for="formFile" class="form-label mt-4">프로필 이미지 선택</label>
 		            <input class="form-control col-50" type="file" id="formFile" onchange="readURL(this);"> 
 		           <img id="preview" />
 		       </div>
-<!-- 		       닉네임 체크박스 확인용
-   				<div class="form-group">
-				 <label for="id" class="form-label mt-4">아이디</label>
-				 	<div class="input-group mb-4">
-				 	<input type="text" class="form-control col-50" id="id" name="id" placeholder="Enter id">
-					  <button class="btn btn-primary" type="button" id="idck">확인</button>
-				  	</div>
-					  <span id="idmsg" class="form-text text-muted"></span>
-				</div>  -->
+		        -->
+		       
 				<!-- 닉네임 -->
 				<div class="form-group">
 					 <label for="nickname" class="form-label mt-4">닉네임</label>
@@ -112,22 +122,25 @@
 					  	</div>
 						  <span id="nicknamemsg" class="form-text text-muted"></span>						  
 					  </div>
+					  
 				<!-- 전화번호 -->
 				<div class="form-group">
 					 <label for="tel" class="form-label mt-4">전화번호</label>
 					 <input type="text" class="form-control col-50" id="tel" name="tel" placeholder="Enter tel number">
 				</div>
+				
 				<!-- 생일 -->
 				<div class="form-group">
 			         <label for="bir" class="form-label mt-4">생년월일</label>
 			           <select class="form-select" name="yy" id="year">
-			           </select><small class="form-text text-muted">태어난 년도를 선택해 주세요.</small>
+			           </select><small class="form-text text-muted">birth year</small>
 			           <select class="form-select" name="mm" id="month">
-			           </select><small class="form-text text-muted">태어난 월을 선택해 주세요.</small>
+			           </select><small class="form-text text-muted">the month of birth</small>
 			           <select class="form-select" name="dd" id="day">
-			           </select><small class="form-text text-muted">태어난 일을 선택해 주세요.</small>
+			           </select><small class="form-text text-muted">the date of birth</small>
 			           <input type="hidden" name="birth" id="birth">
-	            </div>	         
+	            </div>	    
+	                 
 				<!-- 이메일 -->
 				<div class="form-group">
 					<label for="mail" class="form-label mt-4">이메일</label>
@@ -135,16 +148,18 @@
 						<input type="text" class="form-control col-50" id="mail" name="mail" placeholder="Enter email">
 						 <button class="btn btn-primary" type="button" id="mailck">인증</button>
 						 <span id="remailmsg" class="form-text text-muted"></span>
+					</div>
 				</div>
+				
+				<!-- 가입 버튼 -->
 				<div class="content">
 				<button type="submit" class="btn btn-primary btn-lg" id="jbtn">가입하기</button>
 				</div>
-					</div>
+				
 			</form>
 			<br></br>
-		<!-- 버튼 태그 -->
-	 </div>
-	<!-- 가운데정렬 -->
-	</div>
+			
+	<!-- 가운데정렬 태그 끝 -->
+	</div></div>
 </body>
 </html>

@@ -20,12 +20,10 @@ import com.viseo.vo.*;
  */
 
 public class JoinDao {
-/*
- 	이 클래스는 이 클래스가 new 된 순간 데이터베이스 작업을 할 준비가
- 	되어 있어야 한다.
- */
+
 	private BlpDBCP db;
 	private Connection con;
+	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
@@ -36,11 +34,11 @@ public class JoinDao {
 		jSQL = new JoinSQL();
 	}
 
+	
 	// 회원 가입 데이터베이스 작업 전담 처리함수
 	public int addMember(JoinVO jVO) {
 		// 반환값 변수
 		int cnt = 0;
-		// 할일
 		// 커넥션
 		con = db.getCon();
 		// 질의명령
@@ -48,7 +46,7 @@ public class JoinDao {
 		// 명령전달도구
 		pstmt = db.getPSTMT(con, sql);
 		try {
-			// 질의명령 완성하고
+			// 질의명령 완성
 			pstmt.setString(1, jVO.getName());
 			pstmt.setString(2, jVO.getId());
 			pstmt.setString(3, jVO.getPw());
@@ -59,19 +57,19 @@ public class JoinDao {
 			pstmt.setString(8, jVO.getTel());
 			pstmt.setString(9, jVO.getBirth());
 			
-			// 질의명령 보내고 결과받고
+			// 질의명령 보내고 결과받기
 			cnt = pstmt.executeUpdate();
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			db.close(pstmt);
-			db.close(con);
-		}
-		
-		return cnt;
-		}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close(pstmt);
+				db.close(con);
+			}			
+			return cnt;
+			}
 
-	// 아이디 카운트 조회 전담 처리함수
+	
+	// 아이디 중복 체크 전담 처리함수
 	public int getIdCount(String id) {
 		// 반환값 변수
 		int cnt = 0;
@@ -91,18 +89,19 @@ public class JoinDao {
 			
 			// 데이터꺼내서 변수에 담고
 			cnt = rs.getInt("cnt");
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			db.close(rs);
-			db.close(pstmt);
-			db.close(con);
-		}
-		// 데이터 반환하고
-		return cnt;
-		}
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close(rs);
+				db.close(pstmt);
+				db.close(con);
+			}
+			// 데이터 반환하고
+			return cnt;
+			}
+
 	
-	// 닉네임 카운트 조회 전담 처리함수
+	// 닉네임 중복 체크 전담 처리함수
 	public int getNcnameCount(String nickname) {
 		// 반환값 변수
 		int cnt = 0;
@@ -131,6 +130,67 @@ public class JoinDao {
 		}
 		// 데이터 반환하고
 		return cnt;
-		}
-	
 	}
+	
+	// 지역 이름 조회 전담 처리함수
+	public ArrayList<String> getAreaName() {
+		ArrayList<String> list = new ArrayList<String>();
+		
+		// 커넥션 연결
+		con = db.getCon();
+		String sql = jSQL.getSQL(jSQL.SEL_AREA_NAME);
+		stmt = db.getSTMT(con);
+		
+		try {
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				list.add(rs.getString("areaname"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		
+		return list;
+	}
+	
+	// 지역 도시 조회 전담 처리함수
+	// area 테이블의 areano에 따른 city 조회
+	public ArrayList<JoinVO> getCityList(String areaname){
+		ArrayList<JoinVO> list = new ArrayList<JoinVO>();
+		
+		// 커넥션 연결
+		con = db.getCon();
+		String sql = jSQL.getSQL(jSQL.SEL_AREA_CITY);
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			// areaname을 파라미터로
+			pstmt.setString(1, areaname);
+			
+			rs = pstmt.executeQuery();
+			
+			// 반복문으로 배열에 값 넣기
+			while(rs.next()) {
+				JoinVO jVO = new JoinVO();
+				
+				jVO.setAddr(rs.getInt("areano"));
+				jVO.setCity(rs.getString("city"));
+				
+				list.add(jVO);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return list;
+	}
+}

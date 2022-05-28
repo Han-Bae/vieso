@@ -9,6 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.viseo.controller.BlpInter;
 import com.viseo.dao.JoinDao;
 
+/**
+ * 
+ * @author  정유나
+ * @since	2022.05.26
+ * @version	v.1.0
+ * 
+ * 			작업이력	]
+ * 				2022.05.26	-	담당자 : 정유나
+ * 								내	용 : 닉네임 중복 체크
+ * 										 이 함수는 비동기통신에서 요청한 json 문서를 만들어서 반환해준다.								 					
+ *
+ **/
+
 public class NicknameCheck implements BlpInter {
 
 	@Override
@@ -17,15 +30,7 @@ public class NicknameCheck implements BlpInter {
 		req.setAttribute("isRedirect", null);
 		
 		StringBuffer buff = new StringBuffer();
-		/*
-			이 함수에서의 작업은 
-			비동기통신에서 요청한 json 문서를 만들어서 반환해주면 된다.
-			이때 json 문서를 만드는 것이 아니고
-			json 형식의 문자열을 만들어서 반환해주면
-			그 문자열을 디스패치 컨트롤러에서 문서로 만드는 작업을 하게된다.
-		 */
-		
-		// 할일
+
 		// 파라미터 꺼내고
 		String nickname = req.getParameter("nickname");
 		// 데이터베이스에 문의하고
@@ -37,16 +42,17 @@ public class NicknameCheck implements BlpInter {
 		buff.append("{");
 		buff.append("\"result\" : \"");
 		if(cnt == 0) {
-			// 사용가능한 아이디인 경우
+			// 사용가능한 닉네임인 경우
 			buff.append("OK");
-		} else {
-			// 사용불가능한 아이디인 경우
-			buff.append("NO");
+			} else {
+				// 사용불가능한 닉네임인 경우
+				buff.append("NO");
+				}
+				buff.append("\"");
+				buff.append("}");
+				
+				// 응답문서내용 반환
+				return buff.toString();
 		}
-		buff.append("\"");
-		buff.append("}");
-		// 응답문서내용 반환하고
-		return buff.toString();
-	}
 
 }

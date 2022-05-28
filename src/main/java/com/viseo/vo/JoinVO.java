@@ -18,7 +18,7 @@ import java.util.Date;
 
 public class JoinVO {
    private int mno, addr, cnt;
-   private String name, id, pw, mail, gen, nickname, tel, birth, jdate;
+   private String name, id, pw, mail, city, gen, nickname, tel, birth, jdate;
    private Date joindate;
    public int getMno() {
       return mno;
@@ -62,7 +62,19 @@ public class JoinVO {
    public void setMail(String mail) {
       this.mail = mail;
    }
-   public String getGen() {
+   public String getCity() {
+	return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public void setJdate(String jdate) {
+		this.jdate = jdate;
+	}
+	public void setJoindate(Date joindate) {
+		this.joindate = joindate;
+	}
+	public String getGen() {
       return gen;
    }
    public void setGen(String gen) {

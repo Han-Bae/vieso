@@ -10,6 +10,18 @@ import com.viseo.controller.BlpInter;
 import com.viseo.dao.JoinDao;
 import com.viseo.vo.JoinVO;
 
+/**
+ * 
+ * @author  정유나
+ * @since	2022.05.26
+ * @version	v.1.0
+ * 
+ * 			작업이력	]
+ * 				2022.05.26	-	담당자 : 정유나
+ * 								내	용 : 회원가입 Proc
+ *
+ */
+
 public class JoinProc implements BlpInter {
 
 	@Override
@@ -31,6 +43,7 @@ public class JoinProc implements BlpInter {
 		String birth = req.getParameter("birth");
 		String ano = req.getParameter("addr");
 		int addr = Integer.parseInt(ano);
+		
 		// vo에 담고
 		JoinVO jVO = new JoinVO();
 		jVO.setName(name);
@@ -42,16 +55,17 @@ public class JoinProc implements BlpInter {
 		jVO.setTel(tel);
 		jVO.setBirth(birth);
 		jVO.setAddr(addr);
-		// 데이터베이스 작업하고
+		
+		// 데이터베이스 작업
 		JoinDao jDao = new JoinDao();
 		int cnt = jDao.addMember(jVO);
-		// 결과값에 따라 처리하고
+		// 결과값에 따라 처리
 		if(cnt != 1) {
 			view = "/viseo/member/joinForm.blp";
-		} else {
-			// 로그인 처리
-			req.getSession().setAttribute("SID", id);
-		}
+			} else {
+				// 로그인 처리
+				req.getSession().setAttribute("SID", id);
+				}
 		
 		return view;
 	}
