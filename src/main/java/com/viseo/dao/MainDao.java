@@ -1,10 +1,11 @@
 package com.viseo.dao;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 import com.viseo.db.BlpDBCP;
 import com.viseo.sql.MainSQL;
-import com.viseo.vo.MainVO;
+import com.viseo.vo.*;
 
 /**
  * 
@@ -17,7 +18,10 @@ import com.viseo.vo.MainVO;
  * 								내	용 : 클래스 제작
  * 
  * 				2022.05.27	-	담당자 : 전다빈
- * 								내	용 : 쿼리문 변경으로 함수 합침
+ * 								내	용 : 쿼리문 변경으로 매소드 합침
+ * 
+ * 				2022.05.28	-	담당자 : 전다빈
+ * 								내	용 : 캘린더 세팅 매소드, 스케줄 세팅 매소드
  */
 
 
@@ -88,4 +92,30 @@ public class MainDao {
 			db.close(con);
 		}
 	}
+	
+	public MainVO getTodoCnt(String id, String date) {
+		MainVO maVO = new MainVO();
+		
+		con = db.getCon();
+		String sql = maSQL.getSQL(maSQL.SEL_CATEGORY_CNT);
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, date);
+			rs = pstmt.executeQuery();
+			rs.next();
+			maVO.setCnt(rs.getInt("cnt"));
+			maVO.setCategory(rs.getString("category"));
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return maVO;
+	}
+	
 }

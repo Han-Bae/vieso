@@ -17,6 +17,8 @@
 $(document).ready(function(){
 	// 1:일, 2:월, 3:화, 4:수, 5:목, 6:금, 7:토
 	const setCalender = function(){
+		
+		// 달력 일 세팅
 		const dateNodeList = document.querySelectorAll(".mainDate");
 		let date = Number(lastDate.substring(0, 6) + "01");
 		
@@ -43,6 +45,26 @@ $(document).ready(function(){
 		}
 		
 		$("td:first-child span:first-child").css("color", "#ff0039");
+		$("#" + todayDate).css("background-color", "#d4e6f9");
+		
+		
+		// 달력 스케줄 세팅
+		$.ajax({
+			url: "/viseo/setTodo.blp",
+			type: "post",
+			dataType: "json",
+			data: {
+				id: "sessionId",
+				today: todyDate,
+				lastday: lastDate
+			},
+			success: function(data){
+				
+			},
+			error: function(){
+				alert("### 통신에러 ###");
+			}
+		});
 	};
 	
 	setCalender();
@@ -80,6 +102,8 @@ $(document).ready(function(){
 				changeValue: $("#dateInput").val()
 			},
 			success: function(data){
+				
+				// 달력 채우기
 				const dateNodeList = document.querySelectorAll(".mainDate");
 				Array.from(dateNodeList).forEach(function(item){
 					item.removeAttribute("id");
@@ -108,11 +132,15 @@ $(document).ready(function(){
 					date++;
 					
 				}
+				
+				$("td:first-child span:first-child").css("color", "#ff0039");
 			},
 			error: function(){
 				alert("### 통신 에러 ###");
 			}
 		});
+		
+		// 스케줄 가져와서 채우기
 		
 	});
 	
