@@ -1,0 +1,50 @@
+# Viseo Project 요청 설계	
+	
+	* 회원가입 관련 요청 처리 - 담당 : 정유나
+	---------------------------
+	# 회원가입 폼보기 요청
+		요청 내용	:	/viseo/member/joinForm.blp
+		파라미터	:	무
+		컨트롤러	:	com.viseo.controller.jyn.JoininForm
+		뷰			:	/WEB-INF/views/member/joinForm.jsp
+		기타		:	로그인 된 경우 ]
+							redirect : /viseo/main.blp
+	---------------------------
+	---------------------------
+	# 아이디 중복확인 체크 요청
+		요청 내용	:	/viseo/member/idCheck.blp
+		파라미터	:	id
+		컨트롤러	:	com.viseo.controller.jyn.IdCheck
+		뷰			:	json
+	---------------------------	
+	---------------------------
+	# 닉네임 중복확인 체크 요청
+		요청 내용	:	/viseo/member/FindID.blp
+		파라미터	:	nickname
+		컨트롤러	:	com.viseo.controller.jyn.NicknameCheck
+		뷰			:	json
+	---------------------------
+	---------------------------
+	# 주소 CITY 선택 옵션
+		요청 내용	:	/viseo/member/gettAddr.blp
+		파라미터	:	addr
+		컨트롤러	:	com.viseo.controller.jyn.GetAddr
+		뷰			:	json	
+	---------------------------	
+	---------------------------
+	# 이메일 중복확인 체크 요청
+		요청 내용	:	/viseo/member/FindID.blp
+		파라미터	:	nickname
+		컨트롤러	:	com.viseo.controller.jyn.NicknameCheck
+		뷰			:	json
+	---------------------------
+	---------------------------	
+	# 회원가입 처리 요청 
+		요청내용	: 	/viseo/member/joinProc.blp
+		파라미터	:	name, id, pw, mail, gen, nickname, tel, birth, ano, addr
+		컨트롤러	: 	com.viseo.controller.jyn.JoinProc
+		뷰			:	
+				 		redirect ]
+							성공 : /viseo/main.blp
+							실패 : /viseo/member/joinForm.blp
+	---------------------------
