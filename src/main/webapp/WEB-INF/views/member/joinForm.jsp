@@ -51,6 +51,7 @@
 					 	<input type="text" class="form-control col-50" id="id" name="id" placeholder="Enter id">
 						  <button class="btn btn-primary" type="button" id="idck">확인</button>
 					  	</div>
+						  <span id="idckmsg" class="form-text text-muted"></span>
 						  <span id="idmsg" class="form-text text-muted"></span>
  				</div> 
  				
@@ -146,12 +147,17 @@
 					<label for="mail" class="form-label mt-4">이메일</label>
 						<div class="input-group mb-4">
 						<input type="text" class="form-control col-50" id="mail" name="mail" placeholder="Enter email">
-						 <button class="btn btn-primary" type="button" id="mailck">인증</button>
-						 <span id="remailmsg" class="form-text text-muted"></span>
+						 <button class="btn btn-primary" type="button" id="mailck">확인</button>
+					</div>
+						 <span id="mailckmsg" class="form-text text-muted"></span>
+						 
+					<!-- 인증 버튼 이벤트 -->
+					<div class="content">
+					<button type="submit" class="btn btn-primary btn-lg" id="mbtn">메일인증</button>
 					</div>
 				</div>
 				
-				<!-- 가입 버튼 -->
+				<!-- 버튼 이벤트 -->
 				<div class="content">
 				<button type="submit" class="btn btn-primary btn-lg" id="jbtn">가입하기</button>
 				</div>

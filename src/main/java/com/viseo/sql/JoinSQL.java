@@ -15,6 +15,7 @@ package com.viseo.sql;
 public class JoinSQL {
 	public final int SEL_ID_CNT	= 1005;
 	public final int SEL_NCNAME_CNT	= 1006;
+	public final int SEL_MAIL_CNT	= 1007;
 	
 	public final int ADD_MEMBER = 3001;
 
@@ -52,17 +53,15 @@ public class JoinSQL {
 			buff.append("WHERE ");
 			buff.append("	nickname = ? ");
 			break;		
-		// 지역 데이터 불러오기
-		case SEL_AREA_INFO:
+			// 메일 중복 체크
+		case SEL_MAIL_CNT:
 			buff.append("SELECT ");
 			buff.append("	COUNT(*) cnt ");
-/*			buff.append("	areano, areaname, city, x, y ");*/
 			buff.append("FROM ");
-			buff.append("	area ");
+			buff.append("	member ");
 			buff.append("WHERE ");
-			buff.append("	?, ?, ?, ?, ? ");
-			buff.append(") ");
-			break;
+			buff.append("	mail = ? ");
+			break;		
 		case SEL_AREA_NAME:
 			buff.append("SELECT ");
 			buff.append("	DISTINCT areaname ");

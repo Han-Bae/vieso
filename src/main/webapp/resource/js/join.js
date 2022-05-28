@@ -75,11 +75,11 @@
             if(result == 'OK'){
                // 입력한 아이디가 사용가능한 경우
                $('#idckmsg').html('사용 가능한 아이디입니다.');
-               $('#idckmsg').addClass('w3-text-green');
+               $('#idckmsg').addClass('from-text text-green');
             } else {
                // 입력한 아이디가 사용불가능한 경우
                $('#idckmsg').html('사용 불가능한 아이디입니다.');
-               $('#idckmsg').addClass('w3-text-red');
+               $('#idckmsg').addClass('from-text text-red');
             }
             $('#idckmsg').css('display', 'block');
             
@@ -193,6 +193,49 @@
 			}
 		});
 	});
+	
+   // 이메일 체크 버튼 클릭이벤트(중복 검사)
+   $('#mailck').click(function(){
+      // 할일
+      // 입력한 아이디 꺼내오고
+      var smail = $('#mail').val();
+      
+      if(!smail){
+         // 입력내용이 없는 경우
+         $('#mail').focus();
+         alert('이메일을 입력하세요.');
+         return;
+      }
+      // 전달해서 사용가능 유무 판단하고
+      $.ajax({
+         url: '/viseo/member/mailCheck.blp',
+         type: 'post',
+         dataType: 'json',
+         data: {
+            mail: smail
+         },
+         success: function(data){
+            var result = data.result;
+            $('#mailckmsg').removeClass('w3-text-green w3-text-red');
+            
+            // 뷰에 보여주고
+            if(result == 'OK'){
+               // 입력한 아이디가 사용가능한 경우
+               $('#mailckmsg').html('사용 가능한 이메일입니다.');
+               $('#mailckmsg').addClass('from-text text-green');
+            } else {
+               // 입력한 아이디가 사용불가능한 경우
+               $('#mailckmsg').html('사용 불가능한 이메일입니다.');
+               $('#mailckmsg').addClass('from-text text-red');
+            }
+            $('#mailckmsg').css('display', 'block');
+            
+         },
+         error: function(){
+            alert('통신 에러');
+         }
+      });      
+   });
    
    
    
