@@ -16,6 +16,8 @@ public class SetTodo implements BlpInter {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("isRedirect", null);
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
 		
 		StringBuffer buff = new StringBuffer();
 		
@@ -36,9 +38,10 @@ public class SetTodo implements BlpInter {
 		// 없으면 null 처리 해야함
 		ArrayList<String> list = maDao.getTododate();
 		int listSize = list.size();
-		System.out.println(listSize);
 		int count = 1;
 		
+		// 여러개라서 배열 안에 안넣으면 에러난다
+		buff.append("[");
 		while(noDate <= noLastDate) {
 			date = String.valueOf(noDate);
 			if(!list.contains(date)) {
@@ -52,17 +55,17 @@ public class SetTodo implements BlpInter {
 			buff.append("\"cnt\" : \"" + maVO.getCnt() + "\",");
 			buff.append("\"category\" : \"" + maVO.getCategory() + "\"");
 			
-			if(count == listSize) {
+			if(count >= listSize) {
 				buff.append("}");
 				break;
 			}
 			
-			System.out.println(count);
 			buff.append("},");
 			
 			noDate++;
 			count++;
 		}
+		buff.append("]");
 		
 		return buff.toString();
 	}

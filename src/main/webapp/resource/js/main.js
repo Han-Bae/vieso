@@ -58,24 +58,23 @@ $(document).ready(function(){
 				lastday: lastDate
 			},
 			success: function(data){
-				const ld = Number(lastDate.substring(6, 8));
-				for(let i = 0 ; i < ld ; i++){
+				for(let i = 0 ; i < data.length ; i++){
 					let cate = "";
 					switch(data[i].category){
 					case "회사":
-						cate = company;
+						cate = "company";
 						break;
 					case "가족":
-						cate = family;
+						cate = "family";
 						break;
 					case "친구":
-						cate = friend;
+						cate = "friend";
 						break;
 					case "지인":
-						cate = other;
+						cate = "other";
 						break;
 					}
-					$("#" + data[i].dateId).html("<div class='" + cate + "'></div>");
+					$("#" + data[i].dateId).append("<div class='" + cate + "'></div>");
 				}
 			},
 			error: function(){
@@ -104,8 +103,8 @@ $(document).ready(function(){
 			$(".self-modal").css("z-index", "-1");
 			return;
 		}
-		const year = value.substring(0, 4);
-		const month = value.substring(5, 7);
+		let year = value.substring(0, 4);
+		let month = value.substring(5, 7);
 		$(".mainYear").text(year);
 		$(".mainMonth").text(month);
 		$(".self-modal").css("z-index", "-1");
@@ -159,6 +158,22 @@ $(document).ready(function(){
 		});
 		
 		// 스케줄 가져와서 채우기
+		// 첫날 구하기
+		let spanId = "";
+		for(let i = 0 ; i <= 7 ; i++){
+			const spanText = $("tr:first-child td:first-child span:nth-child(" + i + ")").text();
+			console.log(i);
+			console.log(spanText);
+			if(!spanText){
+				continue;
+			}
+			spanId = $("tr:first-child td:first-child span:nth-child(" + i + ")").attr("id");
+			return;
+		}
+		year = Number(spanId.substring(0, 4));
+		month = Number(spanId.substring(4, 6));
+		
+		console.log(year, month);
 		
 	});
 	
