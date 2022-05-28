@@ -1,0 +1,62 @@
+# Viseo Project 요청 설계
+	# 김태현
+		# 로그인 관련 기능
+		# 알림창 리다이렉트
+		# 이메일 전송
+		
+로그인 관련 요청 처리
+	---------------------------
+	# 시작페이지(로그인) 보기 요청
+		요청 내용	:	/viseo/member/loginForm.blp
+		파라미터	:	무
+		컨트롤러	:	com.viseo.controller.kth.LoginForm
+		뷰			:	/WEB-INF/views/member/loginForm.jsp
+	---------------------------
+	# 알림창 전용 리다이렉트 요청
+			# 요청은 아니지만 요청에 따른 처리를 모두 이곳에서 진행하기 때문에 따로 기술함
+		# alert도 redirect이므로 PrintWriter로 java내에서 사용하지 못했음
+		# 따라서 loginRedirect.jsp를 생성하고 그 쪽에 필요한 데이터를 전송하여
+		# alert 이후 상황에 따른 동작 요청
+			(ex 아이디 찾기 실패시 모달창 다시 띄우기, 로그인 성공시 메인화면 가기)
+		요청 내용	:
+		파라미터	:	status(알림 이후 상황 지정 파라미터),
+						title, msg, icon(알림창 사용 파라미터)
+		컨트롤러	:	
+		뷰			:	/WEB-INF/views/member/loginRedirect.jsp
+	---------------------------
+	# 아이디찾기 메일 요청
+		요청 내용	:	/viseo/member/FindID.blp
+		파라미터	:	name, mail
+		컨트롤러	:	com.viseo.controller.kth.FindID
+		뷰			:	/WEB-INF/views/member/loginRedirect.jsp
+	---------------------------	
+	# 비밀번호찾기 - 사용자 인증
+		요청 내용	:	/viseo/member/FindPW.blp
+		파라미터	:	id, mail
+		컨트롤러	:	com.viseo.controller.kth.FindPW
+		뷰			:	/WEB-INF/views/member/loginRedirect.jsp
+	---------------------------
+	# 비밀번호찾기 - 비밀번호 재설정
+		요청 내용	:	/viseo/member/RePW.blp
+		파라미터	:	pw
+		컨트롤러	:	com.viseo.controller.kth.RePW
+		뷰			:	/WEB-INF/views/member/loginRedirect.jsp
+	---------------------------
+	# 로그인 처리
+		요청 내용	:	/viseo/member/LoginProc.blp
+		파라미터	:	id, pw
+		컨트롤러	:	com.viseo.controller.kth.LoginProc
+		뷰			:	/WEB-INF/views/member/loginRedirect.jsp
+	---------------------------
+	# 회원가입 메일 인증 - 메일에서 인증버튼 클릭 시
+		요청 내용	:	/viseo/member/CheckMail.blp
+		파라미터	:	무
+		컨트롤러	:	com.viseo.controller.kth.mail.CheckMail
+		뷰			:	/WEB-INF/views/member/loginRedirect.jsp
+	---------------------------
+	# 회원가입 이동
+		요청 내용	:	/viseo/member/joinForm.blp
+		파라미터	:	무
+		컨트롤러	:	com.viseo.controller.jyn.JoinForm
+		뷰			:	/WEB-INF/views/member/joinForm.jsp
+	---------------------------

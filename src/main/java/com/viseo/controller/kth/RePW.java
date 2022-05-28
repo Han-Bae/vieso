@@ -44,6 +44,7 @@ public class RePW implements BlpInter {
 			req.setAttribute("title", "비밀번호 재설정 성공!");
 			req.setAttribute("msg", "재설정한 비밀번호로 로그인 해주세요.");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
+			if(req.getSession().getAttribute("status") != null)	req.getSession().removeAttribute("status");
 		}else {
 			// 실패한 경우
 			req.setAttribute("icon", "error");

@@ -43,6 +43,7 @@ public class FindPW implements BlpInter {
 //				CheckMail ckm = new CheckMail();
 			req.getSession().setAttribute("status", "refindPw_next");
 			req.getSession().setAttribute("id", id);
+			// 모달창 다시 오픈
 		} else {
 			// 정보가 일치하지 않는다면
 			req.setAttribute("icon", "error");
