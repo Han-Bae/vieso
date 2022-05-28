@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+	<%--
+ 	할일 입력창 모달창 jsp파일
+ 			@author 박형근
+  			@since 2022.05.26
+  			@version v.1.0
+  				제작자 박형근   --%>
 <html>
 <head>
 <meta charset="UTF-8">

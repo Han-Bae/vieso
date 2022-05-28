@@ -34,7 +34,7 @@ public class WriteDao {
 		wSQL = new WriteSQL();
 	}
 
-//회원 가입 데이터베이스 작업 전담 처리함수
+	//할일 저장
 	public int writeInsert(WriteVO wVO) {
 		// 반환값 변수
 		int cnt = 0;
@@ -108,6 +108,7 @@ public class WriteDao {
 			System.out.println("카테고리:"+rs.getString("TODOCATEGORY"));
 			System.out.println("제목:"+rs.getString("TITLE"));
 			System.out.println("지역:"+rs.getString("AREA"));
+			System.out.println("시간:"+rs.getString("TODOTIME"));
 			
 			// 실제 DB에서 가져온 값을 wVO에 담자
 			wVO.setCategory(rs.getString("TODOCATEGORY"));
@@ -126,6 +127,83 @@ public class WriteDao {
 		}
 		
 		return wVO;
+	}
+	
+	//기존할일 건수조회
+	public int writeCnt(WriteVO wVO) {
+		int cnt = 0;
+		// 커넥션
+		con = db.getCon();
+		// 질의명령
+		String sql = wSQL.getSQL(wSQL.SELECT_READ_CNT);
+		// 명령전달도구
+		pstmt = db.getPSTMT(con, sql);			
+		// 질의명령 완성
+		try {
+			pstmt.setString(1, wVO.getId());	//ID
+			pstmt.setString(2, wVO.getChcekDate()); //TODODATE
+			// 보내고 결과 받기
+			rs = pstmt.executeQuery();
+			// 결과에서 데이터꺼내고
+			rs.next();
+			cnt = rs.getInt("cnt");
+			System.out.println("기존할일 건수는 몇건--------"+cnt);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		// 데이터 내보내기
+		return cnt;
+	}
+	
+	//할일 수정
+	public int writeUpdate(WriteVO wVO) {
+		// 반환값 변수
+		int cnt = 0;
+		// 할일
+		// 커넥션
+		con = db.getCon();
+		// 질의명령
+		String sql = wSQL.getSQL(wSQL.UPDATE_TODO);
+		// 명령전달도구
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			
+			System.out.println("수정[ID]====="+wVO.getId());
+			System.out.println("수정[타이틀]====="+wVO.getTitle());
+			System.out.println("수정[날짜]====="+wVO.getChcekDate());
+			System.out.println("수정[시간]====="+wVO.getChcekTime());
+			System.out.println("수정[메모]====="+wVO.getMemo());
+			System.out.println("수정[알람]====="+wVO.getAlarmRepeat());
+			System.out.println("수정[카테고리]====="+wVO.getCategory());
+			
+			
+			// 질의명령 완성하고
+			pstmt.setString(1, wVO.getTitle());			//TITLE
+			pstmt.setString(2, wVO.getChcekTime());		//TODOTIME
+			pstmt.setString(3, wVO.getMemo()); 			//MEMO
+			pstmt.setString(4, wVO.getAlarmRepeat()); 	//ALARMREPEAT
+			pstmt.setString(5, wVO.getCategory());		//TODOCATEGORY
+			pstmt.setString(6, wVO.getId());			//ID
+			pstmt.setString(7, wVO.getChcekDate());		//TODODATE
+			
+			// 질의명령 보내고 결과받고
+			cnt = pstmt.executeUpdate();
+			
+			System.out.println("[수정]cnt=============="+cnt);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return cnt;
 	}
 
 }

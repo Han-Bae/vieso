@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+	<%--
+ 	할일 조회창 모달창 jsp파일
+ 			@author 박형근
+  			@since 2022.05.27
+  			@version v.1.0
+  				제작자 박형근   --%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -34,7 +40,7 @@
 <body>
 <div>
 <%-- 아이디찾기 버튼 --%>
-<button type="button" class="subbtn sub" data-target="#fid" data-toggle="modal">조회하기</button>
+<!-- <button type="button" class="subbtn sub" data-target="#fid" data-toggle="modal">조회하기</button> -->
 
 <%-- 아이디찾기 모달  --%>
    <div class="modal" id="fid">        
@@ -43,46 +49,56 @@
          <button type="button" data-dismiss="modal" class="logoBtn"></button>
          <div class="modal-header">
            <div class="modal-title"></div>
-           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" id="closeBtn">
              <span aria-hidden="true"></span>
            </button>
          </div>
 		<form method="POST" class="" id="frm" name="frm">
-			         <div class="modal-body">
+			<input type="hidden" id="tmpCategory" name="tmpCategory" value="${DATA.category}">
+			<input type="hidden" id="tmpAlarmRepeat" name="tmpAlarmRepeat" value="${DATA.alarmRepeat}">
+			<input type="hidden" id="tmpCheckTime" name="tmpCheckTime" value="${DATA.chcekTime}">
+			<div class="modal-body">
 		
 			<div>
 				<div>
 					<div>
 						<div class="form-group">
 					      		<label for="exampleSelect1" class="form-label mt-4">카테고리 선택</label>
-					     		<p>${DATA.category}</p>
+					     		<select class="form-select" id="category" name="category">
+					       		<option>회사</option>
+					        	<option>가족</option>
+					      		<option>친구</option>
+					   		    <option>지인</option>
+			      				</select>
 					    </div>
 						<div class="form-group">
-				  			<p>${DATA.title}</p>
+				  			<input class="form-control form-control-lg" type="text" id="title" name="title" value="${DATA.title}">
 						</div>
 						<div class="form-group">
-					      		<label for="exampleSelect1" class="form-label mt-4">지역선택</label>
+					      		<label for="exampleSelect1" class="form-label mt-4">지역</label>
 					      		<p>${DATA.area}</p>
 					    </div>
 					</div>
 					<div>
 					<label for="exampleSelect1" class="">날짜와시간</label>
 					</div>
-					<p>${DATA.chcekDate}</p>
-					<p>${DATA.chcekTime}</p>
-					<!-- <div class="form-check">
-				        	<input class="form-check-input" type="checkbox" id="c123" name=""  checked>
-				       		<label class="form-check-label" for="flexCheckDefault">종일</label>
-				    </div> -->
-				   
-				   <c:if test="${not empty DATA.chcekTime}">
-					<div id="alarmRepeat" name="alarmRepeat" >
-				      		<p>${DATA.alarmRepeat}</p>
-				    	</div>
-					</c:if>
+					<input type="text" id="chcekDate" name="chcekDate" value="${DATA.chcekDate}" readOnly>
+					
+				   <div>
+				        <input class="form-check-input" type="checkbox" id="c123" name="c123"  >
+				       	<label class="form-check-label" for="flexCheckDefault">종일</label>
+						<input type="time" id="chcekTime" name="chcekTime" value="${DATA.chcekTime}" >
+						<select class="form-select" id="alarmRepeat" name="alarmRepeat" >
+							<option>알람안함</option>
+							<option>30분전알림</option>
+		     			  	<option>한시간전알림</option>
+		     			  	<option>두시간전알림</option>
+		     			  	<option>세시간전알림</option>
+		      			</select>
+	      			</div>
 					
 					<div class="">
-					<p>${DATA.memo}</p>
+					<textarea class="form-control" id="memo" name="memo" rows="3" style="height: 150px;">${DATA.memo}</textarea>
 			    	</div>
 				</div>
 				<div>
