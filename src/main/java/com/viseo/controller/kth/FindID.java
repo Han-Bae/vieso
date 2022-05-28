@@ -1,6 +1,8 @@
 package com.viseo.controller.kth;
 
 /**
+ * 	이름과 이메일이 확인될 때
+ *  회원 아이디를 받아와 그 일부를 이메일로 전송해주는 클래스
  * 
  * @author	김태현
  * @since	2022.05.26

@@ -1,6 +1,9 @@
 package com.viseo.controller.kth;
 
 /**
+ *  아이디와 이메일이 확인될 때
+ *  일치하면 다음 모달창을 띄우고
+ *  실패하면 현재 모달창을 유지하는 클래스
  * 
  * @author	김태현
  * @since	2022.05.26
@@ -8,7 +11,7 @@ package com.viseo.controller.kth;
  * 
  * 			작업이력	]
  * 				2022.05.26	-	담당자 : 김태현
- * 								내	용 : 비밀번호 재설정 유저 확인 처리
+ * 								내	용 : 비밀번호 찾기 - 유저 확인 처리
  */
 import java.io.IOException;
 import java.util.ArrayList;

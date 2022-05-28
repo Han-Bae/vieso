@@ -11,12 +11,6 @@ package com.viseo.controller.kth;
  * 								내	용 : 로그인폼 표시 클래스
  */
 
-/*
- * 한거 : 로그인 처리, 아이디 / 비밀번호 사용자 인증 처리, 비밀번호 재설정 -> 리다이렉트 사용해서 알림창 띄우고 후처리   
- * 남은거 : 회원가입 연결 + 이메일 연동
- * 도와주세요선샌ㄴ님ㄴ들 : 이메일 연동
-*/
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -38,7 +32,7 @@ public class LoginForm implements BlpInter {
 			view = "/viseo/main.blp";
 		}
 		
-		
+		// 저장되어 있는 스테이터스 받아와서 처리
 		if(req.getSession().getAttribute("status")!= null) {
 			System.out.println("status : " + (String)req.getSession().getAttribute("status"));
 			req.setAttribute("status", req.getSession().getAttribute("status"));

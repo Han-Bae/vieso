@@ -6,7 +6,10 @@
  * 
  * 			작업이력	]
  * 				2022.05.24	-	담당자 : 김태현
- * 								내	용 : 클래스 제작
+ * 								내	용 : js 제작
+ 				2022.05.26 	-	담당자 : 김태현
+ 								내  용 : 아이디 저장 구현(쿠키 사용)
+ 										, status에 따른 모달 창 처리작업
  */
  
 $(document).ready(function(){
@@ -60,7 +63,6 @@ $(document).ready(function(){
 	switch (status){
 		case 'refindId':
 			// 아이디찾기 인증 실패시
-			console.log("아이디찾기 인증 실패");
 			$('#fid').modal();
 			break;
 			// 비밀번호찾기 인증 실패시

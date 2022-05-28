@@ -1,6 +1,8 @@
 package com.viseo.controller.kth;
 
 /**
+ * 	인증을 받아 넘어온 회원의 비밀번호를
+ *  재설정하게 해주는 클래스
  * 
  * @author	김태현
  * @since	2022.05.26
@@ -8,7 +10,7 @@ package com.viseo.controller.kth;
  * 
  * 			작업이력	]
  * 				2022.05.26	-	담당자 : 김태현
- * 								내	용 : 비밀번호 재설정
+ * 								내	용 : 비밀번호 찾기 - 비밀번호 재설정
  */
 import java.io.IOException;
 

@@ -10,6 +10,7 @@ package com.viseo.controller.kth;
  * 				2022.05.26	-	담당자 : 김태현
  * 								내	용 : 로그인처리 클래스 제작
  */
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -55,7 +56,7 @@ public class LoginProc implements BlpInter {
 			req.setAttribute("title", "로그인 실패!");
 			req.setAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다.");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
-				// 모달창 다시 오픈
+				// 스테이터스 변경
 			req.getSession().setAttribute("status", "relogin");
 		}
 		// 결과에 따라서 처리하고

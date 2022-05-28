@@ -1,5 +1,12 @@
 package com.viseo.controller.kth;
 
+/**
+ * 로그인 관련 기능을 처리할 때 사용한 VO 클래스
+ * @author 김태현
+ * @since 2022.05.24
+ * @version v.1.0
+ * 					담당자 : 김태현
+ */
 public class MemberVO {
 	private int mno, addr;
 	private String name, id, pw, mail, gen, nickname;

@@ -8,7 +8,7 @@ package com.viseo.controller.kth.mail;
  * 
  * 			작업이력	]
  * 				2022.05.27	-	담당자 : 김태현
- * 								내	용 : 이메일 전송용 클래스
+ * 								내	용 : 이메일 전송용 클래스(아이디확인, 회원가입 전용) 
  */
 
 import java.util.Properties;
