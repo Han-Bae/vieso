@@ -1,7 +1,5 @@
 package com.viseo.vo;
 
-import java.sql.Time;
-import java.util.Date;
 
 /**
  * 
@@ -20,10 +18,9 @@ import java.util.Date;
 
 public class MainVO {
 	private int x, y, mno, addr, cnt;
-	private long todono;
-	private String baseDate, baseTime, todayDate, lastDate, firstDay, year, month, date, time, areaname, city, savename, dir, category;
-	private Date tododate;
-	private Time todotime;
+	private String id, baseDate, baseTime, todayDate, lastDate, firstDay, year, month, date, time, areaname, city, savename, dir;
+	// 메인 투두
+	private String tododate, category;
 	
 	public int getX() {
 		return x;
@@ -55,11 +52,11 @@ public class MainVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	public long getTodono() {
-		return todono;
+	public String getId() {
+		return id;
 	}
-	public void setTodono(long todono) {
-		this.todono = todono;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getBaseDate() {
 		return baseDate;
@@ -139,22 +136,19 @@ public class MainVO {
 	public void setDir(String dir) {
 		this.dir = dir;
 	}
+	
+	
+	
+	public String getTododate() {
+		return tododate;
+	}
+	public void setTododate(String tododate) {
+		this.tododate = tododate;
+	}
 	public String getCategory() {
 		return category;
 	}
 	public void setCategory(String category) {
 		this.category = category;
-	}
-	public Date getTododate() {
-		return tododate;
-	}
-	public void setTododate(Date tododate) {
-		this.tododate = tododate;
-	}
-	public Time getTodotime() {
-		return todotime;
-	}
-	public void setTodotime(Time todotime) {
-		this.todotime = todotime;
 	}
 }

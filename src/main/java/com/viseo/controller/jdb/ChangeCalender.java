@@ -1,5 +1,16 @@
 package com.viseo.controller.jdb;
 
+/**
+ * 
+ * @author	전다빈
+ * @since	2022.05.28
+ * @version	v.1.0
+ * 
+ * 			작업이력	]
+ * 				2022.05.28	-	담당자 : 전다빈
+ * 								내	용 : 비동기로 데이터 받아서 캘린더 변경
+ */
+
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.*;

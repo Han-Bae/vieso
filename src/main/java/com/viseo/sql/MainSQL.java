@@ -18,12 +18,13 @@ package com.viseo.sql;
  * 										 쿼리문 합쳤음
  * 
  * 				2022.05.28	-	담당자 : 전다빈
- * 								내	용 : sysdate를 Timestamp 삽입으로 바꿈
+ * 								내	용 : sysdate를 Timestamp 삽입으로 바꿈, 스케줄 가져오는 쿼리 작성
  */
 
 public class MainSQL {
 	public final int SEL_DATE = 1001;
 	public final int SEL_USER_INFO = 1002;
+	public final int SEL_CATEGORY_CNT = 1003;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -52,7 +53,19 @@ public class MainSQL {
 			buff.append("    AND m.mno = av.mno ");
 			buff.append("    AND id = ? ");
 			break;
-		// 스케줄 가져오기
+		case SEL_CATEGORY_CNT:
+			buff.append("SELECT ");
+			buff.append("    COUNT(*) cnt, category ");
+			buff.append("FROM ");
+			buff.append("    member m, todo t ");
+			buff.append("WHERE ");
+			buff.append("    m.mno = t.mno ");
+			buff.append("    AND id = ? ");
+			buff.append("    AND tododate = TO_DATE(?, 'YYYYMMdd') ");
+			buff.append("GROUP BY ");
+			buff.append("    category ");
+			// 날짜도 추가해야함
+			break;
 		}
 		return buff.toString();
 	}

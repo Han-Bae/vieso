@@ -11,6 +11,9 @@
 										
 						2022.05.26	-	담당자 : 전다빈
 										내	용 : 기온, 날씨 데이터 적용
+										
+						2022.05.28	-	담당자 : 전다빈
+										내	용 : 카테고리 스타일 추가, jstl로 자바 ArrayList 가져옴
 --%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +30,8 @@
 <style>
 </style>
 <script type="text/javascript">
-	const todayDate = "${maDATA.todayDate}";
+	let todayDate = "${maDATA.todayDate}";
+	todayDate = todayDate.substring(0, 8);
 	let lastDate = "${maDATA.lastDate}";
 	const firstDay = "${maDATA.firstDay}";
 </script>
@@ -44,7 +48,6 @@
 			</ul>
 		</div>
 	</div>
-	
 	
 	<!-- 메인 페이지 -->
 	<div class="main-page">
@@ -173,9 +176,10 @@
 			</table>
 			
 			<div class="category">
-				<label><input type="checkbox">회사</label>
-				<label><input type="checkbox">가족</label>
-				<label><input type="checkbox">친구</label>
+				<label><input id="checkCompany" type="checkbox">회사</label>
+				<label><input id="checkFamily" type="checkbox">가족</label>
+				<label><input id="checkFriend" type="checkbox">친구</label>
+				<label><input id="checkOther" type="checkbox">지인</label>
 			</div>
 		</div>
 		
