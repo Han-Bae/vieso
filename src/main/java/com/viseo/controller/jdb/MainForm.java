@@ -51,7 +51,6 @@ public class MainForm implements BlpInter {
 		MainVO maVO = maDao.getMainDate(tsToday);
 		String dateNTime = maVO.getTodayDate();
 
-		maVO.setId(sessionId);
 		// 여기서는 다 현재 날짜, 시간
 		maVO.setYear(dateNTime.substring(0, 4));
 		maVO.setMonth(dateNTime.substring(4, 6));

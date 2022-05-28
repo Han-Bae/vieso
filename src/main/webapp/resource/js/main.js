@@ -54,17 +54,35 @@ $(document).ready(function(){
 			type: "post",
 			dataType: "json",
 			data: {
-				id: "sessionId",
-				today: todyDate,
+				today: todayDate,
 				lastday: lastDate
 			},
 			success: function(data){
-				
+				const ld = Number(lastDate.substring(6, 8));
+				for(let i = 0 ; i < ld ; i++){
+					let cate = "";
+					switch(data[i].category){
+					case "회사":
+						cate = company;
+						break;
+					case "가족":
+						cate = family;
+						break;
+					case "친구":
+						cate = friend;
+						break;
+					case "지인":
+						cate = other;
+						break;
+					}
+					$("#" + data[i].dateId).html("<div class='" + cate + "'></div>");
+				}
 			},
 			error: function(){
 				alert("### 통신에러 ###");
 			}
 		});
+		
 	};
 	
 	setCalender();

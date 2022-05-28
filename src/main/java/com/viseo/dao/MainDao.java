@@ -2,6 +2,7 @@ package com.viseo.dao;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import com.viseo.db.BlpDBCP;
 import com.viseo.sql.MainSQL;
@@ -93,20 +94,42 @@ public class MainDao {
 		}
 	}
 	
+	public ArrayList<String> getTododate(){
+		ArrayList<String> list = new ArrayList<String>();
+		
+		con = db.getCon();
+		String sql = maSQL.getSQL(maSQL.SEL_TODODATE);
+		stmt = db.getSTMT(con);
+		try {
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				list.add(rs.getString("tododate"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		
+		return list;
+	}
+	
 	public MainVO getTodoCnt(String id, String date) {
 		MainVO maVO = new MainVO();
 		
 		con = db.getCon();
 		String sql = maSQL.getSQL(maSQL.SEL_CATEGORY_CNT);
 		pstmt = db.getPSTMT(con, sql);
-		
 		try {
 			pstmt.setString(1, id);
 			pstmt.setString(2, date);
 			rs = pstmt.executeQuery();
-			rs.next();
-			maVO.setCnt(rs.getInt("cnt"));
-			maVO.setCategory(rs.getString("category"));
+			if(rs.next()) {
+				maVO.setCnt(rs.getInt("cnt"));
+				maVO.setCategory(rs.getString("category"));
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

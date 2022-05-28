@@ -18,7 +18,7 @@ package com.viseo.vo;
 
 public class MainVO {
 	private int x, y, mno, addr, cnt;
-	private String id, baseDate, baseTime, todayDate, lastDate, firstDay, year, month, date, time, areaname, city, savename, dir;
+	private String baseDate, baseTime, todayDate, lastDate, firstDay, year, month, date, time, areaname, city, savename, dir;
 	// 메인 투두
 	private String tododate, category;
 	
@@ -51,12 +51,6 @@ public class MainVO {
 	}
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 	public String getBaseDate() {
 		return baseDate;

@@ -123,6 +123,37 @@ td:hover {
 	margin-right: 30px;
 	cursor: pointer;
 }
+#checkCompany {
+	border-bottom: 2px solid #20c997;
+}
+#checkFamily {
+	border-bottom: 2px solid #ff7518;
+}
+#checkFriend {
+	border-bottom: 2px solid #9954bb;
+}
+#checkOther {
+	border-bottom: 2px solid #e83e8c;
+}
+.company, 
+.family, 
+.friend, 
+.other {
+	height: 20px;
+	border-radius: 10px;
+}
+.company {
+	background-color: #20c997;
+}
+.family {
+	background-color: #ff7518;
+}
+.friend {
+	background-color: #9954bb;
+}
+.other {
+	background-color: #e83e8c;
+}
 
 /* 셀프 모달 */
 .self-modal {

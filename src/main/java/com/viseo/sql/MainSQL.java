@@ -24,7 +24,8 @@ package com.viseo.sql;
 public class MainSQL {
 	public final int SEL_DATE = 1001;
 	public final int SEL_USER_INFO = 1002;
-	public final int SEL_CATEGORY_CNT = 1003;
+	public final int SEL_TODODATE = 1003;
+	public final int SEL_CATEGORY_CNT = 1004;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -53,6 +54,14 @@ public class MainSQL {
 			buff.append("    AND m.mno = av.mno ");
 			buff.append("    AND id = ? ");
 			break;
+		case SEL_TODODATE:
+			buff.append("SELECT ");
+			buff.append("    TO_CHAR(tododate, 'YYYYMMdd') tododate ");
+			buff.append("FROM ");
+			buff.append("    todo ");
+			buff.append("ORDER BY ");
+			buff.append("    tododate ");
+		    break;
 		case SEL_CATEGORY_CNT:
 			buff.append("SELECT ");
 			buff.append("    COUNT(*) cnt, category ");
@@ -64,7 +73,6 @@ public class MainSQL {
 			buff.append("    AND tododate = TO_DATE(?, 'YYYYMMdd') ");
 			buff.append("GROUP BY ");
 			buff.append("    category ");
-			// 날짜도 추가해야함
 			break;
 		}
 		return buff.toString();
