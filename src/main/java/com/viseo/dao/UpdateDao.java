@@ -8,19 +8,17 @@ import com.viseo.sql.*;
 import com.viseo.vo.*;
 
 /**
- * �� Ŭ������ ȸ�� ���� �����ͺ��̽� �۾��� �����ؼ� ó���ϴ� Ŭ����
- * @author �Ѽ���
- * @since 2022.05.26
- * @version v.1.0
- * 		�۾� �̷�)
- * 				2022.05.26	- Ŭ���� ����
- * 						����� �Ѽ���
+ * 
+ * @author	한서라
+ * @since	2022.05.26
+ * @version	v.1.0
+ * 
+ * 			작업이력	]
+ * 				2022.05.24	-	담당자 : 한서라
+ * 								내	용 : 클래스 제작
  */
 public class UpdateDao {
-/*
- 	�� Ŭ������ �� Ŭ������ new �� ���� �����ͺ��̽� �۾��� �� �غ�
- 	�Ǿ� �־�� �Ѵ�.
- */
+
 	private BlpDBCP db;
 	private Connection con;
 	private Statement stmt;
@@ -34,24 +32,16 @@ public class UpdateDao {
 		uSQL = new UpdateSQL();
 	}
 	
-	// ���̵�� ȸ�� ������ȸ ���� ó���Լ�
+		// 회원정보를 불러오기
 			public UpdateVO getIdInfo(String id) {
-				// ��ȯ�� ����
 				UpdateVO fVO = new UpdateVO();
-				// Ŀ�ؼ�
 				con = db.getCon();
-				// ���Ǹ��
 				String sql = uSQL.getSQL(uSQL.SEL_MEMBER_INFO);
-				// ������޵���
 				pstmt = db.getPSTMT(con, sql);
 				try {
-					// ���Ǹ�� �ϼ�
 					pstmt.setString(1, id);
-					// ���Ǹ�� ������ ����ް�
 					rs = pstmt.executeQuery();
-					// ������ VO�� ���
 					rs.next();
-					// vo setting
 					fVO.setMno(rs.getInt("mno"));
 					fVO.setName(rs.getString("name"));
 					fVO.setId(rs.getString("id"));
@@ -60,7 +50,9 @@ public class UpdateDao {
 					fVO.setGen(rs.getString("gen"));
 					fVO.setNickname(rs.getString("nickname"));
 					fVO.setTel(rs.getString("tel"));
+					fVO.setBirth(rs.getString("birth"));
 					fVO.setJoindate(rs.getDate("joindate"));
+					fVO.setAreaname(rs.getString("areaname"));
 					
 					
 				} catch(Exception e) {
@@ -70,8 +62,6 @@ public class UpdateDao {
 					db.close(pstmt);
 					db.close(con);
 				}
-				
-				// ������ ��ȯ���ְ�
 				return fVO;
 			}
 		
@@ -107,24 +97,16 @@ public class UpdateDao {
 				return result;
 			}
 		
-	
-			// ȸ���������� �����ͺ��̽� �۾� ���� ó���Լ�
+			//  회원정보 수정
 			public int editMyInfo(String id, String psql) {
-				// ��ȯ�� ����
 				int cnt = 0;
-				// Ŀ�ؼ�
 				con = db.getCon();
-				// ���Ǹ��
 				String sql = uSQL.getSQL(uSQL.EDIT_MEMBER);
-				// ���Ǹ�� �����ϰ�
 				sql = sql.replace("###", psql);
 				
-				// ��� ���޵���
 				pstmt = db.getPSTMT(con, sql);
 				try {
-					// ���Ǹ�� �ϼ��ϰ�
 					pstmt.setString(1, id);
-					// ���Ǹ�� ������ ����ް�
 					cnt = pstmt.executeUpdate();
 				} catch(Exception e) {
 					e.printStackTrace();
@@ -133,7 +115,6 @@ public class UpdateDao {
 					db.close(con);
 				}
 				
-				// ��� ��ȯ�ϰ�
 				return cnt;
 			}
 		}

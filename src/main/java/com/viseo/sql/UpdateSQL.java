@@ -24,12 +24,16 @@ public class UpdateSQL {
 		
 		case SEL_MEMBER_INFO:
 			buff.append("SELECT ");
-			buff.append("	mno, name, id, pw, mail, addr, gen, nickname, tel, birth, joindate, isshow ");
+			buff.append("	A.mno, A.name, A.id, A.pw, A.mail, A.addr, A.gen, A.nickname, A.tel, A.birth, A.joindate, A.isshow, B.areaname, B.city ");
 			buff.append("FROM ");
-			buff.append("	member ");
+			buff.append("	member A");
+			buff.append("	INNER JOIN");
+			buff.append("	AREA B ON ");
+			buff.append(" A.ADDR = B.areaNo ");
+			//buff.append("INNER JOIN AREA B ON A.ADDR = B.areaNo");
 			buff.append("WHERE ");
-			buff.append("	isshow = 'Y' ");
-			buff.append("	AND id = ? ");
+			buff.append("	A.isshow = 'Y' ");
+			buff.append("	AND A.id = ? ");
 			break;
 		case DEL_MEMBER:
 			buff.append("DELETE ");
@@ -50,30 +54,7 @@ public class UpdateSQL {
 			buff.append("UPDATE ");
 			buff.append("	member ");
 			buff.append("SET ");
-			/*
-			buff.append("	pw = ? ");
-			buff.append("	mail = ? ");
-			buff.append("	tel = ? ");
-			buff.append("	addr = ? ");
-			buff.append("	nickname = ? ");
-			*/
 			buff.append("	### ");
-			/*
-				비밀번호를 수정하는 경우
-					pw = ?
-				메일을 수정하는 경우
-					mail = ?
-				tel
-					tel = ?
-				avatar
-					avt = ?
-					
-				수정되는 가지수에 따라서
-				질의명령의 set 절이 달라질 수 있다.
-				이렇게 동적질의를 사용해야 할 경우는
-				바뀌는 부분을 특수문자로 표시를 해두고
-				데이터에 따라서 특수문자 대신 채워주면 된다.
-			 */
 			buff.append("WHERE ");
 			buff.append("	isshow = 'Y' ");
 			buff.append("	AND id = ? ");

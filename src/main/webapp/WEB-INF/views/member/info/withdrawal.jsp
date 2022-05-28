@@ -1,18 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+	@author		한서라
+	@since		2022.05.23
+	@version	v.1.0
+	
+				작업이력	]
+						2022.05.23	-	담당자 : 한서라
+										내	용 : 메뉴, 회원탈퇴 페이지 제작
+--%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원 탈퇴</title>
-<link rel="stylesheet" type="text/css" href=https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cosmo/bootstrap.min.css>
-<link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="/viseo/resource/css/base.css">
-<link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
-<link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
-<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
-<script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
+	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
+	<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
+	<script type="text/javascript" src="/viseo/resource/js/menu.js"></script>
+	<script type="text/javascript" src="/viseo/resource/js/edit.js"></script>
+	<script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 </head>
 <body>
 
@@ -57,7 +69,7 @@
 <div class="row input-center" style="width: 100%">
 	<div style="width: 50%; float:none; margin:0 auto" >
 		<form action="/viseo/member/info/DelInfoProc.blp" method="post" name="frm" id="frm">
-				<h5 class="text-primary">회원탈퇴</h5>
+				<h5 class="text-primary"><b>회원탈퇴</b></h5>
 				<hr>
 				<small><em>회원탈퇴를 원하시면 비밀번호를 입력해주세요.</em></small>
 				
@@ -66,7 +78,7 @@
 					    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력">
 					 </div>
 				<button type="submit" class="btn btn-primary">탈퇴하기</button>
-				<button  type="button"class="btn btn-primary">취소</button>
+				<button  type="button"class="btn btn-primary exit-btn">취소</button>
 			</form>
 		</div>
 	</div>

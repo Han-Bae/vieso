@@ -1,5 +1,14 @@
 package com.viseo.controller.hsr;
-
+/**
+ * 
+ * @author	한서라
+ * @since	2022.05.26
+ * @version	v.1.0
+ * 
+ * 			작업이력	]
+ * 				2022.05.26	-	담당자 : 한서라
+ * 								내	용 : 프로필 수정 클래스 제작
+ */
 import java.io.IOException;
 
 import javax.servlet.ServletException;

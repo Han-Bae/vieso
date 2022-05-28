@@ -6,7 +6,7 @@ import java.text.*;
 
 public class UpdateVO {
 	private int mno;
-	private String name, id, pw, mail, addr, gen, nickname, tel, birth;
+	private String name, id, pw, mail, addr, gen, nickname, tel, birth,areaname, city;
 	private Date joindate;
 	public int getMno() {
 		return mno;
@@ -69,6 +69,25 @@ public class UpdateVO {
 	public void setJoindate(Date joindate) {
 		this.joindate = joindate;
 	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getAreaname() {
+		return areaname;
+	}
+	public void setAreaname(String areaname) {
+		this.areaname = areaname;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
 	
 	@Override
 	public String toString() {
