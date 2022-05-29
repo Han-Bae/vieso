@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	$('#toDofid').modal();
+	// $('#toDofid').modal();
 	
 	// 홈버튼 클릭 이벤트
 	$('#hbtn').click(function(){
@@ -48,7 +48,7 @@ $(document).ready(function(){
 					}
 				},
 			error: function(){
-				alert('### 통신실패 ###');
+				alert('### 저장버튼 통신실패 ###');
 				$('#toDofid').modal('hide');
 				$('#frm')[0].reset();
 			}
@@ -93,7 +93,7 @@ $(document).ready(function(){
 					}
 				},
 			error: function(){
-				alert('### 통신실패 ###');
+				alert('### 달력 클릭 통신실패 ###');
 				$('#toDofid').modal('hide');
 				$('#frm')[0].reset();
 			}
@@ -137,13 +137,14 @@ $(document).ready(function(){
 		$(location).attr("href", "/viseo/main.blp");
 	});
 	
+	/*
 	//모달창 외부영역 클릭시 메인페이지 호출
 	$(document).mouseup(function (e){
 		if($(".modal").has(e.target).length === 0){
 			$(location).attr("href", "/viseo/main.blp");
 		}
 	});
-	
+	*/
 	
 		
 });
