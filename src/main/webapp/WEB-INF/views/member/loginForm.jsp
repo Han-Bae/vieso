@@ -17,15 +17,15 @@
 	<title>Viseo Login</title>
 
 
-	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/signin.css">
 	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/signin.css">
 	<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/bootstrap.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/login.js"></script>
     <!-- Bootstrap core CSS -->
 
 
-    <style>
+<style type="text/css">
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -221,7 +221,7 @@
 			      <input type="password" name="rpwck" class="form-control" id="rpwck" placeholder="비밀번호를 다시 입력해주세요." required>
 			      <label for="rpwck">비밀번호 확인</label>
 				      <h4 id="rpwmsg"></h4>
-				    </div>			
+				</div>			
 	      </div>
 	      <div class="modal-footer">
 	        <button type="submit" class="btn btn-primary" id="rpwbtn">비밀번호 재설정</button>

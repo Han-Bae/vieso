@@ -37,14 +37,12 @@
       var pat = /^([A-Za-z0-9]){4,10}$/;
       
       if(!pat.test(id)){
-         $('#idmsg').html('형식에 맞게 입력해주세요.');
-         $('#idmsg').removeClass('w3-text-green w3-text-red').addClass('w3-text-red')
+		$('#idmsg').html('형식에 맞게 입력해주세요.(영문,숫자 4~10글자)').css('color','red');
       } else {
-         $('#idmsg').html('정확한 아이디입니다.');
-         $('#idmsg').removeClass('w3-text-green w3-text-red').addClass('w3-text-green');
+		$('#idmsg').html('정확한 아이디입니다.').css('color','blue');
       }
-      $('#idmsg').css('display', 'block');
    });       
+
      
      
    // 아이디 체크 버튼 클릭이벤트(중복 검사)
@@ -52,11 +50,14 @@
       // 할일
       // 입력한 아이디 꺼내오고
       var sid = $('#id').val();
-      
+      if($('#idmsg').html() != '정확한 아이디입니다.'){
+        swal('적합한 아이디로 진행해주세요!','','error');
+		return;	
+	 }
       if(!sid){
          // 입력내용이 없는 경우
          $('#id').focus();
-         alert('아이디를 입력하세요.');
+         swal('아이디를 입력하세요!','','error');
          return;
       }
       // 전달해서 사용가능 유무 판단하고
@@ -69,24 +70,19 @@
          },
          success: function(data){
             var result = data.result;
-            $('#idckmsg').removeClass('w3-text-green w3-text-red');
-            
             // 뷰에 보여주고
             if(result == 'OK'){
                // 입력한 아이디가 사용가능한 경우
-               $('#idckmsg').html('사용 가능한 아이디입니다.');
-               $('#idckmsg').addClass('from-text text-green');
+		       swal('사용 가능!','사용 가능한 아이디입니다.','success');
             } else {
                // 입력한 아이디가 사용불가능한 경우
-               $('#idckmsg').html('사용 불가능한 아이디입니다.');
-               $('#idckmsg').addClass('from-text text-red');
+		       swal('사용 불가능!','사용 불가능한 아이디입니다.','error');
             }
-            $('#idckmsg').css('display', 'block');
-            
          },
          error: function(){
-            alert('통신 에러');
+	       swal('통신 에러!','다시 시도해주세요.','error');
          }
+
       });      
    });
 
@@ -99,15 +95,11 @@
       var pat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,15}$/;
       
       if(!pat.test(pw)){
-         $('#pwmsg').html('형식에 맞게 입력해 주세요.');
-         $('#pwmsg').removeClass('w3-text-green w3-text-red').addClass('w3-text-red');
+		$('#pwmsg').html('형식에 맞게 입력해 주세요.(대+소문자+숫자+특문 1회이상 6~15글자)').css('color','red');
       } else {
-         $('#pwmsg').html('정확한 비밀번호입니다.');
-         $('#pwmsg').removeClass('w3-text-green w3-text-red').addClass('w3-text-green');
+		$('#pwmsg').html('정확한 비밀번호입니다.').css('color','blue');
       }
-      $('#pwmsg').css('display', 'block');
-   });   
-   
+   });      
    
    // 비밀번호 입력이벤트
    $('#repw').keyup(function(){
@@ -115,11 +107,9 @@
       var pw = $('#pw').val();
       var repw = $(this).val();
       if(pw != repw){
-         $('#repwmsg').html('비밀번호가 일치하지 않습니다.');
-         $('#repwmsg').css('display', 'block');
+		 $('#repwmsg').html('비밀번호가 일치하지 않습니다.').css('color','red');
       } else {
-         $('#repwmsg').html('비밀번호가 일치합니다.');
-         $('#repwmsg').css('display', 'block');
+		 $('#repwmsg').html('비밀번호가 일치합니다.').css('color','blue');
 /*         $('#repw').parent().parent().stop().slideDown(300).stop().slideUp(300);*/
 /*         $('#pw').css('background-color', 'blue').prop('readonly', true);*/
       	}
@@ -129,11 +119,10 @@
 	// 닉네임 확인 버튼 클릭 이벤트 (중복 검사)
     $('#nicknameck').click(function(){
     	var sname = $('#nickname').val();
-      
 		if(!sname){
         // 입력내용이 없는 경우
 		$('#nickname').focus();
-        alert('닉네임을 입력하세요.');
+		swal('닉네임 미기입!','닉네임을 입력하세요.','error');
         return;
       	}
       	
@@ -146,24 +135,20 @@
 	            nickname: sname
 	 		},
 			success: function(data){
-        	var result = data.result;
-        	$('#nicknamemsg').removeClass('w3-text-green w3-text-red');
-            
-            // 뷰에 보여주고
-            if(result == 'OK'){
-                // 입력한 아이디가 사용가능한 경우
-                $('#nicknamemsg').html('사용 가능한 닉네임입니다.');
-                $('#nicknamemsg').addClass('w3-text-green');
-        	} else {
-                // 입력한 아이디가 사용불가능한 경우
-                $('#nicknamemsg').html('사용 불가능한 닉네임입니다.');
-               	$('#nicknamemsg').addClass('w3-text-red');
-            	}
-            	$('#nicknamemsg').css('display', 'block');
-            
-         		},
-     		error: function(){
-        	alert('통신 에러');
+	        	var result = data.result;
+	            
+	
+	            // 뷰에 보여주고
+	            if(result == 'OK'){
+	                // 입력한 아이디가 사용가능한 경우
+	                $('#nicknamemsg').html('사용 가능한 닉네임입니다.').css('color','blue');
+	        	} else {
+	                // 입력한 아이디가 사용불가능한 경우
+	                $('#nicknamemsg').html('사용 불가능한 닉네임입니다.').css('color','red');
+	            	}   
+	         	},
+	     		error: function(){
+					swal('통신 에러!','다시 진행해주세요.','error');
      		}
   		});      
 	});
@@ -203,7 +188,7 @@
       if(!smail){
          // 입력내용이 없는 경우
          $('#mail').focus();
-         alert('이메일을 입력하세요.');
+         swal('이메일 미기입!','이메일을 입력하세요.','error');
          return;
       }
       // 전달해서 사용가능 유무 판단하고
@@ -216,23 +201,17 @@
          },
          success: function(data){
             var result = data.result;
-            $('#mailckmsg').removeClass('w3-text-green w3-text-red');
-            
             // 뷰에 보여주고
             if(result == 'OK'){
                // 입력한 아이디가 사용가능한 경우
-               $('#mailckmsg').html('사용 가능한 이메일입니다.');
-               $('#mailckmsg').addClass('from-text text-green');
+	           $('#mailckmsg').html('사용 가능한 이메일입니다.').css('color','blue');
             } else {
                // 입력한 아이디가 사용불가능한 경우
-               $('#mailckmsg').html('사용 불가능한 이메일입니다.');
-               $('#mailckmsg').addClass('from-text text-red');
+	           $('#mailckmsg').html('사용 불가능한 이메일입니다.').css('color','red');
             }
-            $('#mailckmsg').css('display', 'block');
-            
          },
          error: function(){
-            alert('통신 에러');
+           	swal('통신 에러!','다시 진행해주세요.','error');
          }
       });      
    });
@@ -262,7 +241,7 @@
          var txt = $(el).eq(i).val();
          
          if(!txt){
-            alert('필수 입력사항을 확인하세요!');
+			swal('가입 불가능!','필수 선택 사항을 확인하세요.','error');
             $(el).eq(i).focus();
             return;
          }
@@ -270,8 +249,8 @@
       }
       
       if(!(gen)){
-         alert('필수 선택 사항을 확인하세요!');
-         return;
+		swal('가입 불가능!','필수 선택 사항을 확인하세요.','error');
+        return;
       }
 
  	 $('#frm').attr('action', '/viseo/member/joinProc.blp').submit();
