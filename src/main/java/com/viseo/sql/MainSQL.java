@@ -46,12 +46,11 @@ public class MainSQL {
 			break;
 		case SEL_USER_INFO:
 			buff.append("SELECT ");
-			buff.append("    m.mno, areano, areaname, city, x, y, dir, savename ");
+			buff.append("    m.mno, areano, areaname, city, x, y ");
 			buff.append("FROM ");
-			buff.append("    member m, area ar, avatar av ");
+			buff.append("    member m, area ar ");
 			buff.append("WHERE ");
 			buff.append("    m.addr = ar.areano ");
-			buff.append("    AND m.mno = av.mno ");
 			buff.append("    AND id = ? ");
 			break;
 		case SEL_TODODATE:
@@ -59,6 +58,8 @@ public class MainSQL {
 			buff.append("    TO_CHAR(tododate, 'YYYYMMdd') tododate ");
 			buff.append("FROM ");
 			buff.append("    todo ");
+			buff.append("WHERE ");
+			buff.append("    TO_CHAR(tododate, 'YYYYMMdd') LIKE ? ");
 			buff.append("ORDER BY ");
 			buff.append("    tododate ");
 		    break;

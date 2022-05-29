@@ -36,7 +36,7 @@ public class SetTodo implements BlpInter {
 		int noLastDate = Integer.parseInt(lastdate);
 		
 		// 없으면 null 처리 해야함
-		ArrayList<String> list = maDao.getTododate();
+		ArrayList<String> list = maDao.getTododate(date);
 		int listSize = list.size();
 		int count = 1;
 		

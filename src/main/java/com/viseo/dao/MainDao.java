@@ -83,8 +83,6 @@ public class MainDao {
 			maVO.setCity(rs.getString("city"));
 			maVO.setX(rs.getInt("x"));
 			maVO.setY(rs.getInt("y"));
-			maVO.setDir(rs.getString("dir"));
-			maVO.setSavename(rs.getString("savename"));
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -94,14 +92,17 @@ public class MainDao {
 		}
 	}
 	
-	public ArrayList<String> getTododate(){
+	public ArrayList<String> getTododate(String date){
 		ArrayList<String> list = new ArrayList<String>();
 		
 		con = db.getCon();
 		String sql = maSQL.getSQL(maSQL.SEL_TODODATE);
-		stmt = db.getSTMT(con);
+		pstmt = db.getPSTMT(con, sql);
+		
+		String likeStr = date.substring(0, 6) + "%";
 		try {
-			rs = stmt.executeQuery(sql);
+			pstmt.setString(1, likeStr);
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				list.add(rs.getString("tododate"));
 			}

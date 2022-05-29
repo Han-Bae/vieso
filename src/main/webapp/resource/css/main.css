@@ -92,7 +92,7 @@ td {
 	
 }
 .date-row {
-	height: 120px;
+	height: 60px;
 }
 td:hover {
 	--bs-table-accent-bg: var(--bs-table-hover-bg);
