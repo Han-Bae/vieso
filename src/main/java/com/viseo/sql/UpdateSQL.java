@@ -36,19 +36,22 @@ public class UpdateSQL {
 			buff.append("	AND A.id = ? ");
 			break;
 		case DEL_MEMBER:
-			buff.append("DELETE ");
-			buff.append("FROM ");
+			buff.append("UPDATE ");
 			buff.append("	member ");
+			buff.append("SET ");
+			buff.append("	isshow = 'N' ");
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
 			break;
 		case DEL_MEMBER2:
 			buff.append("SELECT ");
-			buff.append("	pw ");
+			buff.append("	count(*) cnt ");
 			buff.append("FROM ");
 			buff.append("	member ");
 			buff.append("WHERE ");
-			buff.append("	id = ? ");
+			buff.append("	isshow = 'Y' ");
+			buff.append("	AND id = ? ");
+			buff.append("	AND pw = ? ");
 			break;
 		case EDIT_MEMBER:
 			buff.append("UPDATE ");
