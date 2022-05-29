@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/base.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href=https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cosmo/bootstrap.min.css>
 <script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/viseo/resource/js/bootstrap.js"></script>
 <script type="text/javascript" src="/viseo/resource/js/update.js"></script>

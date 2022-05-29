@@ -4,7 +4,8 @@ import java.sql.Time;
 import java.util.Date;
 
 public class WriteVO {
-	private String id, title, todoRepeat, memo, alarmRepeat, chcekDate, category, chcekTime , area;
+	private int addr;
+	private String id, title, todoRepeat, memo, alarmRepeat, chcekDate, category, chcekTime , area, city;
 	
 	public String getId() {
 		return id;
@@ -61,7 +62,18 @@ public class WriteVO {
 	public void setArea(String area) {
 		this.area = area;
 	}
-	
+	public int getAddr() {
+		return addr;
+	}
+	public void setAddr(int addr) {
+		this.addr = addr;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 }
 
 

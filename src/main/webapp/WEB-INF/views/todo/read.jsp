@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/base.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href=https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cosmo/bootstrap.min.css>
 <script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/viseo/resource/js/bootstrap.js"></script>
 <script type="text/javascript" src="/viseo/resource/js/read.js"></script>
@@ -60,6 +61,10 @@
 				<div>
 					<div>
 						<div class="form-group">
+			      			<label for="exampleSelect1" class="form-label mt-4">선택한 날짜</label>
+			     			<input class="form-control form-control-lg"  type="text" id="chcekDate" name="chcekDate" value="${DATA.chcekDate}" readOnly>
+			  			</div>
+						<div class="form-group">
 					      		<label for="exampleSelect1" class="form-label mt-4">카테고리 선택</label>
 					     		<select class="form-select" id="category" name="category">
 					       		<option>회사</option>
@@ -72,19 +77,23 @@
 				  			<input class="form-control form-control-lg" type="text" id="title" name="title" value="${DATA.title}">
 						</div>
 						<div class="form-group">
-					      		<label for="exampleSelect1" class="form-label mt-4">지역</label>
-					      		<p>${DATA.area}</p>
+					      		<label for="exampleSelect1" class="form-label mt-4">약속장소</label>
+								<input class="form-control form-control-lg"  type="text" id="chcekDate" name="chcekDate" value="${DATA.area}" readOnly >
 					    </div>
 					</div>
+<!--------------------------------------------------------------------------------------->
+			<div class="form-group">
 					<div>
-					<label for="exampleSelect1" class="">날짜와시간</label>
+						<label for="exampleSelect1" class="">약속시간</label>
 					</div>
-					<input type="text" id="chcekDate" name="chcekDate" value="${DATA.chcekDate}" readOnly>
-					
-				   <div>
+				   <div class="form-check">
 				        <input class="form-check-input" type="checkbox" id="c123" name="c123"  >
 				       	<label class="form-check-label" for="flexCheckDefault">종일</label>
-						<input type="time" id="chcekTime" name="chcekTime" value="${DATA.chcekTime}" >
+				   </div>
+					<div class="form-group">
+						<input class="form-control form-control-lg" type="time" id="chcekTime" name="chcekTime" value="${DATA.chcekTime}" >
+				   </div>
+				   <div class="form-label mt-4">
 						<select class="form-select" id="alarmRepeat" name="alarmRepeat" >
 							<option>알람안함</option>
 							<option>30분전알림</option>
@@ -93,9 +102,10 @@
 		     			  	<option>세시간전알림</option>
 		      			</select>
 	      			</div>
-					
-					<div class="">
-					<textarea class="form-control" id="memo" name="memo" rows="3" style="height: 150px;">${DATA.memo}</textarea>
+					</div>
+<!--------------------------------------------------------------------------------------->
+					<div class="form-group">
+						<textarea class="form-control" id="memo" name="memo" rows="3" style="height: 150px;">${DATA.memo}</textarea>
 			    	</div>
 				</div>
 				<div>

@@ -8,14 +8,18 @@ import com.viseo.sql.*;
 import com.viseo.vo.*;
 
 /**
- * 이 클래스는 todo 입력 관련 데이터베이스 작업을 전담해서 처리하는 클래스
- * @author 박형근
- * @since 2022.05.12
- * @version v.1.0
- * 		작업 이력)
- * 				2022.05.24	- 클래스 제작
- * 						담당자 박형근
+ * 	//할일 저장 //할일 조회 //할일 기존등록 건수조회 //할일 수정 //기본 지역조회 //상세 지역조회
+ * 
+ * 
+ * @author	박형근
+ * @since	2022.05.26-29
+ * @version	v.1.0
+ * 
+* 			작업이력	]
+ * 				2022.05.26-29	-	담당자 : 박형근
+ * 									내	용 : //할일 저장 //할일 조회 //할일 기존등록 건수조회 //할일 수정 //기본 지역조회 //상세 지역조회
  */
+
 public class WriteDao {
 /*
  	이 클래스는 이 클래스가 new 된 순간 데이터베이스 작업을 할 준비가
@@ -147,7 +151,6 @@ public class WriteDao {
 			// 결과에서 데이터꺼내고
 			rs.next();
 			cnt = rs.getInt("cnt");
-			System.out.println("기존할일 건수는 몇건--------"+cnt);
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -204,6 +207,67 @@ public class WriteDao {
 		}
 		
 		return cnt;
+	}
+	
+	//기본 지역조회
+	public ArrayList<String> getAreaName() {
+		ArrayList<String> list = new ArrayList<String>();
+		
+		// 커넥션 연결
+		con = db.getCon();
+		String sql = wSQL.getSQL(wSQL.SEL_AREA_NAME);
+		stmt = db.getSTMT(con);
+		
+		try {
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				list.add(rs.getString("areaname"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		
+		return list;
+	}
+	
+	//상세 지역조회
+	public ArrayList<WriteVO> getCityList(String areaname){
+		ArrayList<WriteVO> list = new ArrayList<WriteVO>();
+		
+		// 커넥션 연결
+		con = db.getCon();
+		String sql = wSQL.getSQL(wSQL.SEL_AREA_CITY);
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			// areaname을 파라미터로
+			pstmt.setString(1, areaname);
+			
+			rs = pstmt.executeQuery();
+			
+			// 반복문으로 배열에 값 넣기
+			while(rs.next()) {
+				WriteVO wVO = new WriteVO();
+				
+				wVO.setAddr(rs.getInt("areano"));
+				wVO.setCity(rs.getString("city"));
+				
+				list.add(wVO);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return list;
 	}
 
 }

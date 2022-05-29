@@ -37,12 +37,8 @@ public class ReadCntTodo implements BlpInter {
 				return "/viseo/member/loginForm.blp";
 			}
 			
-			System.out.println("[ReadCntTodo]세션으로 받은id============"+id);
-			
 			// 파라미터 받고
 			String chcekDate = req.getParameter("checkDate");	//지정날짜
-			
-			System.out.println("[ReadCntTodo]chcekDate============"+chcekDate);
 			
 			// vo에 담고
 			WriteVO wVO = new WriteVO();

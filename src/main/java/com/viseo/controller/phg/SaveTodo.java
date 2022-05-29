@@ -48,6 +48,7 @@ public class SaveTodo implements BlpInter {
 			String alarmRepeat = req.getParameter("alarmRepeat");	//알람반복
 			String category = req.getParameter("category");	//카테고리
 			String area = req.getParameter("area");	//지역
+			System.out.println("area============"+area);
 			
 			// vo에 담고
 			WriteVO wVO = new WriteVO();
