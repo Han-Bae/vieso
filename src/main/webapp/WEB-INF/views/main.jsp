@@ -177,14 +177,24 @@
 						<td class="border-primary mainDate"></td>
 						<td class="border-primary mainDate"></td>
 					</tr>
+					<!-- 6주 -->
+					<tr class="date-row">
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+						<td class="border-primary mainDate"></td>
+					</tr>
 				</tbody>
 			</table>
 			
 			<div class="category">
-				<label><input id="checkCompany" type="checkbox">회사</label>
-				<label><input id="checkFamily" type="checkbox">가족</label>
-				<label><input id="checkFriend" type="checkbox">친구</label>
-				<label><input id="checkOther" type="checkbox">지인</label>
+				<label for="comCheck" id="checkCompany"><input id="compCheck" type="checkbox">회사</label>
+				<label for="famCheck" id="checkFamily"><input id="famCheck" type="checkbox">가족</label>
+				<label for="friCheck" id="checkFriend"><input id="friCheck" type="checkbox">친구</label>
+				<label for="otherCheck" id="checkOther"><input id="otherCheck" type="checkbox">지인</label>
 			</div>
 		</div>
 		
