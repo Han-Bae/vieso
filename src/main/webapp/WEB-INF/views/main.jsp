@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
-	@author		전다빈
+	@author		전다빈, 박형근(할일 모달창 작업_쓰기,조회,수정)
 	@since		2022.05.23
 	@version	v.1.0
 	
@@ -14,6 +14,9 @@
 										
 						2022.05.28	-	담당자 : 전다빈
 										내	용 : 카테고리 스타일 추가, jstl로 자바 ArrayList 가져옴
+
+						2022.05.23-29	-	담당자 : 박형근
+											내	용 : 할일 모달창 쓰기페이지 / 조회페이지/ 수정페이지
 --%>
 <!DOCTYPE html>
 <html>
