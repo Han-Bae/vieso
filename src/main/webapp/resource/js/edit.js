@@ -13,6 +13,7 @@
  									내	용 : 지역 데이터 받아오기 ajax 추가
 */
 
+
    var contentFull = true;
    /*select option 날짜 생성 함수*/
    $(document).ready(function(){            
@@ -41,6 +42,7 @@
 });
 
 
+
 // 비밀번호 정규식
 $(function(){
 		$('#pw-text1').css('display', 'none');
@@ -62,6 +64,7 @@ $(function(){
 }); 
 
 
+
 // 비밀번호 확인 이벤트
 $(function(){
 	$('#checkbox').css('display', 'none');
@@ -80,6 +83,7 @@ $(function(){
 });
 
 
+
 // 이메일 정규식
 $(function(){
 	$('#email_check').css('display', 'none');
@@ -96,6 +100,7 @@ $(function(){
 });
 
 
+
 // 핸드폰번호 정규식
 $(function(){
 	$('#tel_check').css('display', 'none');
@@ -110,6 +115,7 @@ $(function(){
 			}
 	});
 });
+
 
 
 $(function(){
@@ -147,6 +153,8 @@ $(function(){
 	birthSet();
 });
 
+
+
 function birthBinding(){
 	  var yyyy = $('#year').val();
       var mm = $('#month').val();
@@ -154,6 +162,8 @@ function birthBinding(){
       $('#birth').val(""+yyyy + mm + dd);
       var birth = $("#birth").val();
 }
+
+
 
 function birthSet(){
     var birth = $("#birth").val();
@@ -164,6 +174,8 @@ function birthSet(){
     var dd = birth.substring(6, 8);
     $("#day  > option[value="+dd+"]").attr("selected", "true"); 
 }
+
+
 
 
 function getCitylist(sname){	
@@ -190,6 +202,7 @@ function getCitylist(sname){
 			}
 		});
 }
+
 
 
 function getCityView(){

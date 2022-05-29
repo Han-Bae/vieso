@@ -70,24 +70,38 @@ public class UpdateDao {
 			public boolean deleteId(String id, String password) {
 
 				boolean result = false;
+				int cnt = 0;
 				String dbpw="";
+				
+				con = db.getCon();
+				String sql = uSQL.getSQL(uSQL.DEL_MEMBER2);
+				pstmt = db.getPSTMT(con, sql);
 
 				try {
-					con = db.getCon();
-					String sql = uSQL.getSQL(uSQL.DEL_MEMBER2);
-					pstmt = db.getPSTMT(con, sql);
 					pstmt.setString(1, id);
+					pstmt.setString(2, password);
 					rs  = pstmt.executeQuery();
-				if(rs.next()) {
-					dbpw = rs.getString("pw");
-					if(dbpw.equals(password)) {
+					rs.next();
+					cnt = rs.getInt("cnt");
+					
+					if(cnt == 0) {
+						return false;
+					} else {
+						db.close(rs);
+						db.close(pstmt);
 						String delsql = uSQL.getSQL(uSQL.DEL_MEMBER);
+						
 						pstmt = con.prepareStatement(delsql);
 						pstmt.setString(1, id);
-						pstmt.executeUpdate();
-						result = true;
+						cnt = pstmt.executeUpdate();
+						
+						if(cnt == 1) {
+							result = true;
+						} else {
+							result = false;
 						}
 					}
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				} finally {

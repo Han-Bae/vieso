@@ -1,14 +1,5 @@
 package com.viseo.controller.hsr;
-/**
- * 
- * @author	한서라
- * @since	2022.05.27
- * @version	v.1.0
- * 
- * 			작업이력	]
- * 				2022.05.26	-	담당자 : 한서라
- * 								내	용 : 회원정보 삭제 처리 클래스 제작
- */
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -27,8 +18,7 @@ import com.viseo.vo.UpdateVO;
  * @version v.1.0
  * 		작업 이력)
  * 				2022.05.26	- 담당자 : 한서라
- * 							  내용  : 회원정보 탈퇴
- * 						
+ * 							  내용  : 회원정보 탈퇴 처리
  */
 public class DelInfoProc implements BlpInter {
 
@@ -51,25 +41,25 @@ public class DelInfoProc implements BlpInter {
 		UpdateDao uDao = new UpdateDao();
 		boolean result = uDao.deleteId(sid, password);
 		
+		req.setAttribute("isRedirect", false);
 		if(result) {
-			session.invalidate();
-
-			req.setAttribute("isRedirect", false);
+			session.removeAttribute("SID");
 			req.setAttribute("icon", "success");
 			req.setAttribute("msg", "회원 탈퇴에 성공했습니다");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");			
 			req.setAttribute("title", "Good Bye! See u again");
-			return "/member/loginRedirect";
+			view = "/member/loginRedirect";
 		} else {
 			req.setAttribute("isRedirect", false);
 			req.setAttribute("icon", "error");
 			req.setAttribute("msg", "회원 탈퇴에 실패했습니다^ㅠ^");
 			req.setAttribute("url", "/viseo/member/info/withdrawal.blp");			
-			req.setAttribute("title", "Good Bye! See u again");
-			return "/member/loginRedirect";
-			
+			req.setAttribute("title", "가지 말아요~~");
+			view = "/member/loginRedirect";
 		}
+		
 		// 뷰 반환하고
+		return view;
 	}
 
 }
