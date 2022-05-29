@@ -18,7 +18,7 @@ import com.viseo.vo.UpdateVO;
  * @version v.1.0
  * 		작업 이력)
  * 				2022.05.26	- 담당자 : 한서라
- * 							  내용  : 회원정보 탈퇴
+ * 							  내용  : 회원정보 탈퇴 처리
  */
 public class DelInfoProc implements BlpInter {
 
