@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	// $('#toDofid').modal();
+	$('#toDofid').modal();
 	
 	// 홈버튼 클릭 이벤트
 	$('#hbtn').click(function(){
@@ -136,15 +136,14 @@ $(document).ready(function(){
 	$("#closeBtn").click(function(){
 		$(location).attr("href", "/viseo/main.blp");
 	});
-	
-	/*
+
 	//모달창 외부영역 클릭시 메인페이지 호출
 	$(document).mouseup(function (e){
 		if($(".modal").has(e.target).length === 0){
 			$(location).attr("href", "/viseo/main.blp");
 		}
 	});
-	*/
+
 	
 		
 });
