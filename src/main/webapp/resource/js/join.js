@@ -241,6 +241,7 @@
    
    // 가입하기 버튼 클릭 이벤트
    $('#jbtn').click(function(){
+			
       // 데이터 유효성 검사
       var name = $('#name').val();
       var id = $('#id').val();
@@ -272,10 +273,43 @@
          alert('필수 선택 사항을 확인하세요!');
          return;
       }
-      
-      $('#frm').attr('action', '/viseo/member/joinProc.blp').submit();     
+
+ 	 $('#frm').attr('action', '/viseo/member/joinProc.blp').submit();
    });
       
+   
+    // 메일 인증 확인 
+    $("#mbtn").click(function(){
+		// 사용 가능한 메일일때만 기동
+		if($('#mailckmsg').html() != '사용 가능한 이메일입니다.'){
+			swal('메일 전송 불가!', '메일 중복 확인을 먼저 진행해주세요.', 'error');
+			return;				
+		}
+			// 알림출력 이후 전송
+		var smail = $('#mail').val();				
+		$.ajax({
+			url: '/viseo/member/sendCheckMail.blp',
+			type: 'post',
+			dataType: 'json',
+			data: {
+				mail : smail
+			},
+			success: function(data){
+				var result = data.result;
+				if(result == 'OK'){
+					swal('인증 메일 전송!','확인을 누르시고 해당 메일에서 인증해주세요.','success');
+
+				} else {
+					swal('인증 메일 전송 실패!','메일 인증을 다시 진행해주세요.','error');
+				}
+			},
+			error: function(){
+				swal('통신 에러!', '다시 시도해주세요.', 'error');
+			}
+		});
+		
+	});
+
 /*  
    오류확인용    
      $('#year').change(function(){

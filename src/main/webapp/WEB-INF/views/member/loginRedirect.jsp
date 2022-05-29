@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/bootstrap.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 	
 <style>
 	
@@ -47,6 +48,10 @@ $(document).ready(function(){
 	.then(function(){
 		if("${empty status}"){
 			$(location).attr('href', '${url}');
+		}
+		// 인증된 이메일과 현재 상태가 일치하면
+		if("${mailCheck}" == 'pass'){
+			window.close();
 		}
 		$('#frm').submit();		
 	});

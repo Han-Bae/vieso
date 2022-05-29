@@ -16,10 +16,14 @@ public class LoginSQL {
 	public final int SEL_FID_CNT 	= 1002;
 	public final int SEL_FID_ID 	= 1003;
 	public final int SEL_FPW_CNT 	= 1004;
+	public final int SEL_OK_CK		= 1005;
+	
+	public final int INSERT_MAIL	= 2001;
 	
 	public final int SEL_ALL 		= 3005;
 
-	public final int EDIT_PW 		= 4005;
+	public final int EDIT_PW 		= 4001;
+	public final int EDIT_ST_MAIL	= 4002;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -74,8 +78,28 @@ public class LoginSQL {
 		buff.append("	isshow = 'Y' ");
 		buff.append("	AND id = ? ");
 				break; 
-			  
-			 		
+	// 이메일 등록 질의문
+				case INSERT_MAIL:
+		buff.append("INSERT INTO EMAIL(email) ");
+		buff.append("VALUES( ");
+		buff.append("	?) ");
+			break; 
+	// 이메일 허가 체크 질의문
+				case SEL_OK_CK:
+		buff.append("SELECT COUNT(*) cnt ");
+		buff.append("FROM EMAIL ");
+		buff.append("WHERE ");
+		buff.append("	isokay = 'N' ");
+		buff.append("   AND email = ? ");
+			break; 
+			
+	// 이메일 가입 허가 질의문('Y'면 이미 가입된 거)
+				case EDIT_ST_MAIL:
+		buff.append("UPDATE EMAIL ");
+		buff.append("SET isokay = 'Y' ");
+		buff.append("WHERE ");
+		buff.append("	email = ? ");
+			  break;			 		
 		 
 }
 	

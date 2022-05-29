@@ -34,34 +34,29 @@ public class LoginDao {
 		db = new BlpDBCP();
 		lSQL = new LoginSQL();
 	}
-	public ArrayList<MemberVO> getAll() {
-		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+	
+	// 가입 가능한 이메일인지 검사
+	public int getOK(String mail) {
+		int cnt = 0;
 		con = db.getCon();
-		String sql = lSQL.getSQL(lSQL.SEL_ALL);
-		stmt = db.getSTMT(con);
+		String sql = lSQL.getSQL(lSQL.SEL_OK_CK);
+		pstmt = db.getPSTMT(con, sql);
 		try {
-			rs = stmt.executeQuery(sql);
-			while(rs.next()) {
-				MemberVO mVO = new MemberVO();
-				mVO.setId(rs.getString("id"));
-				mVO.setName(rs.getString("name"));
-				mVO.setPw(rs.getString("pw"));
-				mVO.setMail(rs.getString("mail"));
-				mVO.setNickname(rs.getString("nickname"));
-				list.add(mVO);
-			}
-			
+			pstmt.setString(1, mail);
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt("cnt");
 		} catch(Exception e) {
 			e.printStackTrace();
-		} finally{
+		} finally {
 			db.close(rs);
-			db.close(stmt);
+			db.close(pstmt);
 			db.close(con);
 		}
-		return list;
+		return cnt;
 	}
-
-// 로그인 데이터베이스 작업 전담 처리함수
+	
+	// 로그인 데이터베이스 작업 전담 처리함수
 	public int getLogin(String id, String pw) {
 		int cnt = 0;
 		// 커넥션
@@ -195,8 +190,43 @@ public class LoginDao {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.close("pstmt");
-			db.close("con");
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+	
+	// 이메일인증 통과한 회원가입 허가
+	public int joinOK(String mail) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = lSQL.getSQL(lSQL.EDIT_ST_MAIL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, mail);
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+		}
+		return cnt;
+	}
+	
+	// 회원 가입 인증 이메일 처리 함수
+	public int addMail(String email) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = lSQL.getSQL(lSQL.INSERT_MAIL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, email);
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
 		}
 		return cnt;
 	}

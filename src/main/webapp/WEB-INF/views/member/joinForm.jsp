@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href=https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cosmo/bootstrap.min.css>
 	<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/bootstrap.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/join.js"></script>
 
 <style type="text/css">
@@ -33,7 +34,7 @@
 		<!-- 메인 로고 가운데 정렬 -->
 		<div class="row input-center" style="width: 100%">
 		 <div style="width: 30%; float:none; margin:0 auto" >	
-		<a href="/viseo/main.viseo"><img src="/viseo/resource/icon/logo.png"/></a>
+		<a href="/viseo/main.blp"><img src="/viseo/resource/icon/logo.png"/></a>
 		</div></div><br></br>
 		<!-- 타이틀 -->
 		<h1 class="text-primary margin-top content"><strong>회원가입</strong></h1>
@@ -153,13 +154,13 @@
 						 
 					<!-- 인증 버튼 이벤트 -->
 					<div class="content">
-					<button type="submit" class="btn btn-primary btn-lg" id="mbtn">메일인증</button>
+							<button type="button" class="btn btn-primary btn-lg" id="mbtn">메일인증</button>
 					</div>
 				</div>
 				
 				<!-- 버튼 이벤트 -->
 				<div class="content">
-				<button type="submit" class="btn btn-primary btn-lg" id="jbtn">가입하기</button>
+				<button type="button" class="btn btn-primary btn-lg" id="jbtn">가입하기</button>
 				</div>
 				
 			</form>
