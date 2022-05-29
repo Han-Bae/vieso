@@ -21,7 +21,7 @@ $(document).ready(function(){
 					$('#fid').modal('hide');
 					$('#frm')[0].reset();
 					$(location).attr("href", "/viseo/main.blp");
-					} 
+					}
 				},
 			error: function(){
 				alert('### 통신실패 ###');
@@ -61,7 +61,7 @@ $(document).ready(function(){
 				 	if(result == 'OK'){//기존 할일이 존재하는 경우 
 						$('#frm').attr('action', '/viseo/todo/read.blp').submit();     
 					}else{ //기존 할일이 없는 경우 입력창
-						$("#fid").modal();
+						$('#fid').modal();
 					} 
 				},
 			error: function(){

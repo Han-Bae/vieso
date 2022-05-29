@@ -26,6 +26,8 @@
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
 <link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
 <script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/bootstrap.js"></script>
+<script type="text/javascript" src="/viseo/resource/js/write.js"></script>
 <script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 <style>
 </style>
@@ -200,6 +202,86 @@
 		<input type="hidden">
 		<input type="hidden">
 	</form>
+	
+<%------------------------------------------------------------------------------------------%>
+<%-- 모달  --%>
+   <div class="modal" id="fid">        
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <button type="button" data-dismiss="modal" class="logoBtn"></button>
+         <div class="modal-header">
+           <div class="modal-title"></div>
+           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" id="closeBtn">
+             <span aria-hidden="true"></span>
+           </button>
+         </div>
+<form method="POST" class="" id="frm" name="frm">
+	         <div class="modal-body">
+	<div>
+		
+		<div>
+			<div>
+				<div class="form-group">
+			      		<label for="exampleSelect1" class="form-label mt-4">선택한 날짜</label>
+			     		<input class="form-control form-control-lg"  type="text" id="chcekDate" name="chcekDate" value="" >
+			    </div>
+				<div class="form-group">
+			      		<label for="exampleSelect1" class="form-label mt-4">카테고리 선택</label>
+			     		<select class="form-select" id="category" name="category">
+				       		<option>회사</option>
+				        	<option>가족</option>
+				      		<option>친구</option>
+				   		    <option>지인</option>
+			      		</select>
+			    </div>
+				<div class="form-group">
+		  			<input class="form-control form-control-lg" type="text" placeholder="제목을 입력하세요" id="title" name="title">
+				</div>
+				<div class="form-group">
+				<label for="exampleSelect1" class="">지역</label>
+			      		<input class="form-control form-control-lg" type="text" id="area" name="area" value="서울시 종로구" >
+			      		<%-- <input type="date" id="area" name="area" value="${maDATA.areaname} ${maDATA.city}" > --%>
+			    </div>
+			</div>
+			
+			<div>
+			<label for="exampleSelect1" class="">시간을 입력하세요</label>
+			</div>
+			<input type="time" id="chcekTime" name="chcekTime" value="" disabled >
+			<div class="form-check">
+		        	<input class="form-check-input" type="checkbox" id="c123" name=""  checked>
+		       		<label class="form-check-label" for="flexCheckDefault">종일</label>
+		    </div>
+			<div class="">
+		      		<!-- <label for="exampleSelect1" class="form-label mt-4"></label> -->
+		     		<select class="form-select" id="alarmRepeat" name="alarmRepeat" hidden>
+						<option>알림없음</option>
+						<option>30분전알림</option>
+	     			  	<option>한시간전알림</option>
+	     			  	<option>두시간전알림</option>
+	     			  	<option>세시간전알림</option>
+		      		</select>
+		    	</div>
+			
+		
+			<div class="">
+	      		<!-- <label for="exampleTextarea" class="form-label mt-4"></label> -->
+	     		<textarea class="form-control" placeholder="메모하세요" id="memo" name="memo" rows="3" style="height: 150px;"></textarea>
+	    	</div>
+		</div>
+		<div>
+		</div>
+		<div>
+			<div>
+				<button type="button" class="btn btn-primary" id="savebtn" name="savebtn">저장</button>
+			</div>
+		</div>
+		</div>
+	</div>
+</form>
+</div>
+</div>
+</div>
 	
 <script type="text/javascript" src="/viseo/resource/js/main.js"></script>
 <script type="text/javascript" src="/viseo/resource/js/menu.js"></script>

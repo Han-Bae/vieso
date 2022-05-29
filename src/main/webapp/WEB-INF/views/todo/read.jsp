@@ -39,10 +39,7 @@
 </head>
 <body>
 <div>
-<%-- 아이디찾기 버튼 --%>
-<!-- <button type="button" class="subbtn sub" data-target="#fid" data-toggle="modal">조회하기</button> -->
-
-<%-- 아이디찾기 모달  --%>
+<%--  모달  --%>
    <div class="modal" id="fid">        
      <div class="modal-dialog" role="document">
        <div class="modal-content">
