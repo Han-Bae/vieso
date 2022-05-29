@@ -63,7 +63,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="com.viseo.controller.main">VISEO</a>
+    <a class="navbar-brand" href="/viseo/main.blp">VISEO</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -100,7 +100,7 @@
 		      <input type="text" class="form-control col-8" id="nickname" name="nickname" value="${DATA.nickname}">
 		 </div>
 		  <div class="form-group">
-		      <label for="formFile" class="form-label mt-4 text-primary"><b>profile image select</b></label>
+		      <label for="formFile" class="form-label mt-4 text-primary"><b>profile image select</b></label><br>
 			  <img id="preview" />
 		      <input class="form-control col-8" type="file" id="formFile" onchange="readURL(this);"> 
 	    </div>

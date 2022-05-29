@@ -21,11 +21,9 @@
 	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/viseo/resource/css/menu.css">
 	<script type="text/javascript" src="/viseo/resource/js/jquery-3.6.0.min.js"></script>
-<!--
  	<script type="text/javascript" src="/viseo/resource/js/main.js"></script>
 	<script type="text/javascript" src="/viseo/resource/js/menu.js"></script> 
 	<script type="text/javascript" src="/viseo/resource/js/edit.js"></script>
-	-->
 	<script src="https://kit.fontawesome.com/e0f46f82c6.js"></script>
 </head>
 <body>
@@ -43,7 +41,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/main.blp">VISEO</a>
+    <a class="navbar-brand" href="/viseo/main.blp">VISEO</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
