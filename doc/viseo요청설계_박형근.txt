@@ -1,0 +1,44 @@
+# Viseo Project 요청 설계
+	# 박형근
+		# 메인달력 클릭시 할일 페이지 호출
+		# 할일 작성
+		# 할일 조회
+		# 할일 수정
+		
+	---------------------------
+	# 메인달력 클릭시 기본 지역조회 및 할일 페이지 요청 처리
+		요청 내용	:	/viseo/todo/selMainArea.blp
+		파라미터	:	chcekDate(할일 페이지 내부 날짜 셋팅용 파라미터)
+		컨트롤러	:	com.viseo.controller.phg.SelMainArea
+		뷰	:	WEB-INF/views/todo/write.jsp
+	---------------------------
+	# 할일 페이지 내부 상세 지역 조회
+		요청 내용	:	/viseo/todo/selCityList.blp
+		파라미터	:	areaname(상세지역 조회용 기본지역 파라미터)
+		컨트롤러	:	com.viseo.controller.phg.SelCityList
+		뷰	:	Ajax - json
+	---------------------------
+	# 할일 저장
+		요청 내용	:	/viseo/todo/saveTodo.blp
+		파라미터	:	title,chcekDate,chcekTime,todoRepeat,memo,alarmRepeat,category,area
+		컨트롤러	:	com.viseo.controller.phg.SaveTodo
+		뷰	:	Ajax - json
+	---------------------------	
+	# 저장된 할일 건수 조회
+		요청 내용	:	/viseo/todo/readCnt.blp
+		파라미터	:	id, checkDate
+		컨트롤러	:	com.viseo.controller.phg.ReadCntTodo
+		뷰	:	Ajax - json
+	---------------------------
+	# 저장된 할일 조회
+		요청 내용	:	/viseo/todo/read.blp
+		파라미터	:	id, checkDate
+		컨트롤러	:	com.viseo.controller.phg.ReadTodo
+		뷰	:	/WEB-INF/views/todo/read.jsp
+	---------------------------
+	# 할일 수정
+		요청 내용	:	/viseo/todo/update.blp
+		파라미터	:	title,chcekDate,chcekTime,todoRepeat,memo,alarmRepeat,category
+		컨트롤러	:	com.viseo.controller.phg.UpdateTodo
+		뷰	:	Ajax - json
+	---------------------------
