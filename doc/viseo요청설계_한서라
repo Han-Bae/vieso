@@ -17,7 +17,10 @@
 		요청 내용	:	/member/info/ProfileUpdateProc.blp
 		파라미터	:	nickname
 		컨트롤러	:	com.viseo.controller.hsr.ProfileUpdateProc
-		뷰			:	/member/info/ProfileUpdate.blp
+		뷰			:	
+				 		redirect ]
+							성공 : /member/loginRedirect
+							실패 : /member/loginRedirect
 	---------------------------	
 	---------------------------
 	# 회원수정 요청 매핑
@@ -30,8 +33,11 @@
 	# 회원수정 요청 처리 매핑
 		요청 내용	:	/member/info/InfoUpdateProc.blp
 		파라미터	:	id, Password1, mail, tel, addr, birth
-		컨트롤러	:	com.viseo.controller.hsr.InfoUpdateProc
-		뷰			:	/member/loginRedirect
+		컨트롤러	:	com.viseo.controller.hsr.InfoUpdateㅉProc
+		뷰			:	
+				 		redirect ]
+							성공 : /member/loginRedirect
+							실패 : /member/loginRedirect
 	---------------------------	
 	---------------------------
 	# 회원탈퇴 요청 매핑
