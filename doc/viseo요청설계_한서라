@@ -1,0 +1,52 @@
+# Viseo Project 요청 설계	
+	
+	* 정보수정 관련 요청 처리 - 담당 : 한서라
+	---------------------------
+	# 프로필수정 폼보기 요청
+		요청 내용	:	/member/info/ProfileUpdate.blp
+		파라미터	:	무
+		컨트롤러	:	com.viseo.controller.hsr.ProfileUpdate
+		뷰			:	/WEB-INF/views/member/info/ProfileUpdate.jsp
+		기타		:	로그인 된 경우 ]
+							redirect : /member/info/ProfileUpdate
+						로그인 안 된 경우 ]
+						/member/loginForm.blp
+	---------------------------
+	---------------------------
+	# 프로필수정 처리 요청
+		요청 내용	:	/member/info/ProfileUpdateProc.blp
+		파라미터	:	nickname
+		컨트롤러	:	com.viseo.controller.hsr.ProfileUpdateProc
+		뷰			:	/member/info/ProfileUpdate.blp
+	---------------------------	
+	---------------------------
+	# 회원수정 요청 매핑
+		요청 내용	:	/member/info/InfoUpdate.blp
+		파라미터	:	무
+		컨트롤러	:	com.viseo.controller.hsr.InfoUpdate
+		뷰			:	/WEB-INF/views/member/info/InfoUpdate.jsp
+	---------------------------
+	---------------------------
+	# 회원수정 요청 처리 매핑
+		요청 내용	:	/member/info/InfoUpdateProc.blp
+		파라미터	:	id, Password1, mail, tel, addr, birth
+		컨트롤러	:	com.viseo.controller.hsr.InfoUpdateProc
+		뷰			:	/member/loginRedirect
+	---------------------------	
+	---------------------------
+	# 회원탈퇴 요청 매핑
+		요청 내용	:	/member/info/withdrawal.blp
+		파라미터	:	무
+		컨트롤러	:	com.viseo.controller.hsr.DelInfo
+		뷰			:	/WEB-INF/views/member/info/withdrawal.jsp
+	---------------------------
+	---------------------------	
+	## 회원탈퇴 처리 요청 매핑
+		요청 내용	:	/member/info/DelInfoProc.blp
+		파라미터	:	password
+		컨트롤러	: 	com.viseo.controller.hsr.DelInfoProc
+		뷰			:	
+				 		redirect ]
+							성공 : /member/loginRedirect
+							실패 : /member/loginRedirect
+	---------------------------
