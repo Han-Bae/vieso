@@ -50,7 +50,7 @@ $(document).ready(function(){
 			$(location).attr('href', 'http://192.168.0.29/${url}');
 		}
 		// 인증된 이메일과 현재 상태가 일치하면
-		if("${mailCheck}" == 'pass'){
+		if('${mailCheck' == 'pass'){
 			window.close();
 		}
 		$('#frm').submit();		
