@@ -53,7 +53,7 @@ $(document).ready(function(){
 		if('${mailCheck}' == 'pass'){
 			window.close();
 		}
-		$('#frm').submit();		
+		$('#frm').submit();
 	});
 });
 </script>
