@@ -47,7 +47,7 @@ $(document).ready(function(){
     swal('${title}','${msg}','${icon}')
 	.then(function(){
 		if("${empty status}"){
-			$(location).attr('href', 'http://192.168.0.29/+${url}');
+			$(location).attr('href', 'http://192.168.0.29/${url}');
 		}
 		// 인증된 이메일과 현재 상태가 일치하면
 		if("${mailCheck}" == 'pass'){
