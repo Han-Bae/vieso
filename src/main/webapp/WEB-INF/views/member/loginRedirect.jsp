@@ -37,17 +37,15 @@
 	    z-index: -1; 
 	    content: "";
 	}
-	
 	</style>
 </head>
 <script>
-
 $(document).ready(function(){
 	//	받아온 url값, 오류멘트, 상태 조회 및 전송
     swal('${title}','${msg}','${icon}')
 	.then(function(){
 		if(${empty status} == null){
-			$(location).attr('href', 'http://192.168.0.29/${url}');
+			$(location).attr('href', 'http://${ip}${url}');
 		}
 		// 인증된 이메일과 현재 상태가 일치하면
 		if('${mailCheck}' == 'pass'){

@@ -42,10 +42,11 @@ public class FindPW implements BlpInter {
 		int cnt = lDao.checkUserPw(id, mail);
 		if(cnt == 1) {
 			// 해당 유저가 존재하면
-				// 이메일 처리 클래스 생성
-//				CheckMail ckm = new CheckMail();
+				//	이메일 처리 클래스 생성
+				//	CheckMail ckm = new CheckMail();
 			req.getSession().setAttribute("status", "refindPw_next");
 			req.getSession().setAttribute("id", id);
+			return view;
 			// 모달창 다시 오픈
 		} else {
 			// 정보가 일치하지 않는다면
@@ -55,11 +56,8 @@ public class FindPW implements BlpInter {
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
 				// 모달창 다시 오픈
 			req.getSession().setAttribute("status", "refindPw");
-
-			return "/member/loginRedirect";
 		}
-		
-		return view;
+		req.setAttribute("ip", myIp.getServerIp());
+		return "/member/loginRedirect";
 	}
-
 }

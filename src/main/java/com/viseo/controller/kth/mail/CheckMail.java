@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.viseo.controller.BlpInter;
+import com.viseo.controller.kth.myIp;
 import com.viseo.dao.LoginDao;
 /**
  * 		이메일에 전송한 확인 버튼과 연결된 요청
@@ -54,7 +55,6 @@ public class CheckMail implements BlpInter {
 		if(cnt == 1) {
 			// 회원가입 메일 인증 확인용 어트리뷰트
 			// 알림창 파라미터
-			req.setAttribute("status", "emailOK");
 			req.setAttribute("icon", "success");
 			req.setAttribute("title", "이메일 인증 성공!");
 			req.setAttribute("msg", "회원가입 페이지로 돌아가 남은 절차를 진행해주세요.");
@@ -68,8 +68,8 @@ public class CheckMail implements BlpInter {
 			req.setAttribute("msg", "회원가입을 처음부터 진행해주세요");
 		}
 		// 사용한 파라미터 삭제
+		req.setAttribute("ip", myIp.getServerIp());
 		req.getSession().removeAttribute("mail");
 		return "/member/loginRedirect";
 	}
-
 }

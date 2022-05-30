@@ -46,7 +46,7 @@ public class RePW implements BlpInter {
 			req.setAttribute("title", "비밀번호 재설정 성공!");
 			req.setAttribute("msg", "재설정한 비밀번호로 로그인 해주세요.");
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
-			if(req.getSession().getAttribute("status") != null)	req.getSession().removeAttribute("status");
+			req.setAttribute("status", "repw");
 		}else {
 			// 실패한 경우
 			req.setAttribute("icon", "error");
@@ -56,6 +56,7 @@ public class RePW implements BlpInter {
 			// 모달창 다시 오픈
 			req.getSession().setAttribute("status", "rePwInput");
 		}
+		req.setAttribute("ip", myIp.getServerIp());
 		return "/member/loginRedirect";
 	}
 }

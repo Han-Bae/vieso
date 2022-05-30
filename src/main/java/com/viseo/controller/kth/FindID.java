@@ -64,7 +64,6 @@ public class FindID implements BlpInter {
 				req.setAttribute("msg", "이메일에서 아이디를 확인해주세요.");
 				req.setAttribute("url", "/viseo/member/loginForm.blp");
 				// 스테이터스 존재시 삭제
-				if(req.getSession().getAttribute("status") != null)	req.getSession().removeAttribute("status");
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -76,10 +75,9 @@ public class FindID implements BlpInter {
 			req.setAttribute("url", "/viseo/member/loginForm.blp");
 				// 모달창 다시 오픈
 			req.getSession().setAttribute("status", "refindId");
-
 		}
-		return "/member/loginRedirect";
-		
+		req.setAttribute("ip", myIp.getServerIp());
+		return "/member/loginRedirect";		
 	}
 
 }
