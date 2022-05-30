@@ -53,7 +53,7 @@ public class JoinSQL {
 			buff.append("WHERE ");
 			buff.append("	nickname = ? ");
 			break;		
-			// 메일 중복 체크
+		// 메일 중복 체크
 		case SEL_MAIL_CNT:
 			buff.append("SELECT ");
 			buff.append("	COUNT(*) cnt ");
@@ -61,7 +61,8 @@ public class JoinSQL {
 			buff.append("	member ");
 			buff.append("WHERE ");
 			buff.append("	mail = ? ");
-			break;		
+			break;	
+		// areaname 불러오기	
 		case SEL_AREA_NAME:
 			buff.append("SELECT ");
 			buff.append("	DISTINCT areaname ");
@@ -70,6 +71,7 @@ public class JoinSQL {
 			buff.append("ORDER BY ");
 			buff.append("	areaname ");
 			break;
+		// areaname에 따른 areano, city 불러오기
 		case SEL_AREA_CITY:
 			buff.append("SELECT ");
 			buff.append("	areano, city ");

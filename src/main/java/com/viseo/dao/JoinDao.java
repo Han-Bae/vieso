@@ -194,7 +194,6 @@ public class JoinDao {
 		return list;
 	}
 	
-	
 	// 메일 중복 체크 전담 처리함수
 	public int getMailCount(String mail) {
 		// 반환값 변수
