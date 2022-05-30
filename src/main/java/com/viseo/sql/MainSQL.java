@@ -55,13 +55,13 @@ public class MainSQL {
 			break;
 		case SEL_TODODATE:
 			buff.append("SELECT ");
-			buff.append("    TO_CHAR(tododate, 'YYYYMMdd') tododate ");
+			buff.append("    TO_CHAR(tddate, 'YYYYMMdd') tododate ");
 			buff.append("FROM ");
 			buff.append("    todo ");
 			buff.append("WHERE ");
-			buff.append("    TO_CHAR(tododate, 'YYYYMMdd') LIKE ? ");
+			buff.append("    TO_CHAR(tddate, 'YYYYMMdd') LIKE ? ");
 			buff.append("ORDER BY ");
-			buff.append("    tododate ");
+			buff.append("    tddate ");
 		    break;
 		case SEL_CATEGORY_CNT:
 			buff.append("SELECT ");
@@ -70,8 +70,8 @@ public class MainSQL {
 			buff.append("    member m, todo t ");
 			buff.append("WHERE ");
 			buff.append("    m.mno = t.mno ");
-			buff.append("    AND id = ? ");
-			buff.append("    AND tododate = TO_DATE(?, 'YYYYMMdd') ");
+			buff.append("    AND m.id = ? ");
+			buff.append("    AND tddate = TO_DATE(?, 'YYYYMMdd') ");
 			buff.append("GROUP BY ");
 			buff.append("    category ");
 			break;

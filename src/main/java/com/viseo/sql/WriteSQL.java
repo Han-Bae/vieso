@@ -28,16 +28,17 @@ public class WriteSQL {
 			//할일 저장
 			case ADD_TODO:
 			buff.append(" INSERT INTO ");
-			buff.append(" TODO(WNO, ID, TITLE, TODODATE, TODOTIME, MEMO, ALARMREPEAT, TODOCATEGORY, AREA) ");
+			buff.append(" TODO(WNO, ID, TITLE, TODODATE, TODOTIME, MEMO, category, AREA, tddate, mno) ");
 			buff.append(" VALUES( ");
-			buff.append(" (SELECT NVL(MAX(WNO) + 1, 1) FROM TODO),?, ?, ?, ?, ?, ?, ?, ? ");
+			buff.append(" (SELECT NVL(MAX(WNO) + 1, 1) FROM TODO),?, ?, ?, ?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-dd'),"
+					+ " (SELECT mno FROM member m WHERE m.id = ?) ");
 			buff.append(" ) ");
 			break;
 		 	
 			//할일 조회
 			case SELECT_READ:
 			buff.append(" SELECT ");
-			buff.append(" 	TODOCATEGORY, TITLE, AREA, TODODATE, NVL(TODOTIME, '종일') AS TODOTIME, ALARMREPEAT, MEMO ");
+			buff.append(" 	CATEGORY, TITLE, AREA, TODODATE, NVL(TODOTIME, '종일') AS TODOTIME, MEMO ");
 			buff.append(" FROM ");
 			buff.append(" 	TODO ");
 			buff.append(" WHERE ");
@@ -60,8 +61,7 @@ public class WriteSQL {
 			buff.append("SET TITLE = ? ");
 			buff.append(", TODOTIME = ?");
 			buff.append(", MEMO = ?");
-			buff.append(", ALARMREPEAT = ?");
-			buff.append(", TODOCATEGORY = ?");
+			buff.append(", CATEGORY = ?");
 			buff.append("WHERE ");
 			buff.append("	ID = ? ");
 			buff.append(" 	AND TODODATE = ? ");

@@ -7,11 +7,12 @@ $(document).ready(function(){
 	
 	$('#fid').modal();
 	
+	/*
 	$('#fid').click(function(){
 		$(location).attr('href', '/viseo/todo/read.blp');
 		$('#fid').modal('hide');
 	});
-	
+	*/
 	
 	
 });

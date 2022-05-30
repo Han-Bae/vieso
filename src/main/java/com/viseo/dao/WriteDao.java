@@ -56,7 +56,6 @@ public class WriteDao {
 			System.out.println(wVO.getChcekDate());
 			System.out.println(wVO.getChcekTime());
 			System.out.println(wVO.getMemo());
-			System.out.println(wVO.getAlarmRepeat());
 			System.out.println(wVO.getCategory());
 			System.out.println(wVO.getArea());
 			
@@ -67,9 +66,10 @@ public class WriteDao {
 			pstmt.setString(3, wVO.getChcekDate()); //TODODATE
 			pstmt.setString(4, wVO.getChcekTime());	//TODOTIME
 			pstmt.setString(5, wVO.getMemo()); //MEMO
-			pstmt.setString(6, wVO.getAlarmRepeat()); 
-			pstmt.setString(7, wVO.getCategory());
-			pstmt.setString(8, wVO.getArea());
+			pstmt.setString(6, wVO.getCategory());
+			pstmt.setString(7, wVO.getArea());
+			pstmt.setString(8, wVO.getChcekDate());
+			pstmt.setString(9, wVO.getId());
 			
 			// 질의명령 보내고 결과받고
 			cnt = pstmt.executeUpdate();
@@ -109,18 +109,17 @@ public class WriteDao {
 			rs.next();
 			
 			// DB에서 조회한 값을 가져왔는지 확인해보자
-			System.out.println("카테고리:"+rs.getString("TODOCATEGORY"));
+			System.out.println("카테고리:"+rs.getString("CATEGORY"));
 			System.out.println("제목:"+rs.getString("TITLE"));
 			System.out.println("지역:"+rs.getString("AREA"));
 			System.out.println("시간:"+rs.getString("TODOTIME"));
 			
 			// 실제 DB에서 가져온 값을 wVO에 담자
-			wVO.setCategory(rs.getString("TODOCATEGORY"));
+			wVO.setCategory(rs.getString("CATEGORY"));
 			wVO.setTitle(rs.getString("TITLE"));
 			wVO.setArea(rs.getString("AREA"));
 			wVO.setChcekDate(rs.getString("TODODATE"));
 			wVO.setChcekTime(rs.getString("TODOTIME"));
-			wVO.setAlarmRepeat(rs.getString("ALARMREPEAT"));
 			wVO.setMemo(rs.getString("MEMO"));
 			
 		} catch(Exception e) {
@@ -190,10 +189,9 @@ public class WriteDao {
 			pstmt.setString(1, wVO.getTitle());			//TITLE
 			pstmt.setString(2, wVO.getChcekTime());		//TODOTIME
 			pstmt.setString(3, wVO.getMemo()); 			//MEMO
-			pstmt.setString(4, wVO.getAlarmRepeat()); 	//ALARMREPEAT
-			pstmt.setString(5, wVO.getCategory());		//TODOCATEGORY
-			pstmt.setString(6, wVO.getId());			//ID
-			pstmt.setString(7, wVO.getChcekDate());		//TODODATE
+			pstmt.setString(4, wVO.getCategory());		//TODOCATEGORY
+			pstmt.setString(5, wVO.getId());			//ID
+			pstmt.setString(6, wVO.getChcekDate());		//TODODATE
 			
 			// 질의명령 보내고 결과받고
 			cnt = pstmt.executeUpdate();

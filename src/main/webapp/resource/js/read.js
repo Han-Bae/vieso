@@ -67,10 +67,12 @@ $(document).ready(function(){
 		}
 	});
 	
+	/*
 	//모달창 외부영역 클릭시 메인페이지 호출
 	$(document).mouseup(function (e){
 		if($(".modal").has(e.target).length === 0){
 			$(location).attr("href", "/viseo/main.blp");
 		}
 	});
+	*/
 });
