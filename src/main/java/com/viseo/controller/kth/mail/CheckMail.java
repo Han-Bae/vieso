@@ -54,6 +54,7 @@ public class CheckMail implements BlpInter {
 		if(cnt == 1) {
 			// 회원가입 메일 인증 확인용 어트리뷰트
 			// 알림창 파라미터
+			req.setAttribute("status", "emailOK");
 			req.setAttribute("icon", "success");
 			req.setAttribute("title", "이메일 인증 성공!");
 			req.setAttribute("msg", "회원가입 페이지로 돌아가 남은 절차를 진행해주세요.");
