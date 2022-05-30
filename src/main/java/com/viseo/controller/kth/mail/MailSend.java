@@ -63,7 +63,7 @@ public class MailSend {
 + "		회원님 아이디: <br />"
 + "		<span style=\"font-size: 24px;\">"+sid+"</span>"
 + "	</p>"
-+ "	<a style=\"color: #FFF; text-decoration: none; text-align: center;\" href=\"localhost/viseo/member/loginForm.blp\" target=\"_blank\"><p style=\"display: inline-block; width: 210px; height: 45px; margin: 30px 5px 40px; background: blue; line-height: 45px; vertical-align: middle; font-size: 16px;\">아이디 확인</p></a>"
++ "	<a style=\"color: #FFF; text-decoration: none; text-align: center;\" href=\"192.168.0.29/viseo/member/loginForm.blp\" target=\"_blank\"><p style=\"display: inline-block; width: 210px; height: 45px; margin: 30px 5px 40px; background: blue; line-height: 45px; vertical-align: middle; font-size: 16px;\">아이디 확인</p></a>"
 + "</div>";
 		String title = "아이디 체크 메일입니다.";
 		Message message = new MimeMessage(session);
@@ -108,13 +108,13 @@ public class MailSend {
 				+ "		감사합니다.\r\n"
 				+ "	</p>\r\n"
 				+ "\r\n"
-				+ "	<a style=\"color: #FFF; text-decoration: none; text-align: center;\" href=\"localhost/viseo/member/checkMail.blp"
+				+ "	<a style=\"color: #FFF; text-decoration: none; text-align: center;\" href=\"192.168.0.29/viseo/member/checkMail.blp"
 				+ "\" target=\"_blank\"><p style=\"display: inline-block; width: 210px; height: 45px; margin: 30px 5px 40px; background: blue; line-height: 45px; vertical-align: middle; font-size: 16px;\">메일 인증</p></a>\r\n"
 				+ "\r\n"
 				+ "	<div style=\"border-top: 1px solid #DDD; padding: 5px;\">\r\n"
 				+ "		<p style=\"font-size: 13px; line-height: 21px; color: #555;\">\r\n"
 				+ "			만약 버튼이 정상적으로 클릭되지 않는다면, 아래 링크를 복사하여 접속해 주세요.<br />\r\n"
-				+ "			localhost/viseo/member/checkMail.blp"
+				+ "			192.168.0.29/viseo/member/checkMail.blp"
 				+ "\r\n"
 				+ "		</p>\r\n"
 				+ "	</div>\r\n"
